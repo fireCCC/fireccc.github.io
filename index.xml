@@ -6,10 +6,112 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 27 Aug 2019 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2019 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Wed, 28 Aug 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;一-a-标签的用法&#34;&gt;一 a 标签的用法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;属性 1：href(hyper reference) 超级引用。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;取值：网址（&lt;a href=&#34;https://xx.com&#34;&gt;https://xx.com&lt;/a&gt;, &lt;a href=&#34;http://xx.com&#34;&gt;http://xx.com&lt;/a&gt;, //xx.com）&lt;/li&gt;
+&lt;li&gt;路径: /a/b/c 根目录, 也就是服务器的根目录。 a/b 相对路径，等于 ./a/b&lt;/li&gt;
+&lt;li&gt;伪协议：&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:alert(1);&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:;&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//没有动作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//页面刷新&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//回到页面顶部&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;baidu&amp;quot; target=&amp;quot;xxx&amp;quot;&amp;gt;baidu&amp;lt;/a&amp;gt;&lt;/code&gt;//打开一个window.name为xxx的窗口，若没有就新建&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;mailto:m.bluth@example.com&amp;quot;&amp;gt;Email&amp;lt;/a&amp;gt;&lt;/code&gt;//邮件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;tel:+123456789&amp;quot;&amp;gt;Phone&amp;lt;/a&amp;gt;&lt;/code&gt;//电话&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;属性 2：target（决定跳转的链接在哪里打开）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;取值：_self 当前页面加载，即当前的响应到同一HTML 4 frame（或HTML5浏览上下文）。此值是默认的，如果没有指定属性的话。&lt;/li&gt;
+&lt;li&gt;_blank 新窗口打开，即到一个新的未命名的HTML4窗口或HTML5浏览器上下文&lt;/li&gt;
+&lt;li&gt;_top HTML5中：加载响应进入顶层浏览上下文, 如果没有parent框架或者浏览上下文，此选项的行为方式相同_self&lt;/li&gt;
+&lt;li&gt;_parent 加载响应到当前框架的HTML4父框架或当前的HTML5浏览上下文的父浏览上下文。如果没有parent框架或者浏览上下文，此选项的行为方式与 _self 相同。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;二-img-标签的用法&#34;&gt;二 img 标签的用法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;作用是发起 get 请求，展示图片
+
+&lt;ul&gt;
+&lt;li&gt;属性 1：alt(图片加载失败的时的提示文字)&lt;/li&gt;
+&lt;li&gt;属性 2：src(source)(图片路径)&lt;/li&gt;
+&lt;li&gt;属性 3：height(高度)&lt;/li&gt;
+&lt;li&gt;属性 4：width(宽度)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;三-table-标签的用法&#34;&gt;三 table 标签的用法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;常用的标签（table、thead、tbody、tfoot、th、tr、td）
+
+&lt;ul&gt;
+&lt;li&gt;注意的样式 1：table-layout&lt;/li&gt;
+&lt;li&gt;注意的样式 2：border-collapse（决定是否合并 collapse(合并) | separate（分开））&lt;/li&gt;
+&lt;li&gt;注意的样式 3：border-spacing（每个 td 之间的间隙）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;img max-width: 100%;&lt;/li&gt;
+&lt;li&gt;form 发get或者post请求，然后刷新页面&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;input和button&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;xxx&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;
+&amp;lt;strong&amp;gt;xxx&amp;lt;/strong&amp;gt;
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;button标签里还可以嵌套其他标签，input不行&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;表单中&lt;code&gt;&amp;lt;button type=&amp;quot;&amp;quot;&amp;gt;xxx&amp;lt;/button&amp;gt;&lt;/code&gt;默认type=&amp;ldquo;submit&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;单选和复选框使用相同name属性表示一组&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;选择文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot; /&amp;gt;
+
+&amp;lt;input type=&amp;quot;file&amp;quot; multiple /&amp;gt; //选择多个文件
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;textarea&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;textarea style=&amp;quot;resize: none; width: 50%; height: 300px&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;//禁止拖动大小&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>html 入门笔记 1</title>
