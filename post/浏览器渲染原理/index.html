@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>归档 - Jane - A super concise theme for Hugo</title>
+  <title>浏览器渲染原理 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="一 浏览器渲染过程 概览步骤 根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一颗渲染树（render tre" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/post/index.xml%20http://localhost:1313/post/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane - A super concise theme for Hugo" />
+<link rel="canonical" href="http://localhost:1313/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/post/" />
+<meta property="og:title" content="浏览器渲染原理" />
+<meta property="og:description" content="一 浏览器渲染过程 概览步骤 根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一颗渲染树（render tre" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" />
+<meta property="article:published_time" content="2019-09-15T13:34:36+08:00" />
+<meta property="article:modified_time" content="2019-09-15T13:34:36+08:00" />
+<meta itemprop="name" content="浏览器渲染原理">
+<meta itemprop="description" content="一 浏览器渲染过程 概览步骤 根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一颗渲染树（render tre">
 
-<meta property="og:updated_time" content="2019-09-15T13:34:36+08:00" />
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2019-09-15T13:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2019-09-15T13:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="1345">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="浏览器渲染原理"/>
+<meta name="twitter:description" content="一 浏览器渲染过程 概览步骤 根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两棵树合并成一颗渲染树（render tre"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -239,7 +247,7 @@
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -309,113 +317,248 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
-    <div class="archive-title">
-      <span class="archive-post-counter">
-          共计 6 篇文章
-      </span>
-    </div>
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
+    <header class="post-header">
+      <h1 class="post-title">浏览器渲染原理</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-09-15" class="post-time">
+          2019-09-15
+        </time>
+        
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2019-09-15" class="archive-post-time">
-        2019-09-15
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="archive-post-link">
-          CSS知识总结
-        </a>
-      </span>
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#一-浏览器渲染过程">一 浏览器渲染过程</a>
+<ul>
+<li>
+<ul>
+<li><a href="#概览步骤">概览步骤</a></li>
+<li><a href="#三颗树图示">三颗树图示</a></li>
+<li><a href="#三种更新方式">三种更新方式</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#二-dns-的作用是什么-nslookup命令怎么用">二 DNS 的作用是什么，nslookup命令怎么用</a>
+<ul>
+<li>
+<ul>
+<li><a href="#dns全称domain-name-system-域名系统">DNS全称Domain Name System 域名系统</a></li>
+<li><a href="#nslookup命令用于查询dns的记录-查看域名解析是否正常-在网络故障的时候用来诊断网络问题">nslookup命令用于查询DNS的记录，查看域名解析是否正常，在网络故障的时候用来诊断网络问题。</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#三-ip的作用是什么-ping命令怎么用">三 IP的作用是什么，ping命令怎么用</a>
+<ul>
+<li>
+<ul>
+<li><a href="#ping命令">ping命令</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#四-域名是什么-分别哪几类域名">四 域名是什么，分别哪几类域名</a>
+<ul>
+<li>
+<ul>
+<li><a href="#域名就是对ip的别称">域名就是对IP的别称</a></li>
+<li><a href="#域名分为顶级域名-二级域名-三级域名">域名分为顶级域名 二级域名 三级域名</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="一-浏览器渲染过程">一 浏览器渲染过程</h2>
+
+<h4 id="概览步骤">概览步骤</h4>
+
+<ul>
+<li>根据HTML构建HTML树（DOM）</li>
+<li>根据CSS构建CSS树（CSSOM）</li>
+<li>将两棵树合并成一颗渲染树（render tree）</li>
+<li>Layout布局（文档流、盒模型、计算大小和位置）</li>
+<li>Paint绘制（把边框颜色、文字颜色、阴影等画出来）</li>
+<li>Composite合成（根据层叠关系展示画面）</li>
+</ul>
+
+<h4 id="三颗树图示">三颗树图示</h4>
+
+<p><img src="/images/三棵树.png" alt="三棵树" /></p>
+
+<h4 id="三种更新方式">三种更新方式</h4>
+
+<ol>
+<li>第一种，全部步骤<br>
+div.remove()会触发当前元素消失，其他元素re-layout<br></li>
+<li>第二种，跳过layout<br>
+改变背景颜色，直接repaint+composite<br></li>
+<li>第三种，跳过layout和paint<br>
+改变transform，只需composite<br>
+注意！必须全屏查看效果，在iframe里看有问题<br>
+<img src="/images/三种更新方式.png" alt="三种更新方式" /></li>
+</ol>
+
+<h2 id="二-dns-的作用是什么-nslookup命令怎么用">二 DNS 的作用是什么，nslookup命令怎么用</h2>
+
+<h4 id="dns全称domain-name-system-域名系统">DNS全称Domain Name System 域名系统</h4>
+
+<ol>
+<li>当输入xiedaimala.com, 浏览器回向电信/联通提供的DNS服务器询问xiedaimala.com的对应IP</li>
+<li>电信/联通会回答一个IP</li>
+<li>浏览器向对应IP的80/443端口发送请求</li>
+<li>请求内容是查看xiedaimala.com的首页</li>
+</ol>
+
+<h4 id="nslookup命令用于查询dns的记录-查看域名解析是否正常-在网络故障的时候用来诊断网络问题">nslookup命令用于查询DNS的记录，查看域名解析是否正常，在网络故障的时候用来诊断网络问题。</h4>
+
+<p><code>nslookup baidu.com</code></p>
+
+<pre><code>DNS request timed out.
+    timeout was 2 seconds.
+服务器:  UnKnown
+Address:  4.2.2.1
+
+非权威应答:
+名称:    baidu.com
+Addresses:  220.181.38.148
+          39.156.69.79
+</code></pre>
+
+<p><code>nslookup domain [dns-server]</code>
+- 查询一个域名的A记录</p>
+
+<h2 id="三-ip的作用是什么-ping命令怎么用">三 IP的作用是什么，ping命令怎么用</h2>
+
+<p>只要在互联网中，就会有至少一个ip<br>
+ip分为内网ip和外网ip<br>
+路由器连上电信的服务器就会被分配一个外网ip,如果重启路由器可能被重新分配一个外网ip<br>
+路由器会给自己分配一个好记的内网IP,比如192.168.1.1<br>
+路由器会在一定范围内创建一个内网,给内网中的每一个设备分配一个不同的内网IP<br>
+一般来说格式是192.168.xxx.xxx,比如192.168.1.2<br></p>
+
+<h4 id="ping命令">ping命令</h4>
+
+<p>ping 命令有助于验证网络层的连通性！一般进行网络故障排除时，可以使用ping 命令向目标计算机或IP地址发送ICMP回显请求，目标计算机会返回回显应答，如果目标计算机不能返回回显应答，说明在源计算机和目标计算机之间的网路存在问题，需要进一步检查解决！<br>
+ping 命令是Windows 操作系统中集成的一个TCP/IP协议探测工具，它只能在有TCP/IP协议有网络中使用。<br>
+ping 命令的格式为：ping[参数1][参数2][……][目的地址]<br>
+如果不知道ping命令有那些参数的话，只要在命令提示符中键入ping命令，就能得到。<br>
+一般使用只需要在命令行输入ping baidu.com即可等待输出连通性测试。<br></p>
+
+<p>正在 Ping baidu.com [220.181.38.148] 具有 32 字节的数据:<br>
+来自 220.181.38.148 的回复: 字节=32 时间=78ms TTL=46<br>
+来自 220.181.38.148 的回复: 字节=32 时间=63ms TTL=46<br>
+来自 220.181.38.148 的回复: 字节=32 时间=61ms TTL=46<br>
+来自 220.181.38.148 的回复: 字节=32 时间=62ms TTL=46<br></p>
+
+<p>220.181.38.148 的 Ping 统计信息:<br>
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，<br>
+往返行程的估计时间(以毫秒为单位):<br>
+    最短 = 61ms，最长 = 78ms，平均 = 66ms<br></p>
+
+<h2 id="四-域名是什么-分别哪几类域名">四 域名是什么，分别哪几类域名</h2>
+
+<h4 id="域名就是对ip的别称">域名就是对IP的别称</h4>
+
+<p>一个域名可以对应不同IP,称为负载均衡,防止一台机器扛不住<br>
+一个IP可以对应不同域名,称为共享主机,一般没钱就会这样做<br></p>
+
+<h4 id="域名分为顶级域名-二级域名-三级域名">域名分为顶级域名 二级域名 三级域名</h4>
+
+<p>com 顶级域名<br>
+xiedaimala.com 二级域名<br>
+www.xiedaimala.com 三级域名<br>
+他们是父子关系<br>
+www是多余的吗?是的，非常多余:)</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Amber</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-09-15
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-09-03" class="archive-post-time">
-        2019-09-03
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E6%B5%85%E6%9E%90url/" class="archive-post-link">
-          浅析URL
-        </a>
-      </span>
-    </div>
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/%E6%B5%85%E6%9E%90url/">
+            <span class="next-text nav-default">浅析URL</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-
-    <div class="archive-post">
-      <time datetime="2019-08-28" class="archive-post-time">
-        2019-08-28
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="archive-post-link">
-          HTML常用标签
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-27" class="archive-post-time">
-        2019-08-27
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" class="archive-post-link">
-          html 入门笔记 1
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-26" class="archive-post-time">
-        2019-08-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="archive-post-link">
-          开博大吉
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-26" class="archive-post-time">
-        2019-08-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-post-link">
-          如何用 hugo 搭建个人博客
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
 
         </div>
       </div>
