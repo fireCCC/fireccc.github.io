@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 15 Sep 2019 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 13:34:36 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript的诞生</title>
+      <link>http://localhost:1313/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
+      <pubDate>Sat, 21 Sep 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
+      <description>一 Javascript的诞生 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏</description>
+    </item>
     
     <item>
       <title>CSS知识总结</title>
