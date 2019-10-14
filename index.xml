@@ -6,10 +6,404 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 21 Sep 2019 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2019 19:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS的基本语法</title>
+      <link>http://localhost:1313/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 14 Oct 2019 19:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;一-表达式和语句&#34;&gt;一 表达式和语句&lt;/h2&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;语句（statement）是为了完成某种任务而进行的操作&lt;/font&gt;，比如下面就是一行赋值语句。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;let a = 1 + 3;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这条语句先用&lt;code&gt;let&lt;/code&gt;命令，声明了变量&lt;code&gt;a&lt;/code&gt;，然后将&lt;code&gt;1 + 3&lt;/code&gt;的运算结果赋值给变量&lt;code&gt;a&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;1 + 3&lt;/code&gt;叫做表达式（expression）&lt;/p&gt;
+
+&lt;p&gt;表达式指一个为了得到返回值的计算式。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;语句和表达式的区别在于，语句主要为了进行某种操作，一般情况下不需要返回值；
+表达式则是为了得到返回值，一定会返回一个值。凡是JavaScript语言中预期为值的地方，都可以使用表达式。
+比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;let a = 1 + 3 ; let b = &#39;abc&#39;;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;;;;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;上面的代码就表示3个空语句。&lt;/p&gt;
+
+&lt;p&gt;表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;1 + 3;&lt;/code&gt;
+&lt;code&gt;&#39;abc&#39;;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;上面两行语句只是单纯地产生一个值，并没有任何实际的意义。&lt;/p&gt;
+
+&lt;h2 id=&#34;二-标识符的规则&#34;&gt;二 标识符的规则&lt;/h2&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;标识符（identifier）指的是用来识别各种值的合法名称。&lt;/font&gt;最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;A&lt;/code&gt;是两个不同的标识符。&lt;/p&gt;
+
+&lt;p&gt;标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript引擎遇到非法标识符，就会报错。&lt;/p&gt;
+
+&lt;p&gt;简单说，标识符命名规则如下。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;第一个字符，可以是任意Unicode字母（包括英文字母和其他语言的字母），以及美元符号（&lt;code&gt;$&lt;/code&gt;）和下划线（&lt;code&gt;_&lt;/code&gt;）。
+第二个字符及后面的字符，除了Unicode字母、美元符号和下划线，还可以用数字&lt;code&gt;0&lt;/code&gt;-&lt;code&gt;9&lt;/code&gt;。&lt;/font&gt;
+下面这些都是合法的标识符。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;arg0&lt;/code&gt;
+&lt;code&gt;_tmp&lt;/code&gt;
+&lt;code&gt;$elem&lt;/code&gt;
+&lt;code&gt;π&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;下面这些则是不合法的标识符。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;1a  // 第一个字符不能是数字
+23  // 同上
+***  // 标识符不能包含星号
+a+b  // 标识符不能包含加号
+-d  // 标识符不能包含减号或连词线
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;中文是合法的标识符，可以用作变量名。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;var 临时变量 = 1;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;三-if-else-条件语句&#34;&gt;三 if else 条件语句&lt;/h2&gt;
+
+&lt;p&gt;if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，&lt;code&gt;true&lt;/code&gt;表示真，&lt;code&gt;false&lt;/code&gt;表示伪&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (布尔值)
+  语句;
+
+// 或者
+if (布尔值) 语句;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面是if结构的基本形式。需要注意的是，“布尔值”往往由一个条件表达式产生的，必须放在圆括号中，表示对表达式求值。如果表达式的求值结果为true，就执行紧跟在后面的语句；如果结果为false，则跳过紧跟在后面的语句。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m === 3)
+  m = m + 1;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码表示，只有在&lt;code&gt;m&lt;/code&gt;等于&lt;code&gt;3&lt;/code&gt;时，才会将其值加上&lt;code&gt;1&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;这种写法要求条件表达式后面只能有一个语句。如果想执行多个语句，必须在if的条件判断之后，加上大括号，表示代码块（多个语句合并成一个语句）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m === 3) {
+  m += 1;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建议总是在if语句中使用大括号，因为这样方便插入语句。&lt;/p&gt;
+
+&lt;p&gt;注意，if后面的表达式之中，不要混淆赋值表达式（&lt;code&gt;=&lt;/code&gt;）、严格相等运算符（&lt;code&gt;===&lt;/code&gt;）和相等运算符（&lt;code&gt;==&lt;/code&gt;）。尤其是赋值表达式不具有比较作用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 1;
+var y = 2;
+if (x = y) {
+  console.log(x);
+}
+// &amp;quot;2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码的原意是，当&lt;code&gt;x&lt;/code&gt;等于&lt;code&gt;y&lt;/code&gt;的时候，才执行相关语句。但是，不小心将严格相等运算符写成赋值表达式，结果变成了将&lt;code&gt;y&lt;/code&gt;赋值给变量&lt;code&gt;x&lt;/code&gt;，再判断变量&lt;code&gt;x&lt;/code&gt;的值（等于&lt;code&gt;2&lt;/code&gt;）的布尔值（结果为&lt;code&gt;true&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;这种错误可以正常生成一个布尔值，因而不会报错。为了避免这种情况，有些开发者习惯将常量写在运算符的左边，这样的话，一旦不小心将相等运算符写成赋值运算符，就会报错，因为常量不能被赋值。&lt;/font&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (x = 2) { // 不报错
+if (2 = x) { // 报错
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;if&lt;/code&gt;代码块后面，还可以跟一个&lt;code&gt;else&lt;/code&gt;代码块，表示不满足条件时，所要执行的代码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m === 3) {
+  // 满足条件时，执行的语句
+} else {
+  // 不满足条件时，执行的语句
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码判断变量&lt;code&gt;m&lt;/code&gt;是否等于&lt;code&gt;3&lt;/code&gt;，如果等于就执行&lt;code&gt;if&lt;/code&gt;代码块，否则执行&lt;code&gt;else&lt;/code&gt;代码块。&lt;/p&gt;
+
+&lt;p&gt;对同一个变量进行多次判断时，多个&lt;code&gt;if...else&lt;/code&gt;语句可以连写在一起。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m === 0) {
+  // ...
+} else if (m === 1) {
+  // ...
+} else if (m === 2) {
+  // ...
+} else {
+  // ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;else&lt;/code&gt;代码块总是与离自己最近的那个&lt;code&gt;if&lt;/code&gt;语句配对。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var m = 1;
+var n = 2;
+
+if (m !== 1)
+if (n === 2) console.log(&#39;hello&#39;);
+else console.log(&#39;world&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码不会有任何输出，&lt;code&gt;else&lt;/code&gt;代码块不会得到执行，因为它跟着的是最近的那个&lt;code&gt;if&lt;/code&gt;语句，相当于下面这样。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m !== 1) {
+  if (n === 2) {
+    console.log(&#39;hello&#39;);
+  } else {
+    console.log(&#39;world&#39;);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果想让&lt;code&gt;else&lt;/code&gt;代码块跟随最上面的那个if语句，就要改变大括号的位置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (m !== 1) {
+  if (n === 2) {
+    console.log(&#39;hello&#39;);
+  }
+} else {
+  console.log(&#39;world&#39;);
+}
+// world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;四-while-for-循环语句&#34;&gt;四 while for 循环语句&lt;/h2&gt;
+
+&lt;h3 id=&#34;while语句&#34;&gt;While语句&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;While&lt;/code&gt;语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;while (条件)
+  语句;
+
+// 或者
+while (条件) 语句;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;while&lt;/code&gt;语句的循环条件是一个表达式，必须放在圆括号中。代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;while (条件) {
+  语句;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面是&lt;code&gt;while&lt;/code&gt;语句的一个例子。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var i = 0;
+
+while (i &amp;lt; 100) {
+  console.log(&#39;i 当前为：&#39; + i);
+  i = i + 1;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的代码将循环100次，直到i等于100为止。&lt;/p&gt;
+
+&lt;p&gt;下面的例子是一个无限循环，因为循环条件总是为真。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;while (true) {
+  console.log(&#39;Hello, world&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;for语句&#34;&gt;for语句&lt;/h3&gt;
+
+&lt;p&gt;for语句是循环命令的另一种形式，可以指定循环的起点、终点和终止条件。它的格式如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;for (初始化表达式; 条件; 递增表达式)
+  语句
+
+// 或者
+
+for (初始化表达式; 条件; 递增表达式) {
+  语句
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;for语句后面的括号里面，有三个表达式。&lt;/font&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;font color=&#34;orange&#34;&gt;初始化表达式（initialize）&lt;/font&gt;：确定循环变量的初始值，只在循环开始时执行一次。&lt;/li&gt;
+&lt;li&gt;&lt;font color=&#34;orange&#34;&gt;条件表达式（test）&lt;/font&gt;：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。&lt;/li&gt;
+&lt;li&gt;&lt;font color=&#34;orange&#34;&gt;递增表达式（increment）&lt;/font&gt;：每轮循环的最后一个操作，通常用来递增循环变量。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;下面是一个例子。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 3;
+for (var i = 0; i &amp;lt; x; i++) {
+  console.log(i);
+}
+// 0
+// 1
+// 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码中，初始化表达式是&lt;code&gt;var i = 0&lt;/code&gt;，即初始化一个变量&lt;code&gt;i&lt;/code&gt;；测试表达式是&lt;code&gt;i &amp;lt; x&lt;/code&gt;，即只要&lt;code&gt;i&lt;/code&gt;小于&lt;code&gt;x&lt;/code&gt;，就会执行循环；递增表达式是&lt;code&gt;i++&lt;/code&gt;，即每次循环结束后，&lt;code&gt;i&lt;/code&gt;增大&lt;code&gt;1&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;所有&lt;code&gt;for&lt;/code&gt;循环，都可以改写成&lt;code&gt;while&lt;/code&gt;循环。上面的例子改为&lt;code&gt;while&lt;/code&gt;循环，代码如下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 3;
+var i = 0;
+
+while (i &amp;lt; x) {
+  console.log(i);
+  i++;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;for语句的三个部分（initialize、test、increment），可以省略任何一个，也可以全部省略。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;for ( ; ; ){
+  console.log(&#39;Hello World&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码省略了for语句表达式的三个部分，结果就导致了一个无限循环。&lt;/p&gt;
+
+&lt;h2 id=&#34;五-break-continue-语句&#34;&gt;五 break continue 语句&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;break&lt;/code&gt;语句和&lt;code&gt;continue&lt;/code&gt;语句都具有跳转作用，可以让代码不按既有的顺序执行。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;break&lt;/code&gt;语句用于跳出代码块或循环。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var i = 0;
+
+while(i &amp;lt; 100) {
+  console.log(&#39;i 当前为：&#39; + i);
+  i++;
+  if (i === 10) break;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码只会执行10次循环，一旦i等于10，就会跳出循环。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;for&lt;/code&gt;循环也可以使用&lt;code&gt;break&lt;/code&gt;语句跳出循环。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;for (var i = 0; i &amp;lt; 5; i++) {
+  console.log(i);
+  if (i === 3)
+    break;
+}
+// 0
+// 1
+// 2
+// 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码执行到&lt;code&gt;i&lt;/code&gt;等于&lt;code&gt;3&lt;/code&gt;，就会跳出循环。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;continue&lt;/code&gt;语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var i = 0;
+
+while (i &amp;lt; 100){
+  i++;
+  if (i % 2 === 0) continue;
+  console.log(&#39;i 当前为：&#39; + i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码只有在&lt;code&gt;i&lt;/code&gt;为奇数时，才会输出&lt;code&gt;i&lt;/code&gt;的值。如果&lt;code&gt;i&lt;/code&gt;为偶数，则直接进入下一轮循环。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;如果存在多重循环，不带参数的&lt;code&gt;break&lt;/code&gt;语句和&lt;code&gt;continue&lt;/code&gt;语句都只针对最内层循环。&lt;/font&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;六-标签-label&#34;&gt;六 标签（label）&lt;/h2&gt;
+
+&lt;p&gt;JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;label:
+  语句
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。&lt;/p&gt;
+
+&lt;p&gt;标签通常与&lt;code&gt;break&lt;/code&gt;语句和&lt;code&gt;continue&lt;/code&gt;语句配合使用，跳出特定的循环。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;top:
+  for (var i = 0; i &amp;lt; 3; i++){
+    for (var j = 0; j &amp;lt; 3; j++){
+      if (i === 1 &amp;amp;&amp;amp; j === 1) break top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码为一个双重循环区块，&lt;code&gt;break&lt;/code&gt;命令后面加上了&lt;code&gt;top&lt;/code&gt;标签（注意，&lt;code&gt;top&lt;/code&gt;不用加引号），满足条件时，直接跳出双层循环。如果&lt;code&gt;break&lt;/code&gt;语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。&lt;/p&gt;
+
+&lt;p&gt;标签也可以用于跳出代码块。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;foo: {
+  console.log(1);
+  break foo;
+  console.log(&#39;本行不会输出&#39;);
+}
+console.log(2);
+// 1
+// 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码执行到&lt;code&gt;break foo&lt;/code&gt;，就会跳出区块。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;continue&lt;/code&gt;语句也可以与标签配合使用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;top:
+  for (var i = 0; i &amp;lt; 3; i++){
+    for (var j = 0; j &amp;lt; 3; j++){
+      if (i === 1 &amp;amp;&amp;amp; j === 1) continue top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+// i=2, j=0
+// i=2, j=1
+// i=2, j=2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码中，&lt;code&gt;continue&lt;/code&gt;命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果&lt;code&gt;continue&lt;/code&gt;语句后面不使用标签，则只能进入下一轮的内层循环。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;面试相关题：&lt;/font&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//label
+{
+    top: x
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;相关链接&#34;&gt;相关链接&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wangdoc.com/javascript/index.html&#34;&gt;网道JavaScript 教程&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Javascript的诞生</title>
