@@ -6,10 +6,162 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 14 Oct 2019 19:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 19:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS的基本语法</title>
+      <link>http://localhost:1313/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Sun, 20 Oct 2019 19:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;一-声明对象的两种语法&#34;&gt;一 声明对象的两种语法&lt;/h2&gt;
+
+&lt;h3 id=&#34;对象的定义&#34;&gt;对象的定义&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;无序的数据集合&lt;/font&gt;&lt;br&gt;
+&lt;font color=&#34;orange&#34;&gt;键值对的集合&lt;/font&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;对象的写法&#34;&gt;对象的写法&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;let obj = {&#39;name&#39;: &#39;zwx&#39;, &#39;age&#39;: 18, }&lt;/code&gt;
+&lt;code&gt;let obj = new Object({&#39;name&#39;: &#39;zwx&#39;})&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;细节&#34;&gt;细节&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;键名是字符串，可以包含任意Unicode字符&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;如果书写键名时省略引号，就只能按标识符规则书写&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;‘省略引号’也改变不了‘键名是个字符串’这个事实&lt;/font&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;二-如何删除对象的属性&#34;&gt;二 如何删除对象的属性&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;delete obj.xxx&lt;/code&gt;或者&lt;code&gt;delete obj[&#39;xxx&#39;]&lt;/code&gt;
+&lt;font color=&#34;orange&#34;&gt;即可删除obj的xxx属性&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;不含属性名&lt;/font&gt;
+&lt;code&gt;&#39;xxx&#39; in obj === false&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;含有属性名，但是值为undefined&lt;/font&gt;
+&lt;code&gt;&#39;xxx&#39; in obj &amp;amp;&amp;amp; obj.xxx === undefined&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;三-如何查看对象的属性&#34;&gt;三 如何查看对象的属性&lt;/h2&gt;
+
+&lt;h3 id=&#34;查看所有属性&#34;&gt;查看所有属性&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;查看自身所有属性&lt;/font&gt;
+&lt;code&gt;Object.keys(obj)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;查看自身+共有属性&lt;/font&gt;
+&lt;code&gt;console.dir(obj)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;判断一个属性是自身的还是共有的&lt;/font&gt;
+&lt;code&gt;obj.hasOwnProperty(&#39;toString&#39;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;查看属性&#34;&gt;查看属性&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;中括号语法：&lt;/font&gt;
+&lt;code&gt;obj[&#39;key&#39;]&lt;/code&gt;
+&lt;font color=&#34;orange&#34;&gt;点语法：&lt;/font&gt;
+&lt;code&gt;obj.key&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;优先使用&lt;code&gt;obj[&#39;key&#39;]&lt;/code&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;重点&#34;&gt;重点&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;red&#34;&gt;obj.name 等价于 obj[&amp;lsquo;name&amp;rsquo;]&lt;/font&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;题目&#34;&gt;题目&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let my = function(){
+let list = [&#39;name&#39;, &#39;age&#39;, &#39;gender&#39;]
+let person = {
+  name: &#39;zwx&#39;,
+  age: 18,
+  gender: &#39;male&#39;,
+}
+for (let i = 0; i &amp;lt; list.length; i++) {
+  let name = list[i]
+  //person.name 等价于 person[&#39;name&#39;]
+  console.log(&#39;1.&#39; + person.name)
+  console.log(&#39;2.&#39; + person[name])
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/查看对象属性.png&#34; alt=&#34;查看对象属性&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;四-如何修改或增加对象的属性&#34;&gt;四 如何修改或增加对象的属性&lt;/h2&gt;
+
+&lt;h3 id=&#34;修改或增加属性&#34;&gt;修改或增加属性&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;直接赋值&lt;/font&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;let obj = {name: &#39;zwx&#39;} // name是字符串&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;obj.name = &#39;zwx&#39; // name是字符串&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;obj[&#39;name&#39;] = &#39;zwx&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;obj[&#39;na&#39; + &#39;me&#39;] = &#39;zwx&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;let key = &#39;name&#39;; obj[key] = &#39;zwx&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;批量赋值&lt;/font&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Object.assign(obj, {age: 18, gender: &#39;male&#39;})&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;修改或增加共有属性&#34;&gt;修改或增加共有属性&lt;/h3&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;无法通过其中一个对象修改或增加他们的共有属性&lt;/font&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;let obj = {}, obj2 = {} // 共有原型上的toString&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;obj.toString = &#39;xxx&#39;&lt;/code&gt; 只会修改自身的属性&lt;br&gt;
+&lt;code&gt;obj2.toString&lt;/code&gt; 还是原型上的方法&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;orange&#34;&gt;我偏要修改或增加原型上的属性&lt;/font&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;obj.__proto__.toString = &#39;xxx&#39; // 不推荐用__proto__&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;Object.prototype.toString = &#39;xxx&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;red&#34;&gt;一般来说，不要修改原型，会引起很多问题&lt;/font&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;五-name-in-obj和obj-hasownproperty-name-的区别&#34;&gt;五 &amp;lsquo;name&amp;rsquo; in obj和obj.hasOwnProperty(&amp;lsquo;name&amp;rsquo;)的区别&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;prop in object&lt;/code&gt; 检查它（或其原型链）是否包含具有指定名称的属性&lt;/p&gt;
+
+&lt;p&gt;in右操作数必须是一个对象值。&lt;/p&gt;
+
+&lt;p&gt;如果使用 delete 运算符删除了一个属性，则 in 运算符对所删除属性返回 false。&lt;/p&gt;
+
+&lt;p&gt;如果你只是将一个属性的值赋值为undefined，而没有删除它，则 in 运算仍然会返回true。&lt;/p&gt;
+
+&lt;p&gt;如果一个属性是从原型链上继承来的，in 运算符也会返回 true。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;obj.hasOwnProperty(&#39;name&#39;)&lt;/code&gt; 方法会返回一个布尔值，指示对象自身属性中（非继承属性）是否具有指定的属性，
+如果 object 具有带指定名称的属性，则 hasOwnProperty 方法返回 true，否则返回 false。此方法不会检查对象原型链中的属性；该属性必须是对象本身的一个成员。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let father = {money: 9999}
+let son = Object.create(father)
+son.name = &#39;son&#39;
+console.log(&#39;1.检查它（或其原型链）是否包含具有指定名称的属性&#39;)
+console.log(&#39;money&#39; in son) //true
+console.log(&#39;2.对象自身属性中（非继承属性）是否具有指定的属性&#39;)
+console.log(son.hasOwnProperty(&#39;money&#39;)) //false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/方法区别.png&#34; alt=&#34;方法区别&#34; /&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>JS的基本语法</title>
