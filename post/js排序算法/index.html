@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JS函数的执行时机 - Jane - A super concise theme for Hugo</title>
+  <title>JS排序算法 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &amp;lt; 6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，" />
+  <meta name="description" content="一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<link rel="canonical" href="http://localhost:1313/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="JS函数的执行时机" />
-<meta property="og:description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，" />
+<meta property="og:title" content="JS排序算法" />
+<meta property="og:description" content="一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<meta property="og:url" content="http://localhost:1313/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" />
 <meta property="article:published_time" content="2019-10-26T19:34:36+08:00" />
 <meta property="article:modified_time" content="2019-10-26T19:34:36+08:00" />
-<meta itemprop="name" content="JS函数的执行时机">
-<meta itemprop="description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，">
+<meta itemprop="name" content="JS排序算法">
+<meta itemprop="description" content="一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类">
 
 
 <meta itemprop="datePublished" content="2019-10-26T19:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-26T19:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="625">
+<meta itemprop="wordCount" content="731">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="JS函数的执行时机"/>
-<meta name="twitter:description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，"/>
+<meta name="twitter:title" content="JS排序算法"/>
+<meta name="twitter:description" content="一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -320,7 +320,7 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">JS函数的执行时机</h1>
+      <h1 class="post-title">JS排序算法</h1>
       
       <div class="post-meta">
         <time datetime="2019-10-26" class="post-time">
@@ -346,9 +346,10 @@
 <ul>
 <li>
 <ul>
-<li><a href="#一-为什么如下代码会打印-6-个-6">一 为什么如下代码会打印 6 个 6</a></li>
-<li><a href="#二-让上面代码打印-0-1-2-3-4-5-的方法">二 让上面代码打印 0、1、2、3、4、5 的方法</a></li>
-<li><a href="#三-除了使用-for-let-配合-还有什么其他方法可以打印出-0-1-2-3-4-5">三 除了使用 for let 配合，还有什么其他方法可以打印出 0、1、2、3、4、5</a></li>
+<li><a href="#一-选择排序">一 选择排序</a></li>
+<li><a href="#二-快速排序">二 快速排序</a></li>
+<li><a href="#三-归并排序">三 归并排序</a></li>
+<li><a href="#四-计数排序">四 计数排序</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -359,77 +360,136 @@
     <div class="post-content">
       
 
-<h2 id="一-为什么如下代码会打印-6-个-6">一 为什么如下代码会打印 6 个 6</h2>
+<h2 id="一-选择排序">一 选择排序</h2>
 
-<pre><code class="language-js">let i = 0
-for(i = 0; i &lt; 6; i++){
-  setTimeout(()=&gt;{
-    console.log(i)
-  },0)
+<p>选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一<br>
+一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类推，<br>
+共遍历 n + (n - 1) + (n - 2) + &hellip; + (n - n + 1) + (n - n) 次 (加0不影响最终结果)<br>
+例如   数组一共有5个数，遍历 5 + 4 + 3 + 2 + 1 + 0 次<br>
+也可以写作 n + &hellip; + 3 + 2 + 1 + 0 = (n * (n + 1)) / 2 = <sup>1</sup>&frasl;<sub>2</sub>(n^2) + (<sup>1</sup>&frasl;<sub>2</sub>)n <br>
+时间复杂度O(n^2)</p>
+
+<pre><code class="language-js">const log = console.log.bind(console)
+
+//求当前区间内最小值下标
+let minIndex = (numbers) =&gt; {
+  let index = 0
+  for(let i = 1; i &lt; numbers.length; i++){
+    if(numbers[i] &lt; numbers[index]){
+      index = i
+    }
+  }
+  return index
+}
+
+let swap = (array, i, j) =&gt; {
+  let temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+}
+
+let sort = (numbers) =&gt; {
+  //遍历到区间只剩下两个数就可以停止了, 也就是i等于numbers.length - 2
+  //如8个数 i等于numbers.length - 2 = 6, 区间是arr[6]-arr[7] 没有arr[8] :)
+  for(let i = 0; i &lt; numbers.length - 1; i++){
+    log(`------`)
+    log(`i: ${i}`)
+    //求当前区间内的最小值在整个数组内的下标
+    //为当前区间内的最小值的下标 加 区间前面的数字个数
+    //例如 [6,2,4,5]  1 + 0
+    //再比如 6,[2,4,5] 0 + 1
+    let index = minIndex(numbers.slice(i)) + i
+    log(`index: ${index}`)
+    log(`min: ${numbers[index]}`)
+    if(index!==i){
+      swap(numbers, index, i)
+      log(`swap ${index}:${i}`)
+      log(numbers)
+    }
+  }
+  return numbers
 }
 </code></pre>
 
-<p>当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，然后立即调用定时器。</p>
+<h2 id="二-快速排序">二 快速排序</h2>
 
-<p>因为定时器都被放在了一个队列中，等待上下文的可执行代码运行完毕后，才开始运行定时器，也就是定时器才刚开始计时。代码中声明一个let全局变量i，然后在for循环中改变i，所以在定时器的方法执行的时候，变量i已经变成了6，所以输出的全部是6。</p>
+<p>快速排序,即取数组中间位置的数，比它小的数放在它的左边，比它大的放在右边
+然后区间变为它的左边的数组成的数组 和 它的右边的数组成的数组
+最后区间只剩一个数终止</p>
 
-<h2 id="二-让上面代码打印-0-1-2-3-4-5-的方法">二 让上面代码打印 0、1、2、3、4、5 的方法</h2>
-
-<pre><code class="language-js">for(let i = 0; i &lt; 6; i++){
-  setTimeout(() =&gt; {
-    console.log(i)
-  }, 0)
+<pre><code class="language-js">let quickSort = arr =&gt; {
+  if (arr.length &lt;= 1) { 
+    return arr; 
+  }
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr.splice(pivotIndex, 1)[0];
+  let left = [];
+  let right = [];
+  for (let i = 0; i &lt; arr.length; i++){
+    if (arr[i] &lt; pivot) { 
+      left.push(arr[i])
+    } else { 
+      right.push(arr[i]) 
+    }
+  }
+  return quickSort(left).concat([pivot], quickSort(right))
 }
+
 </code></pre>
 
-<p><img src="/images/setTimeout1.png" alt="setTimeout1" /></p>
+<h2 id="三-归并排序">三 归并排序</h2>
 
-<p>利用ES6 let命令声明变量块级作用域的概念，和前面for循环使用全局变量i不同，当前的i只在本轮循环有效， 所以每一次循环的i其实都是一个新的变量，所以5个setTimeout回调函数虽然都引用了变量i,但实际上这5个i是独立的，仅在自己的块级作用域内有效</p>
-
-<h2 id="三-除了使用-for-let-配合-还有什么其他方法可以打印出-0-1-2-3-4-5">三 除了使用 for let 配合，还有什么其他方法可以打印出 0、1、2、3、4、5</h2>
-
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  // j = i
-  !(function(j) { 
-    setTimeout(() =&gt; {
-      console.log(j)
-    }, 0);
-  })(i);
+<pre><code class="language-js">let merge = (a, b) =&gt; {
+  if (a.length === 0) {
+    return b
+  }
+  if (b.length === 0) {
+    return a
+  }
+  return a[0] &gt; b[0] ?
+    [b[0]].concat(merge(a, b.slice(1))) :
+    [a[0]].concat(merge(a.slice(1), b))
 }
+
+let mergeSort = arr =&gt; {
+  let k = arr.length
+  if (k === 1) { 
+    return arr
+  }
+  let left = arr.slice(0, Math.floor(k / 2))
+  let right = arr.slice(Math.floor(k / 2))
+  return merge(mergeSort(left), mergeSort(right))
+}
+
 </code></pre>
 
-<p><img src="/images/setTimeout2.png" alt="setTimeout2" /></p>
+<h2 id="四-计数排序">四 计数排序</h2>
 
-<p>这里通过立即执行函数创造了n个不同的函数作用域，给setTimeout传入n个不同的参数，所以就可以打印出0、1、2、3、4、5
-此外，我们还可以</p>
-
-<pre><code class="language-js">let output = function(i) {
-  setTimeout(function() {
-    console.log(i);
-  }, 0);
-};
-let i
-for (i = 0; i &lt; 6; i++) {
-  output.call(undefined, i); // 这里传过去的 i 值被复制，而不是引用
+<pre><code class="language-js">let countSort = arr =&gt; {
+  let hashTable = {}, max = 0, result = []
+  for(let i = 0; i &lt; arr.length; i++){ 
+    if(!(arr[i] in hashTable)){ 
+      hashTable[arr[i]] = 1
+    }else{
+      hashTable[arr[i]] += 1
+    }
+    if(max &lt; arr[i]) {
+      max = arr[i]
+    }
+  }
+  for(let j = 0; j &lt;= max; j++){ 
+    if(j in hashTable){
+      for(let i = 0; i &lt; hashTable[j]; i++){
+        result.push(j)
+      }
+    }
+  }
+  return result
 }
+
 </code></pre>
 
-<p><img src="/images/setTimeout3.png" alt="setTimeout3" /></p>
-
-<p>原理和上面相似，也是创造了n个不同的函数作用域，给setTimeout传入了n个不同的参数</p>
-
-<p>此外我们还可以利用setTimeout第三个参数</p>
-
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  setTimeout(function(i) {
-    console.log(i);
-  }, 0, i);
-}
-</code></pre>
-
-<p><img src="/images/setTimeout4.png" alt="setTimeout4" /></p>
+<p>时间不够，待更新</p>
 
     </div>
 
@@ -464,9 +524,22 @@ for (i = 0; i &lt; 6; i++) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">JS函数的执行时机</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
-          <a class="next" href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-            <span class="next-text nav-default">JS排序算法</span>
+          <a class="next" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+            <span class="next-text nav-default">JS对象基本用法</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

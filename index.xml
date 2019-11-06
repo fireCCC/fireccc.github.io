@@ -96,6 +96,149 @@ for (i = 0; i &amp;lt; 6; i++) {
     </item>
     
     <item>
+      <title>JS排序算法</title>
+      <link>http://localhost:1313/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 26 Oct 2019 19:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;一-选择排序&#34;&gt;一 选择排序&lt;/h2&gt;
+
+&lt;p&gt;选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一&lt;br&gt;
+一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类推，&lt;br&gt;
+共遍历 n + (n - 1) + (n - 2) + &amp;hellip; + (n - n + 1) + (n - n) 次 (加0不影响最终结果)&lt;br&gt;
+例如   数组一共有5个数，遍历 5 + 4 + 3 + 2 + 1 + 0 次&lt;br&gt;
+也可以写作 n + &amp;hellip; + 3 + 2 + 1 + 0 = (n * (n + 1)) / 2 = &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;(n^2) + (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;)n &lt;br&gt;
+时间复杂度O(n^2)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const log = console.log.bind(console)
+
+//求当前区间内最小值下标
+let minIndex = (numbers) =&amp;gt; {
+  let index = 0
+  for(let i = 1; i &amp;lt; numbers.length; i++){
+    if(numbers[i] &amp;lt; numbers[index]){
+      index = i
+    }
+  }
+  return index
+}
+
+let swap = (array, i, j) =&amp;gt; {
+  let temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+}
+
+let sort = (numbers) =&amp;gt; {
+  //遍历到区间只剩下两个数就可以停止了, 也就是i等于numbers.length - 2
+  //如8个数 i等于numbers.length - 2 = 6, 区间是arr[6]-arr[7] 没有arr[8] :)
+  for(let i = 0; i &amp;lt; numbers.length - 1; i++){
+    log(`------`)
+    log(`i: ${i}`)
+    //求当前区间内的最小值在整个数组内的下标
+    //为当前区间内的最小值的下标 加 区间前面的数字个数
+    //例如 [6,2,4,5]  1 + 0
+    //再比如 6,[2,4,5] 0 + 1
+    let index = minIndex(numbers.slice(i)) + i
+    log(`index: ${index}`)
+    log(`min: ${numbers[index]}`)
+    if(index!==i){
+      swap(numbers, index, i)
+      log(`swap ${index}:${i}`)
+      log(numbers)
+    }
+  }
+  return numbers
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;二-快速排序&#34;&gt;二 快速排序&lt;/h2&gt;
+
+&lt;p&gt;快速排序,即取数组中间位置的数，比它小的数放在它的左边，比它大的放在右边
+然后区间变为它的左边的数组成的数组 和 它的右边的数组成的数组
+最后区间只剩一个数终止&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let quickSort = arr =&amp;gt; {
+  if (arr.length &amp;lt;= 1) { 
+    return arr; 
+  }
+  let pivotIndex = Math.floor(arr.length / 2);
+  let pivot = arr.splice(pivotIndex, 1)[0];
+  let left = [];
+  let right = [];
+  for (let i = 0; i &amp;lt; arr.length; i++){
+    if (arr[i] &amp;lt; pivot) { 
+      left.push(arr[i])
+    } else { 
+      right.push(arr[i]) 
+    }
+  }
+  return quickSort(left).concat([pivot], quickSort(right))
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;三-归并排序&#34;&gt;三 归并排序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let merge = (a, b) =&amp;gt; {
+  if (a.length === 0) {
+    return b
+  }
+  if (b.length === 0) {
+    return a
+  }
+  return a[0] &amp;gt; b[0] ?
+    [b[0]].concat(merge(a, b.slice(1))) :
+    [a[0]].concat(merge(a.slice(1), b))
+}
+
+let mergeSort = arr =&amp;gt; {
+  let k = arr.length
+  if (k === 1) { 
+    return arr
+  }
+  let left = arr.slice(0, Math.floor(k / 2))
+  let right = arr.slice(Math.floor(k / 2))
+  return merge(mergeSort(left), mergeSort(right))
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;四-计数排序&#34;&gt;四 计数排序&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let countSort = arr =&amp;gt; {
+  let hashTable = {}, max = 0, result = []
+  for(let i = 0; i &amp;lt; arr.length; i++){ 
+    if(!(arr[i] in hashTable)){ 
+      hashTable[arr[i]] = 1
+    }else{
+      hashTable[arr[i]] += 1
+    }
+    if(max &amp;lt; arr[i]) {
+      max = arr[i]
+    }
+  }
+  for(let j = 0; j &amp;lt;= max; j++){ 
+    if(j in hashTable){
+      for(let i = 0; i &amp;lt; hashTable[j]; i++){
+        result.push(j)
+      }
+    }
+  }
+  return result
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;时间不够，待更新&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>JS对象基本用法</title>
       <link>http://localhost:1313/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Sun, 20 Oct 2019 19:34:36 +0800</pubDate>
