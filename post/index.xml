@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Oct 2019 19:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 19:34:36 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jQuery设计思想</title>
+      <link>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</link>
+      <pubDate>Sun, 10 Nov 2019 19:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</guid>
+      <description>jQuery的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作。 这是它区别于其他Javascript库的根本特点。 一 jQu</description>
+    </item>
     
     <item>
       <title>JS函数的执行时机</title>

@@ -6,10 +6,129 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Oct 2019 19:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 19:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jQuery设计思想</title>
+      <link>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</link>
+      <pubDate>Sun, 10 Nov 2019 19:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</guid>
+      
+        <description>
+
+&lt;p&gt;&lt;font color=&#34;0769AD&#34;&gt;jQuery的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作。&lt;br&gt;
+这是它区别于其他Javascript库的根本特点。&lt;/font&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;一-jquery如何获取元素&#34;&gt;一 jQuery如何获取元素&lt;/h2&gt;
+
+&lt;p&gt;使用jQuery的第一步，往往就是将一个选择表达式，放进构造函数jQuery()（简写为$），然后得到被选中的元素。
+选择表达式可以是CSS选择器：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/css-selector.png&#34; alt=&#34;css-selector&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;也可以是&lt;a href=&#34;(https://www.jquery123.com/category/selectors/)&#34;&gt;jQuery特有的表达式&lt;/a&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;a:first&#39;) //选择网页中第一个a元素
+
+$(&#39;tr:odd&#39;) //选择表格的奇数行
+
+$(&#39;#myForm :input&#39;) // 选择表单中的input元素
+
+$(&#39;div:visible&#39;) //选择可见的div元素
+
+$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个
+
+$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;二-jquery的链式操作是怎样的&#34;&gt;二 jQuery的链式操作是怎样的&lt;/h2&gt;
+
+&lt;p&gt;&lt;font color=&#34;0769AD&#34;&gt;jQuery设计思想之三，就是最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。比如：&lt;/font&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;　$(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分解开来，就是下面这样：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;div&#39;) //找到div元素
+  .find(&#39;h3&#39;) //选择其中的h3元素
+  .eq(2) //选择第3个h3元素
+  .html(&#39;Hello&#39;); //将它的内容改为Hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;font color=&#34;0769AD&#34;&gt;这是jQuery最令人称道、最方便的特点。它的原理在于每一步的jQuery操作，返回的都是一个jQuery对象，
+这个jQuery对象中就包括了那些可以对选中元素做一些操作的函数
+所以不同操作可以连在一起。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;jQuery还提供了.end()方法，使得结果集可以后退一步：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/end.png&#34; alt=&#34;end&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;三-jquery如何创建元素&#34;&gt;三 jQuery如何创建元素&lt;/h2&gt;
+
+&lt;p&gt;创建新元素的方法非常简单，只要把新元素直接传入jQuery的构造函数就行了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;&amp;lt;p&amp;gt;Hello&amp;lt;/p&amp;gt;&#39;);
+
+$(&#39;&amp;lt;li class=&amp;quot;new&amp;quot;&amp;gt;new list item&amp;lt;/li&amp;gt;&#39;);
+
+$(&#39;ul&#39;).append(&#39;&amp;lt;li&amp;gt;list item&amp;lt;/li&amp;gt;&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;复制元素使用.clone()。&lt;/p&gt;
+
+&lt;p&gt;删除元素使用.remove()和.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。&lt;/p&gt;
+
+&lt;p&gt;清空元素内容（但是不删除该元素）使用.empty()。&lt;/p&gt;
+
+&lt;h2 id=&#34;四-jquery如何移动元素&#34;&gt;四 jQuery如何移动元素&lt;/h2&gt;
+
+&lt;p&gt;&lt;font color=&#34;0769AD&#34;&gt;jQuery设计思想之五，就是提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;假定我们选中了一个div元素，需要把它移动到p元素后面。&lt;/p&gt;
+
+&lt;p&gt;第一种方法是使用.insertAfter()，把div元素移动p元素后面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;div&#39;).insertAfter($(&#39;p&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二种方法是使用.after()，把p元素加到div元素前面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;p&#39;).after($(&#39;div&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;表面上看，这两种方法的效果是一样的，唯一的不同似乎只是操作视角的不同。但是实际上，它们有一个重大差别，那就是返回的元素不一样。第一种方法返回div元素，第二种方法返回p元素。你可以根据需要，选择到底使用哪一种方法。&lt;/p&gt;
+
+&lt;p&gt;使用这种模式的操作方法，一共有四对：
+&lt;img src=&#34;http://localhost:1313/images/move.png&#34; alt=&#34;move&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;五-jquery如何修改元素的属性&#34;&gt;五 jQuery如何修改元素的属性&lt;/h2&gt;
+
+&lt;p&gt;操作网页元素，最常见的需求是取得它们的值，或者对它们进行赋值。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;0769AD&#34;&gt;jQuery设计思想之四，就是使用同一个函数，来完成取值（getter）和赋值（setter），即&amp;rdquo;取值器&amp;rdquo;与&amp;rdquo;赋值器&amp;rdquo;合一。到底是取值还是赋值，由函数的参数决定。&lt;/font&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;$(&#39;h1&#39;).html(); //html()没有参数，表示取出h1的值
+
+$(&#39;h1&#39;).html(&#39;Hello&#39;); //html()有参数Hello，表示对h1进行赋值
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;常见的取值和赋值函数如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/change.png&#34; alt=&#34;change&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;需要注意的是，如果结果集包含多个元素，那么赋值的时候，将对其中所有的元素赋值；取值的时候，则是只取出第一个元素的值（.text()例外，它取出所有元素的text内容）。&lt;/p&gt;
+
+&lt;p&gt;参考链接&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html&#34;&gt;jQuery设计思想-阮一峰&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>JS函数的执行时机</title>
