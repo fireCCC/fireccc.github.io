@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>闭包和执行上下文 - Jane - A super concise theme for Hugo</title>
+  <title>http知识点 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="一 什么是闭包？ 闭包翻译自英文单词closure，这是个不太好翻译的词。编译原理中，它是处理语法产生式的一个步骤；而在编程语言领域，它表示一种" />
+  <meta name="description" content="一 HTTP 响应状态码 HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类： 1. 信息响应(100–199) 2. 成功响应(200–299) 3. 重定向(3" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/%E9%97%AD%E5%8C%85%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" />
+<link rel="canonical" href="http://localhost:1313/post/http%E7%9F%A5%E8%AF%86%E7%82%B9/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="闭包和执行上下文" />
-<meta property="og:description" content="一 什么是闭包？ 闭包翻译自英文单词closure，这是个不太好翻译的词。编译原理中，它是处理语法产生式的一个步骤；而在编程语言领域，它表示一种" />
+<meta property="og:title" content="http知识点" />
+<meta property="og:description" content="一 HTTP 响应状态码 HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类： 1. 信息响应(100–199) 2. 成功响应(200–299) 3. 重定向(3" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/%E9%97%AD%E5%8C%85%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" />
-<meta property="article:published_time" content="2019-12-10T19:34:36+08:00" />
-<meta property="article:modified_time" content="2019-12-10T19:34:36+08:00" />
-<meta itemprop="name" content="闭包和执行上下文">
-<meta itemprop="description" content="一 什么是闭包？ 闭包翻译自英文单词closure，这是个不太好翻译的词。编译原理中，它是处理语法产生式的一个步骤；而在编程语言领域，它表示一种">
+<meta property="og:url" content="http://localhost:1313/post/http%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+<meta property="article:published_time" content="2019-12-12T19:34:36+08:00" />
+<meta property="article:modified_time" content="2019-12-12T19:34:36+08:00" />
+<meta itemprop="name" content="http知识点">
+<meta itemprop="description" content="一 HTTP 响应状态码 HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类： 1. 信息响应(100–199) 2. 成功响应(200–299) 3. 重定向(3">
 
 
-<meta itemprop="datePublished" content="2019-12-10T19:34:36&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-10T19:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="2882">
+<meta itemprop="datePublished" content="2019-12-12T19:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-12T19:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="3199">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="闭包和执行上下文"/>
-<meta name="twitter:description" content="一 什么是闭包？ 闭包翻译自英文单词closure，这是个不太好翻译的词。编译原理中，它是处理语法产生式的一个步骤；而在编程语言领域，它表示一种"/>
+<meta name="twitter:title" content="http知识点"/>
+<meta name="twitter:description" content="一 HTTP 响应状态码 HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类： 1. 信息响应(100–199) 2. 成功响应(200–299) 3. 重定向(3"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -320,11 +320,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">闭包和执行上下文</h1>
+      <h1 class="post-title">http知识点</h1>
       
       <div class="post-meta">
-        <time datetime="2019-12-10" class="post-time">
-          2019-12-10
+        <time datetime="2019-12-12" class="post-time">
+          2019-12-12
         </time>
         
         
@@ -346,9 +346,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#一-什么是闭包">一 什么是闭包？</a></li>
-<li><a href="#二-闭包的用途是什么">二 闭包的用途是什么？</a></li>
-<li><a href="#三-闭包的缺点是什么">三 闭包的缺点是什么？</a></li>
+<li><a href="#一-http-响应状态码">一 HTTP 响应状态码</a>
+<ul>
+<li><a href="#信息响应">信息响应</a></li>
+<li><a href="#成功响应">成功响应</a></li>
+<li><a href="#客户端响应">客户端响应</a></li>
+<li><a href="#服务端响应">服务端响应</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -359,281 +363,190 @@
     <div class="post-content">
       
 
-<p><img src="/images/js0.png" alt="闭包与函数" /></p>
+<h2 id="一-http-响应状态码">一 HTTP 响应状态码</h2>
 
-<h2 id="一-什么是闭包">一 什么是闭包？</h2>
+<p>HTTP 响应状态代码指示特定 HTTP 请求是否已成功完成。响应分为五类：<br>
+1. 信息响应(100–199)<br>
+2. 成功响应(200–299)<br>
+3. 重定向(300–399)<br>
+4. 客户端错误(400–499)<br>
+5. 服务器错误 (500–599)。<br>
+状态代码由 section 10 of RFC 2616定义</p>
 
-<p>闭包翻译自英文单词closure，这是个不太好翻译的词。编译原理中，它是处理语法产生式的一个步骤；而在编程语言领域，它表示一种函数。</p>
+<h3 id="信息响应">信息响应</h3>
 
-<p>闭包其实只是一个绑定了执行环境的函数，这个函数并不是印在书本里的一条简单的表达式，闭包与普通函数的区别是，它携带了执行的环境，就像人在外星中需要自带吸氧的装备一样，这个函数也带有在程序中生存的环境。</p>
+<table>
+<tr><td bgcolor=#D1EEEE>
+100 Continue<br>
+这个临时响应表明，迄今为止的所有内容都是可行的，客户端应该继续请求，如果已经完成，则忽略它。
+</td></tr>
+</table>
 
-<p>这个古典的闭包定义中，闭包包含两个部分。</p>
+<p>102 Processing (WebDAV)<br>
+此代码表示服务器已收到并正在处理该请求，但没有响应可用。</p>
 
-<ul>
-<li>环境部分
+<p>103 Early Hints
+此状态代码主要用于与Link 链接头一起使用，以允许用户代理在服务器仍在准备响应时开始预加载资源。<br></p>
 
-<ul>
-<li>环境</li>
-<li>标识符列表</li>
-</ul></li>
-<li>表达式部分</li>
-</ul>
+<h3 id="成功响应">成功响应</h3>
 
-<p>当我们把视角放在 JavaScript 的标准中，我们发现，标准中并没有出现过 closure 这个术语，但是，我们却不难根据古典定义，在JavaScript中找到对应的闭包组成部分。</p>
+<table>
+<tr><td bgcolor=#D1EEEE>
+200 OK<br>
+请求成功。<br>
+成功的含义取决于HTTP方法：<br>
+GET：资源已被提取并在消息正文中传输。<br>
+POST：描述动作结果的资源在消息体中传输。<br>
+</td></tr>
+</table>
 
-<ul>
-<li>环境部分
+<table>
+<tr><td bgcolor=#D1EEEE>
+201 Created
+该请求已成功，并因此创建了一个新的资源。这通常是在POST请求.
+</td></tr>
+</table>
+<table>
+<tr><td bgcolor=#D1EEEE>
+202 Accepted
+请求已经接收到，但还未响应，没有结果。意味着不会有一个异步的响应去表明当前请求的结果，预期另外的进程和服务去处理请求，或者批处理。
+</td></tr>
+</table>
+204 No Content
+服务器成功处理了请求，但不需要返回任何实体内容，并且希望返回更新了的元信息。响应可能通过实体头部的形式，返回新的或更新后的元信息。如果存在这些头部信息，则应当与所请求的变量相呼应。如果客户端是浏览器的话，那么用户浏览器应保留发送了该请求的页面，而不产生任何文档视图上的变化，即使按照规范新的或更新后的元信息应当被应用到用户浏览器活动视图中的文档。由于204响应被禁止包含任何消息体，因此它始终以消息头后的第一个空行结尾。
+<br>
+205 Reset Content
+服务器成功处理了请求，且没有返回任何内容。但是与204响应不同，返回此状态码的响应要求请求者重置文档视图。该响应主要是被用于接受用户输入后，立即重置表单，以便用户能够轻松地开始另一次输入。与204响应一样，该响应也被禁止包含任何消息体，且以消息头后的第一个空行结束。
+<br>
+206 Partial Content
+服务器已经成功处理了部分 GET 请求。类似于 FlashGet 或者迅雷这类的 HTTP 下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。<br>
+<hr>
 
-<ul>
-<li>环境：函数的词法环境（执行上下文的一部分）</li>
-<li>标识符列表：函数中用到的未声明的变量</li>
-</ul></li>
-<li>表达式部分：函数体</li>
-</ul>
+### 重定向
+<table>
+<tr><td bgcolor=#D1EEEE>
+301 Moved Permanently<br>
+被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个 URI 之一。<br>如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。除非额外指定，否则这个响应也是可缓存的。
+</td></tr>
+</table>
+302 Found<br>
+请求的资源现在临时从不同的 URI 响应请求。<br>由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。
 
-<p>至此，我们可以认为，JavaScript 中的函数完全符合闭包的定义。它的环境部分是函数词法环境部分组成，它的标识符列表是函数中用到的未声明变量，它的表达式部分就是函数体。</p>
+303 See Other
+对应当前请求的响应可以在另一个 URI 上被找到，而且客户端应当采用 GET 的方式访问那个资源。这个方法的存在主要是为了允许由脚本激活的POST请求输出重定向到一个新的资源。
+<table>
+<tr><td bgcolor=#D1EEEE>
+304 Not Modified
+如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304 响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。
+</td></tr>
+</table>
+
+<table>
+<tr><td bgcolor=#D1EEEE>
+307 Temporary Redirect<br>
+请求的资源现在临时从不同的URI响应请求。<br>由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。
+<br><br>
+308 Permanent Redirect<br>
+这意味着资源现在永久位于由 Location: HTTP Response 标头指定的另一个 URI。 <br>这与 301 Moved Permanently HTTP 响应代码具有相同的语义，但用户代理不能更改所使用的 HTTP 方法：如果在第一个请求中使用 POST，则必须在第二个请求中使用 POST。
+</td></tr>
+</table>
 
 <hr>
 
-<p>请看下面的代码：</p>
+<h3 id="客户端响应">客户端响应</h3>
 
-<pre><code class="language-js">function init() {
-    var name = &quot;Mozilla&quot;; // name 是一个被 init 创建的局部变量
-    function displayName() { // displayName() 是内部函数,一个闭包
-        alert(name); // 使用了父函数中声明的变量
-    }
-    displayName();
-}
-init();
-</code></pre>
+<table>
+<tr><td bgcolor=#D1EEEE>
+400 Bad Request<br>
+1、语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。
+2、请求参数有误。
+</td></tr>
+</table>
 
-<p>init() 创建了一个局部变量 name 和一个名为 displayName() 的函数。displayName() 是定义在 init() 里的内部函数，仅在该函数体内可被获取。请注意，displayName() 内没有自己的局部变量，然而它可以访问到外部函数的变量，所以 displayName() 可以使用父函数 init() 中声明的变量 name 。</p>
+<p>401 Unauthorized<br>
+当前请求需要用户验证。<br>
+该响应必须包含一个适用于被请求资源的 WWW-Authenticate 信息头用以询问用户信息。客户端可以重复提交一个包含恰当的 Authorization 头信息的请求。如果当前请求已经包含了 Authorization 证书，那么401响应代表着服务器验证已经拒绝了那些证书。如果401响应包含了与前一个响应相同的身份验证询问，且浏览器已经至少尝试了一次验证，那么浏览器应当向用户展示响应中包含的实体信息，因为这个实体信息中可能包含了相关诊断信息。
+<table>
+<tr><td bgcolor=#D1EEEE>
+403 Forbidden<br>
+服务器已经理解请求，但是拒绝执行它。<br>与 401 响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。如果这不是一个 HEAD 请求，而且服务器希望能够讲清楚为何请求不能被执行，那么就应该在实体内描述拒绝的原因。当然服务器也可以返回一个 404 响应，假如它不希望让客户端获得任何信息。
+</td></tr>
+</table>
+<table>
+<tr><td bgcolor=#D1EEEE>
+404 Not Found<br>
+请求失败，请求所希望得到的资源未被在服务器上发现。<br>
+没有信息能够告诉用户这个状况到底是暂时的还是永久的。假如服务器知道情况的话，应当使用410状态码来告知旧资源因为某些内部的配置机制问题，已经永久的不可用，而且没有任何可以跳转的地址。404这个状态码被广泛应用于当服务器不想揭示到底为何请求被拒绝或者没有其他适合的响应可用的情况下。
+</td></tr>
+</table>
+405 Method Not Allowed
+请求行中指定的请求方法不能被用于请求相应的资源。该响应必须返回一个Allow 头信息用以表示出当前资源能够接受的请求方法的列表。 鉴于 PUT，DELETE 方法会对服务器上的资源进行写操作，因而绝大部分的网页服务器都不支持或者在默认配置下不允许上述请求方法，对于此类请求均会返回405错误。</p>
 
-<p>这个词法作用域的例子描述了引擎是如何解析嵌套函数中的变量的。<br>
-<font color="#00796B">词法（lexical）一词表明，词法作用域根据声明变量的位置来确定该变量可被访问的位置。嵌套函数可获取声明于外部作用域的函数。</font></p>
+<p>406 Not Acceptable
+请求的资源的内容特性无法满足请求头中的条件，因而无法生成响应实体。</p>
 
-<hr>
+<table>
+<tr><td bgcolor=#D1EEEE>
+408 Request Timeout<br>
+请求超时。<br>客户端没有在服务器预备等待的时间内完成一个请求的发送。客户端可以随时再次提交这一请求而无需进行任何更改。
+</td></tr>
+</table>
 
-<p>现在来考虑以下例子 ：</p>
+<p>410 Gone
+被请求的资源在服务器上已经不再可用，而且没有任何已知的转发地址。这样的状况应当被认为是永久性的。如果可能，拥有链接编辑功能的客户端应当在获得用户许可后删除所有指向这个地址的引用。如果服务器不知道或者无法确定这个状况是否是永久的，那么就应该使用 404 状态码。除非额外说明，否则这个响应是可缓存的。</p>
 
-<pre><code class="language-js">function makeFunc() {
-    var name = &quot;Mozilla&quot;;
-    function displayName() {
-        alert(name);
-    }
-    return displayName;
-}
+<p>411 Length Required
+服务器拒绝在没有定义 Content-Length 头的情况下接受请求。在添加了表明请求消息体长度的有效 Content-Length 头之后，客户端可以再次提交该请求。</p>
 
-var myFunc = makeFunc();
-myFunc();
-</code></pre>
+<p>413 Payload Too Large
+服务器拒绝处理当前请求，因为该请求提交的实体数据大小超过了服务器愿意或者能够处理的范围。此种情况下，服务器可以关闭连接以免客户端继续发送此请求。如果这个状况是临时的，服务器应当返回一个 Retry-After 的响应头，以告知客户端可以在多少时间以后重新尝试。</p>
 
-<p>运行这段代码和之前的 init() 示例的效果完全一样。其中的不同 — 也是有意思的地方 — 在于内部函数 displayName() 在执行前，被外部函数返回。</p>
+<p>414 URI Too Long
+请求的URI 长度超过了服务器能够解释的长度，因此服务器拒绝对该请求提供服务。这比较少见，通常的情况包括：本应使用POST方法的表单提交变成了GET方法，导致查询字符串（Query String）过长。</p>
 
-<p>这个谜题的答案是，<font color="#00796B">JavaScript中的函数会形成闭包。 闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。</font>在我们的例子中，myFunc 是执行 makeFunc 时创建的 displayName 函数实例的引用，而 displayName 实例仍可访问其词法作用域中的变量，即可以访问到 name 。由此，当 myFunc 被调用时，name 仍可被访问，其值 Mozilla 就被传递到alert中。</p>
+<p>418 I&rsquo;m a teapot
+服务器拒绝尝试用 “茶壶冲泡咖啡”。</p>
 
-<hr>
+<p>429 Too Many Requests
+用户在给定的时间内发送了太多请求（“限制请求速率”）。</p>
 
-<p>下面是一个更有意思的示例 — makeAdder 函数：</p>
+<p>431 Request Header Fields Too Large
+服务器不愿意处理请求，因为它的 请求头字段太大（ Request Header Fields Too Large）。 请求可以在减小请求头字段的大小后重新提交。</p>
 
-<pre><code class="language-js">function makeAdder(x) {
-  return function(y) {
-    return x + y;
-  };
-}
-
-var add5 = makeAdder(5);
-var add10 = makeAdder(10);
-
-console.log(add5(2));  // 7
-console.log(add10(2)); // 12
-</code></pre>
-
-<p>在这个示例中，我们定义了 makeAdder(x) 函数，它接受一个参数 x ，并返回一个新的函数。返回的函数接受一个参数 y，并返回x+y的值。</p>
-
-<p>从本质上讲，makeAdder 是一个函数工厂 — 他创建了将指定的值和它的参数相加求和的函数。在上面的示例中，我们使用函数工厂创建了两个新函数 — 一个将其参数和 5 求和，另一个和 10 求和。</p>
-
-<p>add5 和 add10 都是闭包。它们共享相同的函数定义，但是保存了不同的词法环境。在 add5 的环境中，x 为 5。而在 add10 中，x 则为 10。</p>
-
-<h2 id="二-闭包的用途是什么">二 闭包的用途是什么？</h2>
-
-<p><font color="#00796B">闭包很有用，因为它允许将函数与其所操作的某些数据（环境）关联起来。这显然类似于面向对象编程。在面向对象编程中，对象允许我们将某些数据（对象的属性）与一个或者多个方法相关联。</font></p>
-
-<p>因此，通常你使用只有一个方法的对象的地方，都可以使用闭包。</p>
-
-<p>在 Web 中，你想要这样做的情况特别常见。大部分我们所写的 JavaScript 代码都是基于事件的 — 定义某种行为，然后将其添加到用户触发的事件之上（比如点击或者按键）。我们的代码通常作为回调：为响应事件而执行的函数。</p>
-
-<p>假如，我们想在页面上添加一些可以调整字号的按钮。一种方法是以像素为单位指定 body 元素的 font-size，然后通过相对的 em 单位设置页面中其它元素（例如header）的字号：</p>
-
-<pre><code class="language-css">body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 12px;
-}
-
-h1 {
-  font-size: 1.5em;
-}
-
-h2 {
-  font-size: 1.2em;
-}
-</code></pre>
-
-<p>我们的文本尺寸调整按钮可以修改 body 元素的 font-size 属性，由于我们使用相对单位，页面中的其它元素也会相应地调整。</p>
-
-<p>以下是 JavaScript：</p>
-
-<pre><code class="language-js">function makeSizer(size) {
-  return function() {
-    document.body.style.fontSize = size + 'px';
-  };
-}
-
-var size12 = makeSizer(12);
-var size14 = makeSizer(14);
-var size16 = makeSizer(16);
-</code></pre>
-
-<p>size12，size14 和 size16 三个函数将分别把 body 文本调整为 12，14，16 像素。我们可以将它们分别添加到按钮的点击事件上。如下所示：</p>
-
-<pre><code class="language-js">document.getElementById('size-12').onclick = size12;
-document.getElementById('size-14').onclick = size14;
-document.getElementById('size-16').onclick = size16;
-</code></pre>
-
-<pre><code class="language-html">&lt;a href=&quot;#&quot; id=&quot;size-12&quot;&gt;12&lt;/a&gt;
-&lt;a href=&quot;#&quot; id=&quot;size-14&quot;&gt;14&lt;/a&gt;
-&lt;a href=&quot;#&quot; id=&quot;size-16&quot;&gt;16&lt;/a&gt; 
-</code></pre>
+<p>451 Unavailable For Legal Reasons
+用户请求非法资源，例如：由政府审查的网页。</p>
 
 <hr>
 
-<p>编程语言中，比如 Java，是支持将方法声明为私有的，即它们只能被同一个类中的其它方法所调用。</p>
+<h3 id="服务端响应">服务端响应</h3>
 
-<p>而 JavaScript 没有这种原生支持，但<font color="#00796B">我们可以使用闭包来模拟私有方法。私有方法不仅仅有利于限制对代码的访问：还提供了管理全局命名空间的强大能力，避免非核心的方法弄乱了代码的公共接口部分。</font></p>
+<table>
+<tr><td bgcolor=#D1EEEE>
+500 Internal Server Error
+服务器遇到了不知道如何处理的情况。
+</td></tr>
+</table>
 
-<p>下面的示例展现了如何使用闭包来定义公共函数，并令其可以访问私有函数和变量。这个方式也称为 模块模式（module pattern）：</p>
+<p>501 Not Implemented
+此请求方法不被服务器支持且无法被处理。只有GET和HEAD是要求服务器支持的，它们必定不会返回此错误代码。</p>
 
-<pre><code class="language-js">var Counter = (function() {
-  var privateCounter = 0;
-  function changeBy(val) {
-    privateCounter += val;
-  }
-  return {
-    increment: function() {
-      changeBy(1);
-    },
-    decrement: function() {
-      changeBy(-1);
-    },
-    value: function() {
-      return privateCounter;
-    }
-  }   
-})();
+<p>502 Bad Gateway
+此错误响应表明服务器作为网关需要得到一个处理这个请求的响应，但是得到一个错误的响应。
+<table>
+<tr><td bgcolor=#D1EEEE>
+503 Service Unavailable<br>
+服务器没有准备好处理请求。 常见原因是服务器因维护或重载而停机。 <br>
+请注意，与此响应一起，应发送解释问题的用户友好页面。 这个响应应该用于临时条件和 Retry-After：如果可能的话，HTTP头应该包含恢复服务之前的估计时间。 网站管理员还必须注意与此响应一起发送的与缓存相关的标头，因为这些临时条件响应通常不应被缓存。
+</td></tr>
+</table>
+504 Gateway Timeout
+当服务器作为网关，不能及时得到响应时返回此错误代码。</p>
 
-console.log(Counter.value()); /* logs 0 */
-Counter.increment();
-Counter.increment();
-console.log(Counter.value()); /* logs 2 */
-Counter.decrement();
-console.log(Counter.value()); /* logs 1 */
-</code></pre>
+<p>505 HTTP Version Not Supported
+服务器不支持请求中所使用的HTTP协议版本。</p>
 
-<p>在之前的示例中，每个闭包都有它自己的词法环境；而这次我们只创建了一个词法环境，为三个函数所共享：Counter.increment，Counter.decrement 和 Counter.value。</p>
-
-<p>该共享环境创建于一个立即执行的匿名函数体内。这个环境中包含两个私有项：名为 privateCounter 的变量和名为 changeBy 的函数。这两项都无法在这个匿名函数外部直接访问。必须通过匿名函数返回的三个公共函数访问。</p>
-
-<p>这三个公共函数是共享同一个环境的闭包。多亏 JavaScript 的词法作用域，它们都可以访问 privateCounter 变量和 changeBy 函数。</p>
-
-<p>你应该注意到我们定义了一个匿名函数，用于创建一个计数器。我们立即执行了这个匿名函数，并将他的值赋给了变量Counter。我们可以把这个函数储存在另外一个变量makeCounter中，并用他来创建多个计数器。</p>
-
-<pre><code class="language-js">var makeCounter = function() {
-  var privateCounter = 0;
-  function changeBy(val) {
-    privateCounter += val;
-  }
-  return {
-    increment: function() {
-      changeBy(1);
-    },
-    decrement: function() {
-      changeBy(-1);
-    },
-    value: function() {
-      return privateCounter;
-    }
-  }  
-};
-
-var Counter1 = makeCounter();
-var Counter2 = makeCounter();
-console.log(Counter1.value()); /* logs 0 */
-Counter1.increment();
-Counter1.increment();
-console.log(Counter1.value()); /* logs 2 */
-Counter1.decrement();
-console.log(Counter1.value()); /* logs 1 */
-console.log(Counter2.value()); /* logs 0 */
-</code></pre>
-
-<p>请注意两个计数器 Counter1 和 Counter2 是如何维护它们各自的独立性的。每个闭包都是引用自己词法作用域内的变量 privateCounter 。</p>
-
-<p>每次调用其中一个计数器时，通过改变这个变量的值，会改变这个闭包的词法环境。然而在一个闭包内对变量的修改，不会影响到另外一个闭包中的变量。</p>
-
-<p><font color="#00796B">以这种方式使用闭包，提供了许多与面向对象编程相关的好处 —— 特别是数据隐藏和封装。</font></p>
-
-<hr>
-
-<p><font color="#00796B">此外，我们可以通过闭包特性，将代码封装，等待时机成熟的时候再使用，比如实现柯里化和反柯里化。</font></p>
-
-<h2 id="三-闭包的缺点是什么">三 闭包的缺点是什么？</h2>
-
-<p>如果不是某些特定任务需要使用闭包，在其它函数中创建函数是不明智的，因为闭包在处理速度和内存消耗方面对脚本性能具有负面影响。</p>
-
-<p>例如，在创建新的对象或者类时，方法通常应该关联于对象的原型，而不是定义到对象的构造器中。原因是这将导致每次构造器被调用时，方法都会被重新赋值一次。</p>
-
-<pre><code class="language-js">function MyObject(name, message) {
-  this.name = name.toString();
-  this.message = message.toString();
-  this.getName = function() {
-    return this.name;
-  };
-
-  this.getMessage = function() {
-    return this.message;
-  };
-}
-</code></pre>
-
-<p>在上面的代码中，我们并没有利用到闭包的好处，因此可以避免使用闭包。修改成如下：</p>
-
-<pre><code class="language-js">function MyObject(name, message) {
-  this.name = name.toString();
-  this.message = message.toString();
-}
-// 不建议重新定义原型
-// MyObject.prototype = {
-//   getName: function() {
-//     return this.name;
-//   },
-//   getMessage: function() {
-//     return this.message;
-//   }
-// };
-MyObject.prototype.getName = function() {
-  return this.name;
-};
-MyObject.prototype.getMessage = function() {
-  return this.message;
-};
-
-</code></pre>
-
-<hr>
-
-<p>此外，IE浏览器存有bug，IE在我们使用完闭包之后，依然回收不了闭包里面引用的变量。
-但是这是 IE 的问题，不是闭包的问题。参见司徒正美的<a href="https://www.cnblogs.com/rubylouvre/p/3345294.html">这篇文章</a>。</p>
+<p>511 Network Authentication Required
+状态码指示客户端需要进行身份验证才能获得网络访问权限。</p>
 
     </div>
 
@@ -647,7 +560,7 @@ MyObject.prototype.getMessage = function() {
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-12-10
+      2019-12-12
       
     </span>
   </p>
@@ -668,22 +581,9 @@ MyObject.prototype.getMessage = function() {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/http%E7%9F%A5%E8%AF%86%E7%82%B9/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">http知识点</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/applycall%E5%92%8Cbind/">
-            <span class="next-text nav-default">apply,call和bind</span>
+          <a class="next" href="/post/%E9%97%AD%E5%8C%85%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/">
+            <span class="next-text nav-default">闭包和执行上下文</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">
