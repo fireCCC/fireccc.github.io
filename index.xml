@@ -6,10 +6,226 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 12 Dec 2019 19:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Promise介绍</title>
+      <link>http://localhost:1313/post/promise%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Wed, 18 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/promise%E4%BB%8B%E7%BB%8D/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;promise-的用途&#34;&gt;Promise 的用途&lt;/h3&gt;
+
+&lt;p&gt;Promise是ES6新增的语法，解决了回调地狱的问题&lt;/p&gt;
+
+&lt;p&gt;Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.&lt;/p&gt;
+
+&lt;p&gt;Promise 对象是一个代理对象（代理一个值），被代理的值在Promise对象创建时可能是未知的。它允许你为异步操作的成功和失败分别绑定相应的处理方法（handlers）。 这让异步方法可以像同步方法那样返回值，但并不是立即返回最终执行结果，而是一个能代表未来出现的结果的promise对象&lt;/p&gt;
+
+&lt;p&gt;一个 Promise有以下几种状态:&lt;/p&gt;
+
+&lt;p&gt;pending: 初始状态，既不是成功，也不是失败状态。
+fulfilled: 意味着操作成功完成。
+rejected: 意味着操作失败。
+pending 状态的 Promise 对象可能会变为fulfilled 状态并传递一个值给相应的状态处理方法，也可能变为失败状态（rejected）并传递失败信息。当其中任一种情况出现时，Promise 对象的 then 方法绑定的处理方法（handlers ）就会被调用（then方法包含两个参数：onfulfilled 和 onrejected，它们都是 Function 类型。当Promise状态为fulfilled时，调用 then 的 onfulfilled 方法，当Promise状态为rejected时，调用 then 的 onrejected 方法， 所以在异步操作的完成和绑定处理方法之间不存在竞争）。&lt;/p&gt;
+
+&lt;p&gt;因为 Promise.prototype.then 和  Promise.prototype.catch 方法返回promise 对象， 所以它们可以被链式调用。&lt;/p&gt;
+
+&lt;h3 id=&#34;创建一个-new-promise&#34;&gt;创建一个 new Promise&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function fn(){
+    return new Promise((resolve, reject)=&amp;gt;{
+        成功时调用 resolve(数据)
+        失败时调用 reject(错误)
+    })
+}
+fn().then(success, fail).then(success2, fail2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;使用-promise-prototype-then&#34;&gt;使用 Promise.prototype.then&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var p1 = new Promise((resolve, reject) =&amp;gt; {
+  resolve(&#39;成功！&#39;);
+  // or
+  // reject(new Error(&amp;quot;出错了！&amp;quot;));
+});
+
+p1.then(value =&amp;gt; {
+  console.log(value); // 成功！
+}, reason =&amp;gt; {
+  console.error(reason); // 出错了！
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then函数会返回一个Promise实例，并且该返回值是一个新的实例而不是之前的实例
+当一个值只是从一个 then 内部返回时，它将等价地返回 Promise.resolve(&amp;lt;由被调用的处理程序返回的值&amp;gt;)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var p2 = new Promise(function(resolve, reject) {
+  resolve(1);
+});
+
+p2.then(function(value) {
+  console.log(value); // 1
+  return value + 1;
+}).then(function(value) {
+  console.log(value + &#39; - A synchronous value works&#39;);
+  //2 - A synchronous value works
+});
+
+p2.then(function(value) {
+  console.log(value); // 1
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;使用-promise-all&#34;&gt;使用 Promise.all&lt;/h3&gt;
+
+&lt;p&gt;Promise.all([promise1, promise2]).then(success1, fail1)&lt;br&gt;
+promise1和promise2都成功才会调用success1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var p1 = Promise.resolve(3);
+var p2 = 1337;
+var p3 = new Promise((resolve, reject) =&amp;gt; {
+  setTimeout(resolve, 100, &#39;foo&#39;);
+}); 
+
+Promise.all([p1, p2, p3]).then(values =&amp;gt; { 
+  console.log(values); // [3, 1337, &amp;quot;foo&amp;quot;] 
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;使用-promise-race&#34;&gt;使用 Promise.race&lt;/h3&gt;
+
+&lt;p&gt;Promise.race([promise1, promise2]).then(success1, fail1)&lt;br&gt;
+方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, &#39;one&#39;);
+});
+
+var promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, &#39;two&#39;);
+});
+
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
+// expected output: &amp;quot;two&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS数组去重</title>
+      <link>http://localhost:1313/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</link>
+      <pubDate>Tue, 17 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</guid>
+      
+        <description>&lt;p&gt;著名面试题：
+如何实现数组去重？
+假设有数组 array = [1,5,2,3,4,2,3,1,3,4]
+你要写一个函数 unique，使得
+unique(array) 的值为 [1,5,2,3,4]
+也就是把重复的值都去掉，只保留不重复的值。&lt;/p&gt;
+
+&lt;p&gt;一个答案不使用 Set 实现
+我们可以先使用sort()将数组进行排序
+然后比较相邻元素是否相等，从而排除重复项&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [1,5,2,3,4,2,3,1,3,4]
+function unique (array) {
+    let arr = array.sort()
+    let result = [arr[0]]
+    for (let i = 1; i &amp;lt; arr.length; i++) {
+        arr[i] !== arr[i-1] &amp;amp;&amp;amp; result.push(arr[i])
+    }
+    return result
+}
+unique(arr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另一个答案使用 Set&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [1,5,2,3,4,2,3,1,3,4]
+function unique (array) {
+  return Array.from(new Set(arr))
+}
+unique(arr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面方案的缺点是不支持对象去重，数组中出现对象的时候会出现问题&lt;/p&gt;
+
+&lt;p&gt;我们可以使用 Map / WeakMap 以支持对象去重。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [
+    {key: &#39;key&#39;, value: &#39;value&#39;},
+    {key: &#39;key&#39;, value: &#39;value&#39;},
+    {value: &#39;value&#39;, key: &#39;key&#39;},
+    {name:&#39;name&#39;}]
+function mySort(obj){
+    return Object.keys(obj)
+    .sort().reduce((a, v) =&amp;gt; {
+    a[v] = obj[v]
+    return a
+    }, {})
+}
+
+function unique (array) {
+  let arr = array
+  //console.log(arr)
+  let hashMap = new Map()
+  let result = new Array()
+  for (let i = 0; i &amp;lt; arr.length; i++) {
+    let item = arr[i]
+    item = mySort(item)
+    item = JSON.stringify(item)
+    if(hashMap.has(item)) { 
+      hashMap.set(item, 2)
+    } else {  
+      hashMap.set(item, 1)
+      result.push(arr[i])
+    }
+  } 
+  //console.log(hashMap)
+  return result
+}
+unique(arr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;缺点是遇到嵌套对象的情况会出现问题&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [
+    {
+        key: &#39;key&#39;, 
+        value: &#39;value&#39;, 
+        child: {
+            key: &#39;key&#39;, 
+            value: &#39;value&#39;
+        }
+    },
+    {
+        key: &#39;key&#39;, 
+        value: &#39;value&#39;, 
+        child: {
+            value: &#39;value&#39;,
+            key: &#39;key&#39;
+        }
+    },
+    {
+        name:&#39;name&#39;
+    }]
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>http知识点</title>
@@ -135,12 +351,7 @@ POST：描述动作结果的资源在消息体中传输。&lt;br&gt;
 请求失败，请求所希望得到的资源未被在服务器上发现。&lt;br&gt;
 没有信息能够告诉用户这个状况到底是暂时的还是永久的。假如服务器知道情况的话，应当使用410状态码来告知旧资源因为某些内部的配置机制问题，已经永久的不可用，而且没有任何可以跳转的地址。404这个状态码被广泛应用于当服务器不想揭示到底为何请求被拒绝或者没有其他适合的响应可用的情况下。
 &lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-405 Method Not Allowed
-请求行中指定的请求方法不能被用于请求相应的资源。该响应必须返回一个Allow 头信息用以表示出当前资源能够接受的请求方法的列表。 鉴于 PUT，DELETE 方法会对服务器上的资源进行写操作，因而绝大部分的网页服务器都不支持或者在默认配置下不允许上述请求方法，对于此类请求均会返回405错误。&lt;/p&gt;
-
-&lt;p&gt;406 Not Acceptable
-请求的资源的内容特性无法满足请求头中的条件，因而无法生成响应实体。&lt;/p&gt;
+&lt;/table&gt;&lt;/p&gt;
 
 &lt;table&gt;
 &lt;tr&gt;&lt;td bgcolor=#D1EEEE&gt;
@@ -2238,6 +2449,18 @@ document.getElementById 有效&lt;/p&gt;
     </item>
     
     <item>
+      <title>大吉</title>
+      <link>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
+      <pubDate>Mon, 26 Aug 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
+      
+        <description>&lt;p&gt;好了现在你的QQ已经是我的了:)惊不惊喜:)&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>如何用 hugo 搭建个人博客</title>
       <link>http://localhost:1313/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 26 Aug 2019 13:34:36 +0800</pubDate>
@@ -2299,18 +2522,6 @@ document.getElementById 有效&lt;/p&gt;
 &lt;li&gt;将四个 ip 配置到 namesilo&lt;/li&gt;
 &lt;li&gt;等待完成：）&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>开博大吉</title>
-      <link>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
-      <pubDate>Mon, 26 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
-      
-        <description>&lt;p&gt;博客开通啦&lt;/p&gt;
 </description>
       
     </item>
