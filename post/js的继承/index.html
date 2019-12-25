@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jane - A super concise theme for Hugo</title>
+  <title>JS的继承 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://localhost:1313/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane - A super concise theme for Hugo" />
+<link rel="canonical" href="http://localhost:1313/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Jane - A super concise theme for Hugo" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/" />
+<meta property="og:title" content="JS的继承" />
+<meta property="og:description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/" />
+<meta property="article:published_time" content="2019-12-23T13:34:36+08:00" />
+<meta property="article:modified_time" content="2019-12-23T13:34:36+08:00" />
+<meta itemprop="name" content="JS的继承">
+<meta itemprop="description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基">
 
-<meta property="og:updated_time" content="2019-12-24T13:34:36+08:00" />
-<meta itemprop="name" content="Jane - A super concise theme for Hugo">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2019-12-23T13:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-23T13:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="122">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Jane - A super concise theme for Hugo"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="JS的继承"/>
+<meta name="twitter:description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -228,7 +236,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -309,169 +317,196 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">JS的继承</h1>
       
-      <a class="post-link" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/">jQuery设计思想</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2019-12-23" class="post-time">
+          2019-12-23
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-11-10" class="post-time">
-        2019-11-10
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      jQuery的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作。 这是它区别于其他Javascript库的根本特点。 一 jQu
-    </div>
-    <div class="read-more">
-      <a href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" class="read-more-link">阅读全文</a>
-    </div>
-    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#基于原型的继承">基于原型的继承</a></li>
+<li><a href="#基于-class-的继承">基于 class 的继承</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
   </div>
-</article>
+</div>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">JS函数的执行时机</a>
-    </h1>
     
-    <div class="post-meta">
-      <time datetime="2019-10-26" class="post-time">
-        2019-10-26
-      </time>
+    <div class="post-content">
       
-      
-      
-      
+
+<h3 id="基于原型的继承">基于原型的继承</h3>
+
+<pre><code class="language-js">function Animal () {
+  this.x = 1
+}
+Animal.prototype.move = function() {
+  console.log('Animal-move')
+}
+
+function Dog () {
+  Animal.apply(this, arguments)
+  this.xx = 2
+}
+
+let f = function() {}
+f.prototype = Animal.prototype
+Dog.prototype = new f()
+
+Dog.prototype.constructor = Dog
+
+Dog.prototype.run = function(){
+  console.log('Dog-run')
+}
+</code></pre>
+
+<p>重点：</p>
+
+<pre><code class="language-js">let f = function() {}
+f.prototype = Animal.prototype
+Dog.prototype = new f()
+
+Dog.prototype.constructor = Dog
+</code></pre>
+
+<h3 id="基于-class-的继承">基于 class 的继承</h3>
+
+<pre><code class="language-js">class Animal {
+  constructor () {
+    this.x = 1
+  }
+  move() {
+    console.log('Animal-move')
+  }
+}
+class Dog extends Animal {
+  constructor () {
+    super()
+    this.xx = 2
+  }
+  run() {
+    console.log('Dog-run')
+  }
+}
+</code></pre>
+
+<p>重点：</p>
+
+<pre><code class="language-js">class Dog extends Animal {
+  constructor () {
+    super()
+  }
+}
+</code></pre>
+
     </div>
-  </header>
-  
-  <div class="post-content">
+
     
-    <div class="post-summary">
-      一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i++){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="read-more-link">阅读全文</a>
-    </div>
     
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Amber</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-12-23
       
-      <a class="post-link" href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">JS排序算法</a>
-    </h1>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
     
-    <div class="post-meta">
-      <time datetime="2019-10-26" class="post-time">
-        2019-10-26
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">关于我对前端的理解</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">
+            <span class="next-text nav-default">事件机制</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

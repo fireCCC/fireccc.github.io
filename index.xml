@@ -6,10 +6,329 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Dec 2019 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Dec 2019 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于我对前端的理解</title>
+      <link>http://localhost:1313/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Tue, 24 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      
+        <description>
+
+&lt;p&gt;前端工程师是最贴近用户的程序员，前端工作可以实现页面交互，提升用户体验，参与项目开发，快速、高质量地完成实现效果图，精准到1px。
+与团队成员如UI设计人员、产品经理、测试人员沟通。做好页面结构、页面重构，提升用户体验。处理hack，兼容性问题，写出优美的代码。好的代码应具有高复用率，低耦合度，易维护，易扩展等特点。此外，针对各种问题进行优化，拥抱最新的前端技术。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;font color=&#34;#8B3A3A&#34;&gt;目前，前端工程师已经成为研发体系中的重要岗位之一。可是，与此相对的是，极少或者几乎没有大学的计算机专业愿意开设前端课程，更没有系统性的教学方案出现。大部分前端工程师的知识，其实都是来自于实践和工作中零散的学习。这样的现状就引发了一系列的问题。&lt;/p&gt;
+
+&lt;p&gt;首先是前端的基础知识，常常看到一些大佬认为很基础的JavaScript语法的时候，惊呼“居然可以这样”。基础知识的欠缺会让人感觉束手束脚，限制了解决问题的思路。&lt;/p&gt;
+
+&lt;p&gt;其次，技术上存在短板，就会导致前端开发者的上升通道不甚顺畅。特别是一些小公司的程序员，只能靠自己摸索，这样就很容易陷入重复性劳动的陷阱，最终耽误自己的职业发展。&lt;/p&gt;
+
+&lt;p&gt;除此之外，前端工程师也会面临技术发展问题带来的挑战。前端社区高度活跃，前端标准也在快速更新，这样蓬勃发展对技术来说无疑是好事，但是副作用也显而易见，它使得前端工程师的学习压力变得很大。我们就拿 JavaScript 标准来说，ES6 中引入的新特性超过了过去十年的总和，新特性带来的实践就更多了，仅仅是一个 Proxy 特性的引入，就支持了 VueJS 从 2.0 到 3.0 的内核原理完全升级。缺少系统教育 + 技术快速革新，在这样的大环境下，前端工程师保持自学能力就显得尤其重要。
+&lt;/font&gt;
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;前端技术大致分为几个部分&lt;/p&gt;
+
+&lt;h3 id=&#34;html-和-css&#34;&gt;HTML 和 CSS&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/HTMLCSS.png&#34; alt=&#34;htmlcss&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在 HTML 的部分，我们按照功能和语言来划分它的知识，HTML 的功能主要由标签来承担，所以我们首先会把标签做一些分类。&lt;/p&gt;
+
+&lt;p&gt;我们都知道 HTML 的标签可以分为很多种，head 里面的我们称为元信息类标签，诸如 title、meta、style、link、base 这些，它们用来描述文档的一些基本信息。&lt;/p&gt;
+
+&lt;p&gt;还有一类是一些诸如 section、nav 的标签，它们在视觉表现上跟 div 并没有区别，但是各有各的适用场景，我们把它们称作语义类标签。&lt;/p&gt;
+
+&lt;p&gt;另外一类是 img、video、audio 之类的替换型媒体类标签，用来引入外部内容，平常开发中你也会经常用到。&lt;/p&gt;
+
+&lt;p&gt;再有就是表单类的，比如 input、button。&lt;/p&gt;
+
+&lt;p&gt;除了标签之外，我们还应该把 HTML 当作一门语言来了解下，当然，标记语言跟编程语言不太一样，没有编程语言那么严谨，包括HTML的语法和几个重要的语言机制：实体、命名空间。此外，包括HTML的补充标准：ARIA，它是HTML的扩展，在可访问性领域，它有至关重要的作用。&lt;/p&gt;
+
+&lt;p&gt;CSS部分，按照惯例从语言和功能两个角度来说。在语言部分，从大到小包括CSS的各种语法结构，比如 @rule、选择器、单位等等。功能部分，我们大致可以分为布局、绘制和交互类。布局类中两个最常用的布局：正常流和弹性布局。绘制类分为图形相关的和文字相关的绘制。最后动画和其它交互。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;javascript&#34;&gt;JavaScript&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/JS.png&#34; alt=&#34;js&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在 JavaScript 的模块中，首先我们可以把语言按照文法、语义和运行时来拆分，这符合编程语言的一般规律：用一定的词法和语法，表达一定语义，从而操作运行时。&lt;/p&gt;
+
+&lt;p&gt;接下来，我们又按照程序的一般规律，把运行时分为数据结构和算法部分：&lt;/p&gt;
+
+&lt;p&gt;数据结构包含类型和实例（JavaScript 的类型系统就是它的 7 种基本类型和 7 种语言类型，实例就是它的内置对象部分）。&lt;/p&gt;
+
+&lt;p&gt;所谓的算法，就是 JavaScript 的执行过程。类型部分中，对象比其它所有类型加起来都要更为复杂，包括它的一些历史和设计思路。&lt;/p&gt;
+
+&lt;p&gt;执行过程则按照从大结构到小结构的角度，从最顶层的程序与模块、事件循环和微任务，到函数、再到语句级的执行。从粗到细地了解执行过程。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;浏览器的实现原理和api&#34;&gt;浏览器的实现原理和API&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/浏览器的实现原理和API.png&#34; alt=&#34;浏览器的实现原理和API&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;浏览器部分包括浏览器的实现原理，这是深入理解 API 的基础。
+从一般的浏览器设计出发，按照解析、构建 DOM 树、计算 CSS、渲染、合成和绘制的流程来解释浏览器的工作原理。在 API 部分，主要有：事件、DOM、CSSOM 几个部分，它们分别覆盖了交互、语义和可见效果。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS的继承</title>
+      <link>http://localhost:1313/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Mon, 23 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;基于原型的继承&#34;&gt;基于原型的继承&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function Animal () {
+  this.x = 1
+}
+Animal.prototype.move = function() {
+  console.log(&#39;Animal-move&#39;)
+}
+
+function Dog () {
+  Animal.apply(this, arguments)
+  this.xx = 2
+}
+
+let f = function() {}
+f.prototype = Animal.prototype
+Dog.prototype = new f()
+
+Dog.prototype.constructor = Dog
+
+Dog.prototype.run = function(){
+  console.log(&#39;Dog-run&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重点：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let f = function() {}
+f.prototype = Animal.prototype
+Dog.prototype = new f()
+
+Dog.prototype.constructor = Dog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;基于-class-的继承&#34;&gt;基于 class 的继承&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;class Animal {
+  constructor () {
+    this.x = 1
+  }
+  move() {
+    console.log(&#39;Animal-move&#39;)
+  }
+}
+class Dog extends Animal {
+  constructor () {
+    super()
+    this.xx = 2
+  }
+  run() {
+    console.log(&#39;Dog-run&#39;)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;重点：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;class Dog extends Animal {
+  constructor () {
+    super()
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>事件机制</title>
+      <link>http://localhost:1313/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Mon, 23 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;什么是事件委托&#34;&gt;什么是事件委托&lt;/h3&gt;
+
+&lt;p&gt;事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown&amp;hellip;&amp;hellip;）的函数委托到另一个元素；
+一般来讲，会把一个或者一组元素的事件委托到它的父层或者更外层元素上，真正绑定事件的是外层元素，当事件响应到需要绑定的元素上时，会通过事件冒泡机制从而触发它的外层元素的绑定事件上，然后在外层元素上去执行函数。&lt;/p&gt;
+
+&lt;h4 id=&#34;事件触发三阶段&#34;&gt;事件触发三阶段&lt;/h4&gt;
+
+&lt;p&gt;首先事件触发有三个阶段&lt;br&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;从document往事件触发处传播，遇到注册的捕获事件会触发&lt;/li&gt;
+&lt;li&gt;传播到事件触发处时触发注册的事件&lt;/li&gt;
+&lt;li&gt;从事件触发处往document传播，遇到注册的冒泡事件会触发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和和捕获事件，事件触发会按照注册的顺序执行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//以下会先打印冒泡然后是捕获
+node.addEventListener(&#39;click&#39;, (event) =&amp;gt; {
+    console.log(&#39;冒泡&#39;)
+}, false)
+node.addEventListener(&#39;click&#39;, (event) =&amp;gt; {
+    console.log(&#39;捕获&#39;)
+}, true)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;注册事件&#34;&gt;注册事件&lt;/h4&gt;
+
+&lt;p&gt;通常我们使用addEventListener注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值useCapture参数，该参数默认值为false。useCapture决定了注册的事件是捕获事件还是冒泡事件。对于对象参数。可以使用以下几个属性&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;capture,布尔值，和useCapture作用一样&lt;/li&gt;
+&lt;li&gt;once, 布尔值，值为true表示该回调只会调用一次，调用后会移除监听&lt;/li&gt;
+&lt;li&gt;passive，布尔值，表示永远不会调用preventDefault&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般来说，我们只希望事件只触发在目标上，这时候可以使用stopPropagation来阻止事件的进一步传播。通常我们认为stopPropagation是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。stopImmediatePropagation同样也能实现阻止事件，此外还能阻止该事件目标执行别的注册事件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;node.addEventListener(&#39;click&#39;, (event)=&amp;gt;{
+    event.stopImmediatePropagation()
+    console.log(&#39;冒泡&#39;)
+}, false)
+//点击node只会执行上面的函数，该函数不会执行
+node.addEventListener(&#39;click&#39;, (event)=&amp;gt;{
+    console.log(&#39;捕获&#39;)
+}, true)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;事件代理&#34;&gt;事件代理&lt;/h4&gt;
+
+&lt;p&gt;如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话应该注册在父节点上&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&amp;lt;ul id=&amp;quot;ul&amp;quot;&amp;gt;
+    &amp;lt;li&amp;gt;1&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;2&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;3&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;4&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;5&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;script&amp;gt;
+    ```
+    let ul = document.querySelector(&#39;#ul&#39;)
+    ul.addEventListener(&#39;click&#39;, (event) =&amp;gt; {
+        console.log(event.target)
+    })
+    ```
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;事件代理的方式相对于直接给目标注册事件，有以下优点&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;节省内存&lt;/li&gt;
+&lt;li&gt;不需要给子节点注销事件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;怎么阻止默认动作&#34;&gt;怎么阻止默认动作&lt;/h3&gt;
+
+&lt;p&gt;preventDefault它是事件对象(Event)的一个方法，作用是取消一个目标元素的默认行为。既然是说默认行为，当然是元素必须有默认行为才能被取消，如果元素本身就没有默认行为，调用当然就无效了。什么元素有默认行为呢？如链接&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;，提交按钮&lt;code&gt;&amp;lt;input type=&amp;quot;submit&amp;quot;&amp;gt;&lt;/code&gt;等。当Event 对象的 cancelable为false时，表示没有默认行为，这时即使有默认行为，调用preventDefault也是不会起作用的。&lt;/p&gt;
+
+&lt;h3 id=&#34;怎么阻止事件冒泡&#34;&gt;怎么阻止事件冒泡&lt;/h3&gt;
+
+&lt;p&gt;stopPropagation也是事件对象(Event)的一个方法，作用是阻止目标元素的冒泡事件，但是会不阻止默认行为。什么是冒泡事件？如在一个按钮是绑定一个”click”事件，那么”click”事件会依次在它的父级元素中被触发 。stopPropagation就是阻止目标元素的事件冒泡到父级元素。上面也说到，stopImmediatePropagation同样也能实现阻止事件，此外还能阻止该事件目标执行别的注册事件。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>跨域问题</title>
+      <link>http://localhost:1313/post/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 22 Dec 2019 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;什么是同源&#34;&gt;什么是同源&lt;/h3&gt;
+
+&lt;p&gt;源 = 协议 + 域名 + 端口号&lt;br&gt;
+window.origin或location.origin可以得到当前源&lt;/p&gt;
+
+&lt;p&gt;如果两个url的&lt;font color=green&gt;协议 域名 端口号&lt;/font&gt;全都一致&lt;br&gt;
+那么这两个url就是同源的！&lt;/p&gt;
+
+&lt;h3 id=&#34;什么是跨域&#34;&gt;什么是跨域&lt;/h3&gt;
+
+&lt;p&gt;因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax请求会失败
+在一些情况下我们希望让不同源之间相互访问数据&lt;/p&gt;
+
+&lt;h3 id=&#34;jsonp跨域&#34;&gt;JSONP跨域&lt;/h3&gt;
+
+&lt;p&gt;JSONP就是利用&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签没有跨域限制的漏洞。通过&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签指向一个需要访问的地址并提供一个回调函数当需要通讯时来接收数据
+JSONP使用简单且兼容性不错，但是只限于get请求。
+在开发中可能会遇到多个JSONP请求的回调函数名是相同的，这时候就需要自己封装一个JSONP&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function jsonp(url) {
+    return new Promise((resolve, reject)=&amp;gt;{
+        const random = Math.random()
+        window[random] = (data) =&amp;gt; {
+            resolve(data)
+        }
+        
+        const script = document.createElement(&#39;script&#39;)
+        script.src = `${url}?callback=${random}`
+        script.type = &#39;text/javascript&#39;
+        script.onload = () =&amp;gt; {
+            script.remove()
+        }
+        script.onerror = () =&amp;gt; {
+            reject()
+        }
+        document.body.appendChild(script)
+    })
+}
+
+jsonp(&#39;http://127.0.0.1:8888/friends.js&#39;).then(
+    (data) =&amp;gt; {
+        console.log(data)
+    }
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cors跨域&#34;&gt;CORS跨域&lt;/h3&gt;
+
+&lt;p&gt;CORS需要浏览器和后端同时支持。IE8和9需要通过XDomainRequest来实现。&lt;/p&gt;
+
+&lt;p&gt;浏览器会自动进行CORS通信，实现CORS通信的关键是后端。只要后端实现了CORS，就实现了跨域。&lt;/p&gt;
+
+&lt;p&gt;服务器设置Access-Control-Allow-Origin就可以开启CORS。该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;if(path === &#39;/friends.json&#39;){
+    response.statusCode = 200
+    response.setHeader(&#39;Content-Type&#39;, &#39;text/json;charset=utf-8&#39;)
+    response.setHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;http://127.0.0.1:8888&#39;)
+    response.write(fs.readFileSync(&#39;./public/friends.json&#39;))
+    response.end()
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Promise介绍</title>
@@ -129,7 +448,9 @@ Promise.race([promise1, promise2]).then(function(value) {
       
       <guid>http://localhost:1313/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</guid>
       
-        <description>&lt;p&gt;著名面试题：
+        <description>
+
+&lt;p&gt;著名面试题：
 如何实现数组去重？
 假设有数组 array = [1,5,2,3,4,2,3,1,3,4]
 你要写一个函数 unique，使得
@@ -152,11 +473,12 @@ function unique (array) {
 unique(arr)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;另一个答案使用 Set&lt;/p&gt;
+&lt;p&gt;可以使用 Set&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [1,5,2,3,4,2,3,1,3,4]
 function unique (array) {
   return Array.from(new Set(arr))
+  //或者[...new Set(arr)]
 }
 unique(arr)
 &lt;/code&gt;&lt;/pre&gt;
@@ -164,6 +486,8 @@ unique(arr)
 &lt;p&gt;上面方案的缺点是不支持对象去重，数组中出现对象的时候会出现问题&lt;/p&gt;
 
 &lt;p&gt;我们可以使用 Map / WeakMap 以支持对象去重。&lt;/p&gt;
+
+&lt;h4 id=&#34;map去重&#34;&gt;Map去重&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [
     {key: &#39;key&#39;, value: &#39;value&#39;},
@@ -200,29 +524,45 @@ function unique (array) {
 unique(arr)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;缺点是遇到嵌套对象的情况会出现问题&lt;/p&gt;
+&lt;p&gt;遇到对象中嵌套对象会出现问题
+&lt;hr&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let arr = [
-    {
-        key: &#39;key&#39;, 
-        value: &#39;value&#39;, 
-        child: {
-            key: &#39;key&#39;, 
-            value: &#39;value&#39;
-        }
-    },
-    {
-        key: &#39;key&#39;, 
-        value: &#39;value&#39;, 
-        child: {
-            value: &#39;value&#39;,
-            key: &#39;key&#39;
-        }
-    },
-    {
-        name:&#39;name&#39;
-    }]
+&lt;h4 id=&#34;weakmap去重&#34;&gt;WeakMap去重&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let ob1 = {key: &#39;key&#39;, value: &#39;value&#39;}
+let ob2 = {value: &#39;value&#39;, key: &#39;key&#39;}
+let arr = [ob1,ob1,ob2]
+function unique(array) {
+  let wm = new WeakMap()
+  for(let i = 0; i &amp;lt; array.length; i++){
+    if(!wm.has(array[i])){
+      wm.set(array[i], i)
+    }
+  }
+  return wm
+}
+unique(arr)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;WeakMap {{…} =&amp;gt; 0, {…} =&amp;gt; 2}
+[[Entries]]
+0: {Object =&amp;gt; 0}
+key: {key: &amp;quot;key&amp;quot;, value: &amp;quot;value&amp;quot;}
+value: 0
+1: {Object =&amp;gt; 2}
+key: {value: &amp;quot;value&amp;quot;, key: &amp;quot;key&amp;quot;}
+value: 2
+__proto__: WeakMap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;遇到let arr = [&lt;br&gt;
+    {key: &amp;lsquo;key&amp;rsquo;, value: &amp;lsquo;value&amp;rsquo;},&lt;br&gt;
+    {key: &amp;lsquo;key&amp;rsquo;, value: &amp;lsquo;value&amp;rsquo;},&lt;br&gt;
+    {value: &amp;lsquo;value&amp;rsquo;, key: &amp;lsquo;key&amp;rsquo;},&lt;br&gt;
+    {name:&amp;lsquo;name&amp;rsquo;}]&lt;br&gt;
+会出现问题&lt;/p&gt;
 </description>
       
     </item>
@@ -2455,73 +2795,7 @@ document.getElementById 有效&lt;/p&gt;
       
       <guid>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
       
-        <description>&lt;p&gt;好了现在你的QQ已经是我的了:)惊不惊喜:)&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>如何用 hugo 搭建个人博客</title>
-      <link>http://localhost:1313/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Mon, 26 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      
-        <description>
-
-&lt;h1 id=&#34;如何用-hugo-搭建个人博客&#34;&gt;如何用 hugo 搭建个人博客&lt;/h1&gt;
-
-&lt;h2 id=&#34;为什么我们选择-hugo&#34;&gt;为什么我们选择 Hugo&lt;/h2&gt;
-
-&lt;p&gt;Hugo 是 go 语言实现的一个博客生成器，是世界上最快的博客生成器。JS 实现的博客生成器叫做 Hexo,但是非常难用，在学习过程中呢，工具不是重点，因为我们终将去尝试多种工具：）&lt;/p&gt;
-
-&lt;h2 id=&#34;一-下载并安装-hugo&#34;&gt;一 下载并安装 Hugo&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;前置条件 FQ 并且安装 chrome 插件 &lt;a href=&#34;https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif&#34;&gt;Proxy SwitchyOmega&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;github 下载 &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;Hugo 安装包&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;把 Hugo 解压并添加到 Path, 启动 cmder,运行 hugo version 查看版本。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;二-构建-hugo-项目&#34;&gt;二 构建 Hugo 项目&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;进入 Hugo 官网，点击 quick start， follow her heart&lt;/li&gt;
-&lt;li&gt;命令行输入&lt;code&gt;hugo new site xxx.github.io-creator&lt;/code&gt;新建 Hugo 项目&lt;/li&gt;
-&lt;li&gt;命令行输入&lt;code&gt;git init&lt;/code&gt;初始化 git&lt;/li&gt;
-&lt;li&gt;命令行输入&lt;code&gt;git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke&lt;/code&gt;添加 ananke 博客主题&lt;/li&gt;
-&lt;li&gt;一般在 post 文件夹下添加 markdown 文件，也就是我们的博客&lt;/li&gt;
-&lt;li&gt;命令行输入&lt;code&gt;hugo server -D&lt;/code&gt;启动 Hugo 服务器，浏览器进入&lt;code&gt;http://localhost:1313/&lt;/code&gt;查看效果&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;三-上传-github&#34;&gt;三 上传 github&lt;/h2&gt;
-
-&lt;p&gt;1.命令行输入&lt;code&gt;hugo&lt;/code&gt;生成 public 文件夹，里面已经生成好了我们将要上传的文件&lt;/p&gt;
-
-&lt;p&gt;2.命令行进入 public 文件夹 输入&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git init&lt;/code&gt;
-&lt;code&gt;git add .&lt;/code&gt;
-&lt;code&gt;git commit -v&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;3.在 github 上新建 github page，命名 xxx.github.io 4.命令行输入&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git remote add origin git@github.com:xxx/xxx.github.io.git&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git push -u origin master&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;4.将项目 master 分支推到 origin 的 master 分支&lt;/p&gt;
-
-&lt;h2 id=&#34;四-在-github-上绑定域名&#34;&gt;四 在 github 上绑定域名&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;在 namesilo 上购买域名，&lt;/li&gt;
-&lt;li&gt;在 github 上填入域名，点击 learn more &lt;img src=&#34;http://localhost:1313/images/1.png&#34; alt=&#34;图片&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;下拉，点击 setting up an apex domain &lt;img src=&#34;http://localhost:1313/images/2.png&#34; alt=&#34;图片&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;下拉找到 Configuring A records with your DNS provider &lt;img src=&#34;http://localhost:1313/images/3.png&#34; alt=&#34;图片&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;将四个 ip 配置到 namesilo&lt;/li&gt;
-&lt;li&gt;等待完成：）&lt;/li&gt;
-&lt;/ol&gt;
+        <description>&lt;p&gt;(=^-^=)/&lt;/p&gt;
 </description>
       
     </item>
