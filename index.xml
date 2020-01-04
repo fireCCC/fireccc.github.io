@@ -6,10 +6,225 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 24 Dec 2019 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>浅析MVC</title>
+      <link>http://localhost:1313/post/%E6%B5%85%E6%9E%90mvc/</link>
+      <pubDate>Fri, 03 Jan 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B5%85%E6%9E%90mvc/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;mvc三类对象&#34;&gt;MVC三类对象&lt;/h3&gt;
+
+&lt;p&gt;MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。&lt;/p&gt;
+
+&lt;p&gt;MVC包括三类对象，将他们分离以提高灵活性和复用性。&lt;/p&gt;
+
+&lt;p&gt;模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。&lt;/p&gt;
+
+&lt;p&gt;视图view是它在屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。&lt;/p&gt;
+
+&lt;p&gt;控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。&lt;/p&gt;
+
+&lt;p&gt;mvc伪代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;//数据层，关于数据的操作放在这里
+const m = {
+    //初始化
+    data:{
+    },
+    //更新数据
+    update(data) {
+        
+    },
+    //删除数据
+    delete(data) {
+    },
+    //获得数据
+    get(data) {
+
+    },
+}
+//视图层，关于视图的操作放在这里
+const v = {
+    el:&#39;挂载点&#39;,
+    html:&#39;需要插入元素内的HTML内容&#39;,
+    init(){
+
+    },
+    //渲染页面
+    render(data){
+
+    },
+}
+//控制层，其他相关的都放在这里
+const c = {
+    init() {
+
+    },
+    //调用数据层方法更改数据
+    changeData() {
+
+    },
+    //调用视图层方法渲染页面
+    changeUI() {
+
+    },
+    //监听数据改变
+    monitorData() {
+
+    },
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;mvc-for-javascript&#34;&gt;MVC for JAVASCRIPT&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/javascriptMVC.png&#34; alt=&#34;MVC for JAVASCRIPT&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图所示，view承接了部分controller的功能，负责处理用户输入，但是不必了解下一步做什么。它依赖于一个controller为她做决定或处理用户事件。事实上，前端的view已经具备了独立处理用户事件的能力，如果每个事件都要流经controller，势必增加复杂性。同时，view也可以委托controller处理model的更改。model数据变化后通知view进行更新，显示给用户。这个过程是一个圆，一个循环的过程。&lt;/p&gt;
+
+&lt;h3 id=&#34;eventbus&#34;&gt;EventBus&lt;/h3&gt;
+
+&lt;p&gt;EventBus API包括&lt;/p&gt;
+
+&lt;p&gt;绑定
+eventBus.on(eventName, function[, obj]);&lt;/p&gt;
+
+&lt;p&gt;触发
+eventBus.emit(eventName[, sender][, data]);
+eventBus.fire(eventName[, sender][, data]);
+eventBus.trigger(eventName[, sender][, data]);&lt;/p&gt;
+
+&lt;p&gt;解绑
+eventBus.off(eventName[, function]);&lt;/p&gt;
+
+&lt;p&gt;伪代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+class EventBus{
+    constructor() {
+        this._eventBus = $(window)
+    }
+    //绑定事件
+    on(eventName, fn) {
+        return this._eventBus.on(eventName, fn)
+    }
+    //触发事件
+    trigger(eventName, data) {
+        return this._eventBus.trigger(eventName, data)
+    }
+    //解绑事件
+    off(eventName, fn) {
+        return this._eventBus.off(eventName, fn)
+    }
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;应用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var myEventBus = new eventBus();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;eventBus.on(&amp;quot;data_completed&amp;quot;, function (sender, data, obj) {
+}, { sign: &amp;quot;F6243749AFF04C0581E1DD178A0B737A&amp;quot; });
+
+eventBus.emit(&amp;quot;Data_Completed&amp;quot;, window, [1,2,3,4,5,6]);
+
+eventBus.off(&amp;quot;Data_Completed&amp;quot;, f2);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;表驱动编程&#34;&gt;表驱动编程&lt;/h3&gt;
+
+&lt;p&gt;表格驱动的意义在于：逻辑和数据分离。&lt;/p&gt;
+
+&lt;p&gt;在程序中，添加数据和逻辑的方式是不一样的，成本也是不一样的。简单的说，数据的添加是非常简单的；而逻辑的添加是更复杂的。&lt;/p&gt;
+
+&lt;p&gt;比如说，国家简写转换，给一个国家全名，转换成国家简写，用 if－else 法就写成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function country_initial($country){
+    if ($country === &amp;quot;China&amp;quot; ) {
+       return &amp;quot;CHN&amp;quot;
+    } else if ($country === &amp;quot;America&amp;quot;) {
+       return &amp;quot;USA&amp;quot;
+    } else if ($country === &amp;quot;Japna&amp;quot;) {
+      return &amp;quot;JPN&amp;quot;
+    } else {
+       return &amp;quot;OTHER&amp;quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果我要增加一个国家，那么我要多加一个 else if 语句，那么我就是增加了一条逻辑&lt;/p&gt;
+
+&lt;p&gt;如果改成表驱动法就是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function country_initial($country){
+  $countryList=[
+      &amp;quot;China&amp;quot;=&amp;gt; &amp;quot;CHN&amp;quot;,
+      &amp;quot;America&amp;quot;=&amp;gt; &amp;quot;USA&amp;quot;,
+      &amp;quot;Japna&amp;quot;=&amp;gt; &amp;quot;JPN&amp;quot;,
+    ];
+    if(in_array($country, array_keys($countryList))) {
+        return $countryList[$country];
+    }
+    return &amp;quot;Other&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果我需要增加一个国家，我只需要在数组里面加个数据
+如此一来，我就可以剥离这个数据与逻辑的关系了。&lt;/p&gt;
+
+&lt;p&gt;逻辑和数据区分一目了然
+关系表可以更换，比如国家表格可以是多语言的，中文版表格，英文版表格等，日语版表格，以及单元测试中，可以注入测试表格。
+在单元测试中，逻辑必须测试，而数据无需测试。&lt;/p&gt;
+
+&lt;p&gt;总结一下就是：&lt;/p&gt;
+
+&lt;p&gt;逻辑与数据分离
+逻辑修改成本巨大，数据修改成本极小
+数据来源灵活，数据改变灵活&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&#34;如何理解模块化&#34;&gt;如何理解模块化&lt;/h3&gt;
+
+&lt;p&gt;模块化就是将一个复杂的程序依据一定的规则(规范)封装成几个块(文件), 并进行组合在一起
+块的内部数据与实现是私有的, 只是向外部暴露一些接口(方法)与外部其它模块通信&lt;/p&gt;
+
+&lt;p&gt;模块化规范&lt;br&gt;
+CommonJS&lt;/p&gt;
+
+&lt;p&gt;Node 应用由模块组成，采用 CommonJS 模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。&lt;/p&gt;
+
+&lt;p&gt;AMD&lt;br&gt;
+CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。此外AMD规范比CommonJS规范在浏览器端实现要来着早。&lt;/p&gt;
+
+&lt;p&gt;CMD&lt;br&gt;
+CMD规范专门用于浏览器端，模块的加载是异步的，模块使用时才会加载执行。CMD规范整合了CommonJS和AMD规范的特点。在 Sea.js 中，所有 JavaScript 模块都遵循 CMD模块定义规范。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;参考链接&lt;br&gt;
+&lt;a href=&#34;https://efe.baidu.com/blog/mvc-deformation/&#34;&gt;https://efe.baidu.com/blog/mvc-deformation/&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&#34;https://www.jianshu.com/p/1996ad3e09f9&#34;&gt;https://www.jianshu.com/p/1996ad3e09f9&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&#34;https://learnku.com/laravel/t/2712/the-meaning-of-the-if-else-code-style-into-the-table-driven-method&#34;&gt;https://learnku.com/laravel/t/2712/the-meaning-of-the-if-else-code-style-into-the-table-driven-method&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&#34;https://juejin.im/post/5c17ad756fb9a049ff4e0a62&#34;&gt;https://juejin.im/post/5c17ad756fb9a049ff4e0a62&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>关于我对前端的理解</title>
@@ -79,6 +294,8 @@
 
 &lt;p&gt;浏览器部分包括浏览器的实现原理，这是深入理解 API 的基础。
 从一般的浏览器设计出发，按照解析、构建 DOM 树、计算 CSS、渲染、合成和绘制的流程来解释浏览器的工作原理。在 API 部分，主要有：事件、DOM、CSSOM 几个部分，它们分别覆盖了交互、语义和可见效果。&lt;/p&gt;
+
+&lt;p&gt;在最后我想说，我不想说对前端有什么理解我只是小弱鸡T-T&lt;/p&gt;
 </description>
       
     </item>
@@ -2784,18 +3001,6 @@ document.getElementById 有效&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;相关信息引用：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32570423&#34;&gt;https://zhuanlan.zhihu.com/p/32570423&lt;/a&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>大吉</title>
-      <link>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
-      <pubDate>Mon, 26 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
-      
-        <description>&lt;p&gt;(=^-^=)/&lt;/p&gt;
 </description>
       
     </item>

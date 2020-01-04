@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JS函数的执行时机 - Jane - A super concise theme for Hugo</title>
+  <title>浅析MVC - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &amp;lt; 6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，" />
+  <meta name="description" content="MVC三类对象 MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。 MVC包括三类对象，将他们分离以提高灵活性和复用性。 模型mod" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<link rel="canonical" href="http://localhost:1313/post/%E6%B5%85%E6%9E%90mvc/" />
 
 
 
@@ -57,26 +57,26 @@
 
 
 
-<meta property="og:title" content="JS函数的执行时机" />
-<meta property="og:description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，" />
+<meta property="og:title" content="浅析MVC" />
+<meta property="og:description" content="MVC三类对象 MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。 MVC包括三类对象，将他们分离以提高灵活性和复用性。 模型mod" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
-<meta property="article:published_time" content="2019-10-26T19:34:36+08:00" />
-<meta property="article:modified_time" content="2019-10-26T19:34:36+08:00" />
-<meta itemprop="name" content="JS函数的执行时机">
-<meta itemprop="description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，">
+<meta property="og:url" content="http://localhost:1313/post/%E6%B5%85%E6%9E%90mvc/" />
+<meta property="article:published_time" content="2020-01-03T13:34:36+08:00" />
+<meta property="article:modified_time" content="2020-01-03T13:34:36+08:00" />
+<meta itemprop="name" content="浅析MVC">
+<meta itemprop="description" content="MVC三类对象 MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。 MVC包括三类对象，将他们分离以提高灵活性和复用性。 模型mod">
 
 
-<meta itemprop="datePublished" content="2019-10-26T19:34:36&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-26T19:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="625">
+<meta itemprop="datePublished" content="2020-01-03T13:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-03T13:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="1708">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="JS函数的执行时机"/>
-<meta name="twitter:description" content="一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，"/>
+<meta name="twitter:title" content="浅析MVC"/>
+<meta name="twitter:description" content="MVC三类对象 MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。 MVC包括三类对象，将他们分离以提高灵活性和复用性。 模型mod"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -320,11 +320,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">JS函数的执行时机</h1>
+      <h1 class="post-title">浅析MVC</h1>
       
       <div class="post-meta">
-        <time datetime="2019-10-26" class="post-time">
-          2019-10-26
+        <time datetime="2020-01-03" class="post-time">
+          2020-01-03
         </time>
         
         
@@ -346,9 +346,16 @@
 <ul>
 <li>
 <ul>
-<li><a href="#一-为什么如下代码会打印-6-个-6">一 为什么如下代码会打印 6 个 6</a></li>
-<li><a href="#二-让上面代码打印-0-1-2-3-4-5-的方法">二 让上面代码打印 0、1、2、3、4、5 的方法</a></li>
-<li><a href="#三-除了使用-for-let-配合-还有什么其他方法可以打印出-0-1-2-3-4-5">三 除了使用 for let 配合，还有什么其他方法可以打印出 0、1、2、3、4、5</a></li>
+<li>
+<ul>
+<li><a href="#mvc三类对象">MVC三类对象</a>
+<ul>
+<li><a href="#mvc-for-javascript">MVC for JAVASCRIPT</a></li>
+</ul></li>
+<li><a href="#eventbus">EventBus</a></li>
+<li><a href="#表驱动编程">表驱动编程</a></li>
+<li><a href="#如何理解模块化">如何理解模块化</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -359,77 +366,208 @@
     <div class="post-content">
       
 
-<h2 id="一-为什么如下代码会打印-6-个-6">一 为什么如下代码会打印 6 个 6</h2>
+<h3 id="mvc三类对象">MVC三类对象</h3>
 
-<pre><code class="language-js">let i = 0
-for(i = 0; i &lt; 6; i++){
-  setTimeout(()=&gt;{
-    console.log(i)
-  },0)
+<p>MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。</p>
+
+<p>MVC包括三类对象，将他们分离以提高灵活性和复用性。</p>
+
+<p>模型model用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。</p>
+
+<p>视图view是它在屏幕上的表示，描绘的是model的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。</p>
+
+<p>控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。</p>
+
+<p>mvc伪代码</p>
+
+<pre><code class="language-js">//数据层，关于数据的操作放在这里
+const m = {
+    //初始化
+    data:{
+    },
+    //更新数据
+    update(data) {
+        
+    },
+    //删除数据
+    delete(data) {
+    },
+    //获得数据
+    get(data) {
+
+    },
+}
+//视图层，关于视图的操作放在这里
+const v = {
+    el:'挂载点',
+    html:'需要插入元素内的HTML内容',
+    init(){
+
+    },
+    //渲染页面
+    render(data){
+
+    },
+}
+//控制层，其他相关的都放在这里
+const c = {
+    init() {
+
+    },
+    //调用数据层方法更改数据
+    changeData() {
+
+    },
+    //调用视图层方法渲染页面
+    changeUI() {
+
+    },
+    //监听数据改变
+    monitorData() {
+
+    },
 }
 </code></pre>
 
-<p>当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，然后立即调用定时器。</p>
+<h4 id="mvc-for-javascript">MVC for JAVASCRIPT</h4>
 
-<p>因为定时器都被放在了一个队列中，等待上下文的可执行代码运行完毕后，才开始运行定时器，也就是定时器才刚开始计时。代码中声明一个let全局变量i，然后在for循环中改变i，所以在定时器的方法执行的时候，变量i已经变成了6，所以输出的全部是6。</p>
+<p><img src="/images/javascriptMVC.png" alt="MVC for JAVASCRIPT" /></p>
 
-<h2 id="二-让上面代码打印-0-1-2-3-4-5-的方法">二 让上面代码打印 0、1、2、3、4、5 的方法</h2>
+<p>如图所示，view承接了部分controller的功能，负责处理用户输入，但是不必了解下一步做什么。它依赖于一个controller为她做决定或处理用户事件。事实上，前端的view已经具备了独立处理用户事件的能力，如果每个事件都要流经controller，势必增加复杂性。同时，view也可以委托controller处理model的更改。model数据变化后通知view进行更新，显示给用户。这个过程是一个圆，一个循环的过程。</p>
 
-<pre><code class="language-js">for(let i = 0; i &lt; 6; i++){
-  setTimeout(() =&gt; {
-    console.log(i)
-  }, 0)
+<h3 id="eventbus">EventBus</h3>
+
+<p>EventBus API包括</p>
+
+<p>绑定
+eventBus.on(eventName, function[, obj]);</p>
+
+<p>触发
+eventBus.emit(eventName[, sender][, data]);
+eventBus.fire(eventName[, sender][, data]);
+eventBus.trigger(eventName[, sender][, data]);</p>
+
+<p>解绑
+eventBus.off(eventName[, function]);</p>
+
+<p>伪代码</p>
+
+<pre><code class="language-js">
+class EventBus{
+    constructor() {
+        this._eventBus = $(window)
+    }
+    //绑定事件
+    on(eventName, fn) {
+        return this._eventBus.on(eventName, fn)
+    }
+    //触发事件
+    trigger(eventName, data) {
+        return this._eventBus.trigger(eventName, data)
+    }
+    //解绑事件
+    off(eventName, fn) {
+        return this._eventBus.off(eventName, fn)
+    }
+}
+
+
+</code></pre>
+
+<p>应用</p>
+
+<pre><code class="language-js">var myEventBus = new eventBus();
+</code></pre>
+
+<pre><code class="language-js">eventBus.on(&quot;data_completed&quot;, function (sender, data, obj) {
+}, { sign: &quot;F6243749AFF04C0581E1DD178A0B737A&quot; });
+
+eventBus.emit(&quot;Data_Completed&quot;, window, [1,2,3,4,5,6]);
+
+eventBus.off(&quot;Data_Completed&quot;, f2);
+</code></pre>
+
+<hr>
+
+<h3 id="表驱动编程">表驱动编程</h3>
+
+<p>表格驱动的意义在于：逻辑和数据分离。</p>
+
+<p>在程序中，添加数据和逻辑的方式是不一样的，成本也是不一样的。简单的说，数据的添加是非常简单的；而逻辑的添加是更复杂的。</p>
+
+<p>比如说，国家简写转换，给一个国家全名，转换成国家简写，用 if－else 法就写成：</p>
+
+<pre><code class="language-js">function country_initial($country){
+    if ($country === &quot;China&quot; ) {
+       return &quot;CHN&quot;
+    } else if ($country === &quot;America&quot;) {
+       return &quot;USA&quot;
+    } else if ($country === &quot;Japna&quot;) {
+      return &quot;JPN&quot;
+    } else {
+       return &quot;OTHER&quot;
+    }
 }
 </code></pre>
 
-<p><img src="/images/setTimeout1.png" alt="setTimeout1" /></p>
+<p>如果我要增加一个国家，那么我要多加一个 else if 语句，那么我就是增加了一条逻辑</p>
 
-<p>利用ES6 let命令声明变量块级作用域的概念，和前面for循环使用全局变量i不同，当前的i只在本轮循环有效， 所以每一次循环的i其实都是一个新的变量，所以5个setTimeout回调函数虽然都引用了变量i,但实际上这5个i是独立的，仅在自己的块级作用域内有效</p>
+<p>如果改成表驱动法就是：</p>
 
-<h2 id="三-除了使用-for-let-配合-还有什么其他方法可以打印出-0-1-2-3-4-5">三 除了使用 for let 配合，还有什么其他方法可以打印出 0、1、2、3、4、5</h2>
-
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  // j = i
-  !(function(j) { 
-    setTimeout(() =&gt; {
-      console.log(j)
-    }, 0);
-  })(i);
+<pre><code class="language-js">function country_initial($country){
+  $countryList=[
+      &quot;China&quot;=&gt; &quot;CHN&quot;,
+      &quot;America&quot;=&gt; &quot;USA&quot;,
+      &quot;Japna&quot;=&gt; &quot;JPN&quot;,
+    ];
+    if(in_array($country, array_keys($countryList))) {
+        return $countryList[$country];
+    }
+    return &quot;Other&quot;;
 }
 </code></pre>
 
-<p><img src="/images/setTimeout2.png" alt="setTimeout2" /></p>
+<p>如果我需要增加一个国家，我只需要在数组里面加个数据
+如此一来，我就可以剥离这个数据与逻辑的关系了。</p>
 
-<p>这里通过立即执行函数创造了n个不同的函数作用域，给setTimeout传入n个不同的参数，所以就可以打印出0、1、2、3、4、5
-此外，我们还可以</p>
+<p>逻辑和数据区分一目了然
+关系表可以更换，比如国家表格可以是多语言的，中文版表格，英文版表格等，日语版表格，以及单元测试中，可以注入测试表格。
+在单元测试中，逻辑必须测试，而数据无需测试。</p>
 
-<pre><code class="language-js">let output = function(i) {
-  setTimeout(function() {
-    console.log(i);
-  }, 0);
-};
-let i
-for (i = 0; i &lt; 6; i++) {
-  output.call(undefined, i); // 这里传过去的 i 值被复制，而不是引用
-}
-</code></pre>
+<p>总结一下就是：</p>
 
-<p><img src="/images/setTimeout3.png" alt="setTimeout3" /></p>
+<p>逻辑与数据分离
+逻辑修改成本巨大，数据修改成本极小
+数据来源灵活，数据改变灵活</p>
 
-<p>原理和上面相似，也是创造了n个不同的函数作用域，给setTimeout传入了n个不同的参数</p>
+<hr>
 
-<p>此外我们还可以利用setTimeout第三个参数</p>
+<h3 id="如何理解模块化">如何理解模块化</h3>
 
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  setTimeout(function(i) {
-    console.log(i);
-  }, 0, i);
-}
-</code></pre>
+<p>模块化就是将一个复杂的程序依据一定的规则(规范)封装成几个块(文件), 并进行组合在一起
+块的内部数据与实现是私有的, 只是向外部暴露一些接口(方法)与外部其它模块通信</p>
 
-<p><img src="/images/setTimeout4.png" alt="setTimeout4" /></p>
+<p>模块化规范<br>
+CommonJS</p>
+
+<p>Node 应用由模块组成，采用 CommonJS 模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。</p>
+
+<p>AMD<br>
+CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。此外AMD规范比CommonJS规范在浏览器端实现要来着早。</p>
+
+<p>CMD<br>
+CMD规范专门用于浏览器端，模块的加载是异步的，模块使用时才会加载执行。CMD规范整合了CommonJS和AMD规范的特点。在 Sea.js 中，所有 JavaScript 模块都遵循 CMD模块定义规范。</p>
+
+<hr>
+
+<p>参考链接<br>
+<a href="https://efe.baidu.com/blog/mvc-deformation/">https://efe.baidu.com/blog/mvc-deformation/</a>
+<br>
+<a href="https://www.jianshu.com/p/1996ad3e09f9">https://www.jianshu.com/p/1996ad3e09f9</a>
+<br>
+<a href="https://learnku.com/laravel/t/2712/the-meaning-of-the-if-else-code-style-into-the-table-driven-method">https://learnku.com/laravel/t/2712/the-meaning-of-the-if-else-code-style-into-the-table-driven-method</a>
+<br>
+<a href="https://juejin.im/post/5c17ad756fb9a049ff4e0a62">https://juejin.im/post/5c17ad756fb9a049ff4e0a62</a></p>
 
     </div>
 
@@ -443,7 +581,7 @@ for (i = 0; i &lt; 6; i++) {
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-10-26
+      2020-01-03
       
     </span>
   </p>
@@ -464,22 +602,9 @@ for (i = 0; i &lt; 6; i++) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">jQuery设计思想</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-            <span class="next-text nav-default">JS排序算法</span>
+          <a class="next" href="/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/">
+            <span class="next-text nav-default">关于我对前端的理解</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">
