@@ -6,10 +6,72 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Jan 2020 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jan 2020 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue 两个版本</title>
+      <link>http://localhost:1313/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 15 Jan 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;两个版本对应的文件名&#34;&gt;两个版本对应的文件名&lt;/h3&gt;
+
+&lt;p&gt;完整版：vue.js&lt;br&gt;
+只包含运行时版(非完整版)：vue.runtime.js&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;完整版：同时包含编译器和运行时的版本。&lt;/p&gt;
+
+&lt;p&gt;编译器：用来将模板字符串编译成为 JavaScript 渲染函数的代码。&lt;/p&gt;
+
+&lt;p&gt;运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。&lt;/p&gt;
+
+&lt;h3 id=&#34;template-和-render-怎么用&#34;&gt;template 和 render 怎么用&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// 需要编译器
+new Vue({
+  template: &#39;&amp;lt;div&amp;gt;{{ hi }}&amp;lt;/div&amp;gt;&#39;
+})
+// 不需要编译器
+new Vue({
+  render (h) {
+    return h(&#39;div&#39;, this.hi)
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;yarn build 当使用 vue-loader 或 vueify 的时候，*.vue 文件内部的模板会在构建时预编译成 JavaScript。你在最终打好的包里实际上是不需要编译器的，所以只用运行时版本即可。&lt;/p&gt;
+
+&lt;p&gt;因为运行时版本相比完整版体积要小大约 30%，所以应该尽可能使用这个版本。&lt;/p&gt;
+
+&lt;h3 id=&#34;两种版本区别&#34;&gt;两种版本区别&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/vue-version.png&#34; alt=&#34;vue-version&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最佳实践：总是使用非完整版，然后配合vue-loader和vue文件&lt;/p&gt;
+
+&lt;p&gt;思路：&lt;br&gt;
+1. 保证用户体验，用户下载的JS文件体积更小，但是只支持h函数&lt;br&gt;
+2. 保证开发体验，开发者可以直接在vue文件里写html标签，而不写h函数&lt;br&gt;
+3. 其他活让vue-loader去做&lt;br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;如何用-codesandbox-io-写-vue-代码&#34;&gt;如何用 codesandbox.io 写 Vue 代码&lt;/h3&gt;
+
+&lt;p&gt;不进行注册登录 直接create a sandbox&lt;/p&gt;
+
+&lt;p&gt;然后选择Explore Templates&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/codesandbox.png&#34; alt=&#34;codesandbox&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/code-sand-box-vue.png&#34; alt=&#34;code-sand-box-vue&#34; /&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>浅析MVC</title>
@@ -2889,118 +2951,6 @@ www是多余的吗?是的，非常多余:)&lt;/p&gt;
 
 &lt;p&gt;//禁止拖动大小&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>html 入门笔记 1</title>
-      <link>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Tue, 27 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;一-html-是谁发明的&#34;&gt;一 HTML 是谁发明的&lt;/h2&gt;
-
-&lt;p&gt;蒂姆·伯纳斯-李(简称李爵士) 大佬毕竟是大佬：）&lt;/p&gt;
-
-&lt;h2 id=&#34;二-html-起手应该写什么&#34;&gt;二 HTML 起手应该写什么&lt;/h2&gt;
-
-&lt;p&gt;利用编辑器 emmet 插件使用 ！+ tab 自动生成&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt; //声明文档类型为html,而不是svg/xml
-&amp;lt;html lang=&amp;quot;zh-CN&amp;quot;&amp;gt; //声明语言类型，翻译参考
-  &amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot; /&amp;gt; //文件的字符编码
-    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt; //兼容手机
-    &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot; /&amp;gt; //告诉IE使用最新内核
-    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; //网页标题
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;三-常用的表示章节的标签&#34;&gt;三 常用的表示章节的标签&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;header(头部)
-定义文章的介绍信息：标题，logo，slogan；包裹目录部分，搜索框，一个 nav 或者任何相关的 logo；
-一个页面中&lt;code&gt;&amp;lt;header&amp;gt;&lt;/code&gt;的个数没有限制，可以为每个内容块添加一个 header；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;h1-h6(数字越小字体越大)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;section(章、节)
-与 article 的差别在于，它是整体的一部分，或者是文章的一节，一般来说 section 也会带有标题；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;article(文章)
-定义文档中可以脱离其他部分的，一份独立的内容，通常带有标题，当 article 内嵌 article 时，里外层的内容应该是相关的，比如一篇微博和它的评论；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;main(主要的)
-定义文章的主要内容
-main 标签在一份文档中是唯一的，其后代元素常常包括&lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;aside(旁边的)
-侧边栏（与 article 并列存在）或者嵌入内容（在 article 内），通常认为是独立拆分出来而不受整体影响的一部分，作为主要内容的附属信息，如索引，词条列表，或者页面及站点的附属信息，如广告，作者资料介绍等；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;p(段落)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;footer(脚部)
-页脚，通常包含作者、版权信息或者相关链接等；&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;div(划分 块级元素)&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;四-全局属性有哪些&#34;&gt;四 全局属性有哪些&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;class (引用 css 以.开头的样式, 尽量能用就用)&lt;/li&gt;
-&lt;li&gt;contenteditable(在浏览器可以编辑)&lt;/li&gt;
-&lt;li&gt;hidden(隐藏)&lt;/li&gt;
-&lt;li&gt;style(内联样式)&lt;/li&gt;
-&lt;li&gt;tabindex(增加用户体验多元化) 可以取 1 2 0 -1 ，tab、 shift tab 切换, -1 永远不访问&lt;/li&gt;
-&lt;li&gt;title(增加可读性)&lt;/li&gt;
-&lt;li&gt;id&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;不到万不得已不要用 id，
-html 和 css 中出现多个相同 id 的标签同时生效&lt;/p&gt;
-
-&lt;p&gt;id 不能和 window 属性重名，
-因为 xxx.style.border 失效，
-document.getElementById 有效&lt;/p&gt;
-
-&lt;h2 id=&#34;五-常用的内容标签有哪些-分别是什么意思&#34;&gt;五 常用的内容标签有哪些，分别是什么意思&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;a(anchor 超链接)：用作跳转其他页面&lt;/li&gt;
-&lt;li&gt;ol+li(ordered list 有序列表)：带有数字的列表&lt;/li&gt;
-&lt;li&gt;ul+li(unordered list 无序列表)：以·开头的列表&lt;/li&gt;
-&lt;li&gt;dl+dt+dd(description list 描述列表)&lt;/li&gt;
-&lt;li&gt;pre(输出默认格式) html 回车缩成一个空格 tab 缩成一个空格 多个空格缩成一个空格
-保留用 pre 标签包裹&lt;/li&gt;
-&lt;li&gt;hr(水平线)&lt;/li&gt;
-&lt;li&gt;br(回车)&lt;/li&gt;
-&lt;li&gt;em(强调语气,以斜体展示)
-表达对文本内容的强调；
-其强调位置的不同往往带来语义的变化（可以理解为英语口语中针对一句话中不同位置的重度，影响听话人的理解）；
-在视觉效果上也是斜体的效果；&lt;/li&gt;
-&lt;li&gt;strong(重要强调,以加粗展示)
-表示强调带有着重意味，意在传达内容的重要性（需要尽快被看到）、严重性或者紧急性，；&lt;/li&gt;
-&lt;li&gt;code(代码标签)&lt;/li&gt;
-&lt;li&gt;quote(引用)&lt;/li&gt;
-&lt;li&gt;blockquote(独自占一行块引用)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;适用于在一段文本中突出重点，强调位置的不同往往会影响语义，而如果仅仅在语态或者语气上为了突出某个文本，应该使用&lt;code&gt;&amp;lt;i&amp;gt;&lt;/code&gt;；&lt;/li&gt;
-&lt;li&gt;在使用&lt;code&gt;&amp;lt;i&amp;gt;&lt;/code&gt;时，W3C 鼓励开发者最好检查下是否有更合适的标签可替代，例如，上述的&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;，来突出重点，或是&lt;code&gt;&amp;lt;dfn&amp;gt;&lt;/code&gt;，用来定义一个术语；&lt;/li&gt;
-&lt;li&gt;如果为了突出文本的重要性，紧急性，严重性应该使用&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;；&lt;/li&gt;
-&lt;li&gt;W3C 明确说明，&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; 元素应当是在其他标签都不合适的情况下最后一个考虑使用的标签，言外之意，官方并不推荐使用 b 标签&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;相关信息引用：&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32570423&#34;&gt;https://zhuanlan.zhihu.com/p/32570423&lt;/a&gt;&lt;/p&gt;
 </description>
       
     </item>

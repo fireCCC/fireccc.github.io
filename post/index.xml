@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Jan 2020 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jan 2020 13:34:36 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue 两个版本</title>
+      <link>http://localhost:1313/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 15 Jan 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</guid>
+      <description>两个版本对应的文件名 完整版：vue.js 只包含运行时版(非完整版)：vue.runtime.js 完整版：同时包含编译器和运行时的版本。 编译器</description>
+    </item>
     
     <item>
       <title>浅析MVC</title>
@@ -180,15 +189,6 @@
       
       <guid>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
       <description>一 a 标签的用法 属性 1：href(hyper reference) 超级引用。 取值：网址（https://xx.com, http://xx.com, //xx.com） 路径: /a/b/c 根目录, 也就是服</description>
-    </item>
-    
-    <item>
-      <title>html 入门笔记 1</title>
-      <link>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Tue, 27 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
-      <description>一 HTML 是谁发明的 蒂姆·伯纳斯-李(简称李爵士) 大佬毕竟是大佬：） 二 HTML 起手应该写什么 利用编辑器 emmet 插件使用 ！+ tab 自动生成 &amp;lt;!DOCTYPE html&amp;gt; //声明文档类型为ht</description>
     </item>
     
   </channel>
