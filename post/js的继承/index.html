@@ -512,7 +512,7 @@ class Dog extends Animal {
         <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js"></script>
       <script type="text/javascript">
       const gitment = new Gitment({
-        id: 'JS的继承.md',
+        id: 'JS的继承',
         title: 'JS的继承',
         link: decodeURI(location.href),
         desc: '基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(\x27Animal-move\x27) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(\x27Dog-run\x27) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基',
