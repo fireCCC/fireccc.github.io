@@ -1,196 +1,212 @@
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://wantsuchen.top/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://wantsuchen.top/categories/</loc>
     <lastmod>2020-01-22T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://wantsuchen.top/</loc>
     <lastmod>2020-01-22T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</loc>
+    <loc>http://wantsuchen.top/post/</loc>
     <lastmod>2020-01-22T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</loc>
+    <loc>http://wantsuchen.top/tags/</loc>
+    <lastmod>2020-01-22T13:34:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://wantsuchen.top/categories/vue/</loc>
+    <lastmod>2020-01-22T13:34:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://wantsuchen.top/tags/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2020-01-22T13:34:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://wantsuchen.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2020-01-22T13:34:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://wantsuchen.top/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</loc>
     <lastmod>2020-01-15T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E6%B5%85%E6%9E%90mvc/</loc>
+    <loc>http://wantsuchen.top/post/%E6%B5%85%E6%9E%90mvc/</loc>
     <lastmod>2020-01-03T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <loc>http://wantsuchen.top/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2019-12-24T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/</loc>
+    <loc>http://wantsuchen.top/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2019-12-23T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</loc>
+    <loc>http://wantsuchen.top/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</loc>
     <lastmod>2019-12-23T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://wantsuchen.top/post/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2019-12-22T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/promise%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://wantsuchen.top/post/promise%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2019-12-18T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</loc>
+    <loc>http://wantsuchen.top/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</loc>
     <lastmod>2019-12-17T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/http%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <loc>http://wantsuchen.top/post/http%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-12-12T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E9%97%AD%E5%8C%85%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
+    <loc>http://wantsuchen.top/post/%E9%97%AD%E5%8C%85%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
     <lastmod>2019-12-10T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/applycall%E5%92%8Cbind/</loc>
+    <loc>http://wantsuchen.top/post/applycall%E5%92%8Cbind/</loc>
     <lastmod>2019-12-07T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</loc>
+    <loc>http://wantsuchen.top/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</loc>
     <lastmod>2019-11-10T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
+    <loc>http://wantsuchen.top/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</loc>
     <lastmod>2019-10-26T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://wantsuchen.top/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-10-26T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</loc>
+    <loc>http://wantsuchen.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2019-10-20T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://wantsuchen.top/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2019-10-14T19:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
+    <loc>http://wantsuchen.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
     <lastmod>2019-09-21T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://wantsuchen.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2019-09-15T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E6%B5%85%E6%9E%90url/</loc>
+    <loc>http://wantsuchen.top/post/%E6%B5%85%E6%9E%90url/</loc>
     <lastmod>2019-09-03T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</loc>
+    <loc>http://wantsuchen.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</loc>
     <lastmod>2019-08-28T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</loc>
+    <loc>http://wantsuchen.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</loc>
     <lastmod>2019-08-27T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</loc>
+    <loc>http://wantsuchen.top/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</loc>
     <lastmod>2019-08-26T13:34:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://wantsuchen.top/post/%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2019-08-26T13:34:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
