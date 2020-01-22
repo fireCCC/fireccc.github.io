@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jane - A super concise theme for Hugo</title>
+  <title>Vue数据响应式原理 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="数据响应式 若一个物体能对外界的刺激做出反应，它就是响应式的。 Vue的data是响应式，即数据响应式 const vm = new Vue({data: {n:0}}) 我如果修改vm.n，那么UI中" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://localhost:1313/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://localhost:1313/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane - A super concise theme for Hugo" />
+<link rel="canonical" href="http://localhost:1313/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Jane - A super concise theme for Hugo" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/" />
+<meta property="og:title" content="Vue数据响应式原理" />
+<meta property="og:description" content="数据响应式 若一个物体能对外界的刺激做出反应，它就是响应式的。 Vue的data是响应式，即数据响应式 const vm = new Vue({data: {n:0}}) 我如果修改vm.n，那么UI中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" />
+<meta property="article:published_time" content="2020-01-22T13:34:36+08:00" />
+<meta property="article:modified_time" content="2020-01-22T13:34:36+08:00" />
+<meta itemprop="name" content="Vue数据响应式原理">
+<meta itemprop="description" content="数据响应式 若一个物体能对外界的刺激做出反应，它就是响应式的。 Vue的data是响应式，即数据响应式 const vm = new Vue({data: {n:0}}) 我如果修改vm.n，那么UI中">
 
-<meta property="og:updated_time" content="2020-01-22T13:34:36+08:00" />
-<meta itemprop="name" content="Jane - A super concise theme for Hugo">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2020-01-22T13:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-22T13:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="942">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Jane - A super concise theme for Hugo"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="Vue数据响应式原理"/>
+<meta name="twitter:description" content="数据响应式 若一个物体能对外界的刺激做出反应，它就是响应式的。 Vue的data是响应式，即数据响应式 const vm = new Vue({data: {n:0}}) 我如果修改vm.n，那么UI中"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -228,7 +236,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -309,173 +317,230 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">Vue数据响应式原理</h1>
       
-      <a class="post-link" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/">jQuery设计思想</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2020-01-22" class="post-time">
+          2020-01-22
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-11-10" class="post-time">
-        2019-11-10
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      jQuery的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作。 这是它区别于其他Javascript库的根本特点。 一 jQu
-    </div>
-    <div class="read-more">
-      <a href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" class="read-more-link">阅读全文</a>
-    </div>
-    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#数据响应式">数据响应式</a></li>
+<li><a href="#检测变化的注意事项">检测变化的注意事项</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
   </div>
-</article>
+</div>
 
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">JS函数的执行时机</a>
-    </h1>
     
-    <div class="post-meta">
-      <time datetime="2019-10-26" class="post-time">
-        2019-10-26
-      </time>
+    <div class="post-content">
       
-      
-      
-      
+
+<h3 id="数据响应式">数据响应式</h3>
+
+<p>若一个物体能对外界的刺激做出反应，它就是响应式的。<br></p>
+
+<p>Vue的data是响应式，即数据响应式<br>
+const vm = new Vue({data: {n:0}})<br>
+我如果修改vm.n，那么UI中的n就会响应我<br>
+Vue2通过Object.defineProperty来实现数据响应式<br></p>
+
+<p><font color="#41B883">当把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。
+</font></p>
+
+<p>Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。</p>
+
+<p><font color="#41B883">这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在属性被访问和修改时通知变更。</font></p>
+
+<p>(这里需要注意的是不同浏览器在控制台打印数据对象时对 getter/setter 的格式化并不同，所以建议安装 vue-devtools 来获取对检查数据更加友好的用户界面。)</p>
+
+<p><font color="#41B883">每个组件实例都对应一个 watcher 实例，它会在组件渲染的过程中把“接触”过的数据属性记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。</font></p>
+
+<p><img src="/images/vue-data-reactive.png" alt="vue-data-reactive" /></p>
+
+<h3 id="检测变化的注意事项">检测变化的注意事项</h3>
+
+<p>受现代 JavaScript 的限制 (而且 Object.observe 也已经被废弃)，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
+
+<pre><code class="language-js">var vm = new Vue({
+  data:{
+    a:1
+  }
+})
+
+// `vm.a` 是响应式的
+
+vm.b = 2
+// `vm.b` 是非响应式的
+</code></pre>
+
+<p><font color="#41B883">对于已经创建的实例，Vue 不允许动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, propertyName, value) 方法向嵌套对象添加响应式属性。</font>例如：</p>
+
+<p><code>Vue.set(vm.someObject, 'b', 2)</code></p>
+
+<p>还可以使用 vm.$set 实例方法，这也是全局 Vue.set 方法的别名：</p>
+
+<p><code>this.$set(this.someObject,'b',2)</code></p>
+
+<p><font color="#41B883">由于 Vue 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值：</font>
+(Vue会给出一个警告，Vue只会检查第一层属性)</p>
+
+<pre><code class="language-js">var vm = new Vue({
+  data: {
+    // 声明 message 为一个空值字符串
+    message: ''
+  },
+  template: '&lt;div&gt;{{ message }}&lt;/div&gt;'
+})
+// 之后设置 `message`
+vm.message = 'Hello!'
+</code></pre>
+
+<p>如果你未在 data 选项中声明 message，Vue 将警告你渲染函数正在试图访问不存在的属性。</p>
+
+<p>Vue.set和this.$set的作用包括</p>
+
+<ul>
+<li>新增key</li>
+<li>自动创建代理和监听（如果没有创建）</li>
+<li>触发UI更新（但是并不会立刻更新）</li>
+</ul>
+
+<p><font color="#41B883">Vue 将被侦听的数组的变异方法(mutation method)进行了包裹，所以它们也将会触发视图更新。</font>这些被包裹过的方法包括：</p>
+
+<pre><code class="language-js">push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse()
+</code></pre>
+
+<p>ES6</p>
+
+<pre><code class="language-js">class VueArray extends Array{
+    push(...args){
+        const oldLength = this.length
+        super.push(...args)
+        for(let i = oldLength; i &lt; this.length; i++){
+            Vue.set(this, i, this[i])
+        }
+    }
+}
+</code></pre>
+
+<p>ES5</p>
+
+<pre><code class="language-js">const vueArrayPrototype = {
+    push: function(){
+    log('something else')
+    return Array.prototype.push.apply(this,arguments)
+    }
+}
+vueArrayPrototype._proto_ = Array.prototype
+const array = object.create(vueArrayPrototype)
+array.push(1)
+</code></pre>
+
+<p>参考链接：<br>
+<a href="https://cn.vuejs.org/v2/guide/reactivity.html">https://cn.vuejs.org/v2/guide/reactivity.html</a><br>
+<a href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B">https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B</a></p>
+
     </div>
-  </header>
-  
-  <div class="post-content">
+
     
-    <div class="post-summary">
-      一 为什么如下代码会打印 6 个 6 let i = 0 for(i = 0; i &lt; 6; i++){ setTimeout(()=&gt;{ console.log(i) },0) } 当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="read-more-link">阅读全文</a>
-    </div>
     
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Amber</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-01-22
       
-      <a class="post-link" href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">JS排序算法</a>
-    </h1>
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
     
-    <div class="post-meta">
-      <time datetime="2019-10-26" class="post-time">
-        2019-10-26
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
     
-    <div class="post-summary">
-      一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/">
+            <span class="next-text nav-default">Vue 两个版本</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/page/8/">8</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

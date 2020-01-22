@@ -6,10 +6,133 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Jan 2020 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue数据响应式原理</title>
+      <link>http://localhost:1313/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Wed, 22 Jan 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;数据响应式&#34;&gt;数据响应式&lt;/h3&gt;
+
+&lt;p&gt;若一个物体能对外界的刺激做出反应，它就是响应式的。&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Vue的data是响应式，即数据响应式&lt;br&gt;
+const vm = new Vue({data: {n:0}})&lt;br&gt;
+我如果修改vm.n，那么UI中的n就会响应我&lt;br&gt;
+Vue2通过Object.defineProperty来实现数据响应式&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;当把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。
+&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在属性被访问和修改时通知变更。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;(这里需要注意的是不同浏览器在控制台打印数据对象时对 getter/setter 的格式化并不同，所以建议安装 vue-devtools 来获取对检查数据更加友好的用户界面。)&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;每个组件实例都对应一个 watcher 实例，它会在组件渲染的过程中把“接触”过的数据属性记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/vue-data-reactive.png&#34; alt=&#34;vue-data-reactive&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;检测变化的注意事项&#34;&gt;检测变化的注意事项&lt;/h3&gt;
+
+&lt;p&gt;受现代 JavaScript 的限制 (而且 Object.observe 也已经被废弃)，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var vm = new Vue({
+  data:{
+    a:1
+  }
+})
+
+// `vm.a` 是响应式的
+
+vm.b = 2
+// `vm.b` 是非响应式的
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;对于已经创建的实例，Vue 不允许动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, propertyName, value) 方法向嵌套对象添加响应式属性。&lt;/font&gt;例如：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Vue.set(vm.someObject, &#39;b&#39;, 2)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;还可以使用 vm.$set 实例方法，这也是全局 Vue.set 方法的别名：&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;this.$set(this.someObject,&#39;b&#39;,2)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;由于 Vue 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值：&lt;/font&gt;
+(Vue会给出一个警告，Vue只会检查第一层属性)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var vm = new Vue({
+  data: {
+    // 声明 message 为一个空值字符串
+    message: &#39;&#39;
+  },
+  template: &#39;&amp;lt;div&amp;gt;{{ message }}&amp;lt;/div&amp;gt;&#39;
+})
+// 之后设置 `message`
+vm.message = &#39;Hello!&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你未在 data 选项中声明 message，Vue 将警告你渲染函数正在试图访问不存在的属性。&lt;/p&gt;
+
+&lt;p&gt;Vue.set和this.$set的作用包括&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新增key&lt;/li&gt;
+&lt;li&gt;自动创建代理和监听（如果没有创建）&lt;/li&gt;
+&lt;li&gt;触发UI更新（但是并不会立刻更新）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;font color=&#34;#41B883&#34;&gt;Vue 将被侦听的数组的变异方法(mutation method)进行了包裹，所以它们也将会触发视图更新。&lt;/font&gt;这些被包裹过的方法包括：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ES6&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;class VueArray extends Array{
+    push(...args){
+        const oldLength = this.length
+        super.push(...args)
+        for(let i = oldLength; i &amp;lt; this.length; i++){
+            Vue.set(this, i, this[i])
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ES5&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const vueArrayPrototype = {
+    push: function(){
+    log(&#39;something else&#39;)
+    return Array.prototype.push.apply(this,arguments)
+    }
+}
+vueArrayPrototype._proto_ = Array.prototype
+const array = object.create(vueArrayPrototype)
+array.push(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;参考链接：&lt;br&gt;
+&lt;a href=&#34;https://cn.vuejs.org/v2/guide/reactivity.html&#34;&gt;https://cn.vuejs.org/v2/guide/reactivity.html&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B&#34;&gt;https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Vue 两个版本</title>
@@ -2849,108 +2972,6 @@ xiedaimala.com 二级域名&lt;br&gt;
 www.xiedaimala.com 三级域名&lt;br&gt;
 他们是父子关系&lt;br&gt;
 www是多余的吗?是的，非常多余:)&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>HTML常用标签</title>
-      <link>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
-      <pubDate>Wed, 28 Aug 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;一-a-标签的用法&#34;&gt;一 a 标签的用法&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;属性 1：href(hyper reference) 超级引用。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;取值：网址（&lt;a href=&#34;https://xx.com&#34;&gt;https://xx.com&lt;/a&gt;, &lt;a href=&#34;http://xx.com&#34;&gt;http://xx.com&lt;/a&gt;, //xx.com）&lt;/li&gt;
-&lt;li&gt;路径: /a/b/c 根目录, 也就是服务器的根目录。 a/b 相对路径，等于 ./a/b&lt;/li&gt;
-&lt;li&gt;伪协议：&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:alert(1);&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;javascript:;&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//没有动作&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//页面刷新&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;xxx&amp;lt;/a&amp;gt;&lt;/code&gt;//回到页面顶部&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;baidu&amp;quot; target=&amp;quot;xxx&amp;quot;&amp;gt;baidu&amp;lt;/a&amp;gt;&lt;/code&gt;//打开一个window.name为xxx的窗口，若没有就新建&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;mailto:m.bluth@example.com&amp;quot;&amp;gt;Email&amp;lt;/a&amp;gt;&lt;/code&gt;//邮件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;tel:+123456789&amp;quot;&amp;gt;Phone&amp;lt;/a&amp;gt;&lt;/code&gt;//电话&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;属性 2：target（决定跳转的链接在哪里打开）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;取值：_self 当前页面加载，即当前的响应到同一HTML 4 frame（或HTML5浏览上下文）。此值是默认的，如果没有指定属性的话。&lt;/li&gt;
-&lt;li&gt;_blank 新窗口打开，即到一个新的未命名的HTML4窗口或HTML5浏览器上下文&lt;/li&gt;
-&lt;li&gt;_top HTML5中：加载响应进入顶层浏览上下文, 如果没有parent框架或者浏览上下文，此选项的行为方式相同_self&lt;/li&gt;
-&lt;li&gt;_parent 加载响应到当前框架的HTML4父框架或当前的HTML5浏览上下文的父浏览上下文。如果没有parent框架或者浏览上下文，此选项的行为方式与 _self 相同。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;二-img-标签的用法&#34;&gt;二 img 标签的用法&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;作用是发起 get 请求，展示图片
-
-&lt;ul&gt;
-&lt;li&gt;属性 1：alt(图片加载失败的时的提示文字)&lt;/li&gt;
-&lt;li&gt;属性 2：src(source)(图片路径)&lt;/li&gt;
-&lt;li&gt;属性 3：height(高度)&lt;/li&gt;
-&lt;li&gt;属性 4：width(宽度)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;三-table-标签的用法&#34;&gt;三 table 标签的用法&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;常用的标签（table、thead、tbody、tfoot、th、tr、td）
-
-&lt;ul&gt;
-&lt;li&gt;注意的样式 1：table-layout&lt;/li&gt;
-&lt;li&gt;注意的样式 2：border-collapse（决定是否合并 collapse(合并) | separate（分开））&lt;/li&gt;
-&lt;li&gt;注意的样式 3：border-spacing（每个 td 之间的间隙）&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;img max-width: 100%;&lt;/li&gt;
-&lt;li&gt;form 发get或者post请求，然后刷新页面&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;input和button&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;xxx&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;
-&amp;lt;strong&amp;gt;xxx&amp;lt;/strong&amp;gt;
-&amp;lt;/button&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;button标签里还可以嵌套其他标签，input不行&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;表单中&lt;code&gt;&amp;lt;button type=&amp;quot;&amp;quot;&amp;gt;xxx&amp;lt;/button&amp;gt;&lt;/code&gt;默认type=&amp;ldquo;submit&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;单选和复选框使用相同name属性表示一组&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;选择文件&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot; /&amp;gt;
-
-&amp;lt;input type=&amp;quot;file&amp;quot; multiple /&amp;gt; //选择多个文件
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;textarea&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;textarea style=&amp;quot;resize: none; width: 50%; height: 300px&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;//禁止拖动大小&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
       
     </item>
