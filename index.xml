@@ -6,10 +6,115 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 22 Jan 2020 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 13:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://wantsuchen.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>computed和watch的区别</title>
+      <link>http://wantsuchen.top/post/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Mon, 03 Feb 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://wantsuchen.top/post/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;computed和watch&#34;&gt;computed和watch&lt;/h3&gt;
+
+&lt;p&gt;computed是计算属性&lt;br&gt;
+使用的时候不需要加括号&lt;br&gt;
+计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值
+即依赖没有发生变化的时候，computed不会重新计算&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;watch是侦听器&lt;br&gt;
+如果某个属性变化了，就会去执行一个函数&lt;/p&gt;
+
+&lt;p&gt;除了 watch 选项之外，还可以使用命令式的 vm.$watch&lt;br&gt;
+Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。如果需要在某个数据变化时做一些事情，使用watch&lt;/p&gt;
+
+&lt;p&gt;示例：
+computed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var vm = new Vue({
+  data: { a: 1 },
+  computed: {
+    // 仅读取
+    aDouble: function () {
+      return this.a * 2
+    },
+    // 读取和设置
+    aPlus: {
+      get: function () {
+        return this.a + 1
+      },
+      set: function (v) {
+        this.a = v - 1
+      }
+    }
+  }
+})
+vm.aPlus   // =&amp;gt; 2
+vm.aPlus = 3
+vm.a       // =&amp;gt; 2
+vm.aDouble // =&amp;gt; 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;watch&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var vm = new Vue({
+  data: {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: {
+      f: {
+        g: 5
+      }
+    }
+  },
+  watch: {
+    a: function (val, oldVal) {
+      console.log(&#39;new: %s, old: %s&#39;, val, oldVal)
+    },
+    // 方法名
+    b: &#39;someMethod&#39;,
+    // 设置deep: true
+    // 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
+    c: {
+      handler: function (val, oldVal) { /* ... */ },
+      deep: true
+    },
+    // 设置immediate: true
+    // 该回调将会在侦听开始之后被立即调用
+    d: {
+      handler: &#39;someMethod&#39;,
+      immediate: true
+    },
+    e: [
+      &#39;handle1&#39;,
+      function handle2 (val, oldVal) { /* ... */ },
+      {
+        handler: function handle3 (val, oldVal) { /* ... */ },
+        /* ... */
+      }
+    ],
+    // watch vm.e.f&#39;s value: {g: 5}
+    &#39;e.f&#39;: function (val, oldVal) { /* ... */ }
+  }
+})
+vm.a = 2 // =&amp;gt; new: 2, old: 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;参考链接：&lt;br&gt;
+&lt;a href=&#34;https://cn.vuejs.org/v2/api/index.html#computed&#34;&gt;https://cn.vuejs.org/v2/api/index.html#computed&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://cn.vuejs.org/v2/guide/computed.html&#34;&gt;https://cn.vuejs.org/v2/guide/computed.html&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>Vue数据响应式原理</title>
@@ -2876,102 +2981,6 @@ to {
 &lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/&#34;&gt;渲染性能&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count&#34;&gt;坚持仅合成器的属性和管理层计数&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;https://csstriggers.com/&#34;&gt;CSS Triggers&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>浅析URL</title>
-      <link>http://wantsuchen.top/post/%E6%B5%85%E6%9E%90url/</link>
-      <pubDate>Tue, 03 Sep 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://wantsuchen.top/post/%E6%B5%85%E6%9E%90url/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;一-url-包含哪几部分-每部分分别有什么作用&#34;&gt;一 URL 包含哪几部分，每部分分别有什么作用&lt;/h2&gt;
-
-&lt;h4 id=&#34;url全称-uniform-resource-locator-统一资源定位符&#34;&gt;url全称 Uniform Resource Locator 统一资源定位符&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;协议 http/https&lt;/li&gt;
-&lt;li&gt;域名 www.so.com&lt;/li&gt;
-&lt;li&gt;服务器路径 /s&lt;/li&gt;
-&lt;li&gt;查询参数 wd=hello&amp;amp;rsv_spt=1&lt;/li&gt;
-&lt;li&gt;锚点 #5 与浏览器页面有关&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;二-dns-的作用是什么-nslookup命令怎么用&#34;&gt;二 DNS 的作用是什么，nslookup命令怎么用&lt;/h2&gt;
-
-&lt;h4 id=&#34;dns全称domain-name-system-域名系统&#34;&gt;DNS全称Domain Name System 域名系统&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;当输入xiedaimala.com, 浏览器回向电信/联通提供的DNS服务器询问xiedaimala.com的对应IP&lt;/li&gt;
-&lt;li&gt;电信/联通会回答一个IP&lt;/li&gt;
-&lt;li&gt;浏览器向对应IP的80/443端口发送请求&lt;/li&gt;
-&lt;li&gt;请求内容是查看xiedaimala.com的首页&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;nslookup命令用于查询dns的记录-查看域名解析是否正常-在网络故障的时候用来诊断网络问题&#34;&gt;nslookup命令用于查询DNS的记录，查看域名解析是否正常，在网络故障的时候用来诊断网络问题。&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;nslookup baidu.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;DNS request timed out.
-    timeout was 2 seconds.
-服务器:  UnKnown
-Address:  4.2.2.1
-
-非权威应答:
-名称:    baidu.com
-Addresses:  220.181.38.148
-          39.156.69.79
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;nslookup domain [dns-server]&lt;/code&gt;
-- 查询一个域名的A记录&lt;/p&gt;
-
-&lt;h2 id=&#34;三-ip的作用是什么-ping命令怎么用&#34;&gt;三 IP的作用是什么，ping命令怎么用&lt;/h2&gt;
-
-&lt;p&gt;只要在互联网中，就会有至少一个ip&lt;br&gt;
-ip分为内网ip和外网ip&lt;br&gt;
-路由器连上电信的服务器就会被分配一个外网ip,如果重启路由器可能被重新分配一个外网ip&lt;br&gt;
-路由器会给自己分配一个好记的内网IP,比如192.168.1.1&lt;br&gt;
-路由器会在一定范围内创建一个内网,给内网中的每一个设备分配一个不同的内网IP&lt;br&gt;
-一般来说格式是192.168.xxx.xxx,比如192.168.1.2&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;ping命令&#34;&gt;ping命令&lt;/h4&gt;
-
-&lt;p&gt;ping 命令有助于验证网络层的连通性！一般进行网络故障排除时，可以使用ping 命令向目标计算机或IP地址发送ICMP回显请求，目标计算机会返回回显应答，如果目标计算机不能返回回显应答，说明在源计算机和目标计算机之间的网路存在问题，需要进一步检查解决！&lt;br&gt;
-ping 命令是Windows 操作系统中集成的一个TCP/IP协议探测工具，它只能在有TCP/IP协议有网络中使用。&lt;br&gt;
-ping 命令的格式为：ping[参数1][参数2][……][目的地址]&lt;br&gt;
-如果不知道ping命令有那些参数的话，只要在命令提示符中键入ping命令，就能得到。&lt;br&gt;
-一般使用只需要在命令行输入ping baidu.com即可等待输出连通性测试。&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;正在 Ping baidu.com [220.181.38.148] 具有 32 字节的数据:&lt;br&gt;
-来自 220.181.38.148 的回复: 字节=32 时间=78ms TTL=46&lt;br&gt;
-来自 220.181.38.148 的回复: 字节=32 时间=63ms TTL=46&lt;br&gt;
-来自 220.181.38.148 的回复: 字节=32 时间=61ms TTL=46&lt;br&gt;
-来自 220.181.38.148 的回复: 字节=32 时间=62ms TTL=46&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;220.181.38.148 的 Ping 统计信息:&lt;br&gt;
-    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，&lt;br&gt;
-往返行程的估计时间(以毫秒为单位):&lt;br&gt;
-    最短 = 61ms，最长 = 78ms，平均 = 66ms&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;四-域名是什么-分别哪几类域名&#34;&gt;四 域名是什么，分别哪几类域名&lt;/h2&gt;
-
-&lt;h4 id=&#34;域名就是对ip的别称&#34;&gt;域名就是对IP的别称&lt;/h4&gt;
-
-&lt;p&gt;一个域名可以对应不同IP,称为负载均衡,防止一台机器扛不住&lt;br&gt;
-一个IP可以对应不同域名,称为共享主机,一般没钱就会这样做&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;域名分为顶级域名-二级域名-三级域名&#34;&gt;域名分为顶级域名 二级域名 三级域名&lt;/h4&gt;
-
-&lt;p&gt;com 顶级域名&lt;br&gt;
-xiedaimala.com 二级域名&lt;br&gt;
-www.xiedaimala.com 三级域名&lt;br&gt;
-他们是父子关系&lt;br&gt;
-www是多余的吗?是的，非常多余:)&lt;/p&gt;
 </description>
       
     </item>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vue · Jane - A super concise theme for Hugo</title>
+  <title>computed和watch的区别 - Jane - A super concise theme for Hugo</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="computed和watch computed是计算属性 使用的时候不需要加括号 计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,7 @@
 <meta name="generator" content="Hugo 0.57.2" />
 
 
-<link rel="canonical" href="http://wantsuchen.top/categories/vue/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/categories/vue/index.xml%20http://wantsuchen.top/categories/vue/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane - A super concise theme for Hugo" />
+<link rel="canonical" href="http://wantsuchen.top/post/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/" />
 
 
 
@@ -57,18 +57,26 @@
 
 
 
-<meta property="og:title" content="Vue" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://wantsuchen.top/categories/vue/" />
+<meta property="og:title" content="computed和watch的区别" />
+<meta property="og:description" content="computed和watch computed是计算属性 使用的时候不需要加括号 计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://wantsuchen.top/post/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/" />
+<meta property="article:published_time" content="2020-02-03T13:34:36+08:00" />
+<meta property="article:modified_time" content="2020-02-03T13:34:36+08:00" />
+<meta itemprop="name" content="computed和watch的区别">
+<meta itemprop="description" content="computed和watch computed是计算属性 使用的时候不需要加括号 计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生">
 
-<meta property="og:updated_time" content="2020-02-03T13:34:36+08:00" />
-<meta itemprop="name" content="Vue">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2020-02-03T13:34:36&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-03T13:34:36&#43;08:00" />
+<meta itemprop="wordCount" content="485">
+
+
+
+<meta itemprop="keywords" content="Vue," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vue"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="computed和watch的区别"/>
+<meta name="twitter:description" content="computed和watch computed是计算属性 使用的时候不需要加括号 计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -309,66 +317,241 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post bg-white">
     
-      <div class="archive-title category">
-        <h2 class="archive-name">分类： Vue</h2>
+    <header class="post-header">
+      <h1 class="post-title">computed和watch的区别</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-02-03" class="post-time">
+          2020-02-03
+        </time>
+        <div class="post-category">
+            <a href="http://wantsuchen.top/categories/vue/"> Vue </a>
+            
+          </div>
+        
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
+    </header>
+
     
-  
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#computed和watch">computed和watch</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
 
-  
-    <div class="archive-post">
-      <time datetime="2020-02-03" class="archive-post-time">
-        2020-02-03
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/computed%E5%92%8Cwatch%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-post-link">
-          computed和watch的区别
-        </a>
-      </span>
+    
+    <div class="post-content">
+      
+
+<h3 id="computed和watch">computed和watch</h3>
+
+<p>computed是计算属性<br>
+使用的时候不需要加括号<br>
+计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值
+即依赖没有发生变化的时候，computed不会重新计算<br></p>
+
+<p>watch是侦听器<br>
+如果某个属性变化了，就会去执行一个函数</p>
+
+<p>除了 watch 选项之外，还可以使用命令式的 vm.$watch<br>
+Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。如果需要在某个数据变化时做一些事情，使用watch</p>
+
+<p>示例：
+computed</p>
+
+<pre><code class="language-js">var vm = new Vue({
+  data: { a: 1 },
+  computed: {
+    // 仅读取
+    aDouble: function () {
+      return this.a * 2
+    },
+    // 读取和设置
+    aPlus: {
+      get: function () {
+        return this.a + 1
+      },
+      set: function (v) {
+        this.a = v - 1
+      }
+    }
+  }
+})
+vm.aPlus   // =&gt; 2
+vm.aPlus = 3
+vm.a       // =&gt; 2
+vm.aDouble // =&gt; 4
+</code></pre>
+
+<hr>
+
+<p>watch</p>
+
+<pre><code class="language-js">var vm = new Vue({
+  data: {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+    e: {
+      f: {
+        g: 5
+      }
+    }
+  },
+  watch: {
+    a: function (val, oldVal) {
+      console.log('new: %s, old: %s', val, oldVal)
+    },
+    // 方法名
+    b: 'someMethod',
+    // 设置deep: true
+    // 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
+    c: {
+      handler: function (val, oldVal) { /* ... */ },
+      deep: true
+    },
+    // 设置immediate: true
+    // 该回调将会在侦听开始之后被立即调用
+    d: {
+      handler: 'someMethod',
+      immediate: true
+    },
+    e: [
+      'handle1',
+      function handle2 (val, oldVal) { /* ... */ },
+      {
+        handler: function handle3 (val, oldVal) { /* ... */ },
+        /* ... */
+      }
+    ],
+    // watch vm.e.f's value: {g: 5}
+    'e.f': function (val, oldVal) { /* ... */ }
+  }
+})
+vm.a = 2 // =&gt; new: 2, old: 1
+</code></pre>
+
+<p>参考链接：<br>
+<a href="https://cn.vuejs.org/v2/api/index.html#computed">https://cn.vuejs.org/v2/api/index.html#computed</a><br>
+<a href="https://cn.vuejs.org/v2/guide/computed.html">https://cn.vuejs.org/v2/guide/computed.html</a><br></p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Amber</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-02-03
+      
+    </span>
+  </p>
   
-    <div class="archive-post">
-      <time datetime="2020-01-22" class="archive-post-time">
-        2020-01-22
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" class="archive-post-link">
-          Vue数据响应式原理
-        </a>
-      </span>
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://wantsuchen.top/tags/vue/">Vue</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/">
+            <span class="next-text nav-default">Vue数据响应式原理</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  <div class="post bg-white">
+      <div id="comments-gitment"></div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css">
+        <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js"></script>
+      <script type="text/javascript">
+      const gitment = new Gitment({
+        id: 'computed和watch的区别',
+        title: 'computed和watch的区别',
+        link: decodeURI(location.href),
+        desc: 'computed和watch computed是计算属性 使用的时候不需要加括号 计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生',
+        owner: 'fireCCC',
+        repo: 'blog-comments',
+        oauth: {
+          client_id: 'b35e48ecbe0899a0fa7e',
+          client_secret: 'c678475b154aac32a70a413cc86620ff11930dbf'
+        }
+      })
+      gitment.render('comments-gitment')
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
     </div>
-  
-</section>
-
-
-
-
-
 
   
-  
-  
 
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
+    
 
         </div>
       </div>
