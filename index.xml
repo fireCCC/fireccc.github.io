@@ -6,10 +6,113 @@
     <description>Recent content on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 03 Feb 2020 13:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 11:34:36 +0800</lastBuildDate>
     
         <atom:link href="http://wantsuchen.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue中的 .sync 修饰符</title>
+      <link>http://wantsuchen.top/post/vue%E4%B8%AD%E7%9A%84.sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <pubDate>Wed, 05 Feb 2020 11:34:36 +0800</pubDate>
+      
+      <guid>http://wantsuchen.top/post/vue%E4%B8%AD%E7%9A%84.sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;vue-js官方文档&#34;&gt;Vue.js官方文档&lt;/h3&gt;
+
+&lt;p&gt;在有些情况下，我们可能需要对一个 prop 进行“双向绑定”。不幸的是，真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。&lt;/p&gt;
+
+&lt;p&gt;这也是为什么我们推荐以 update:myPropName 的模式触发事件取而代之。举个例子，在一个包含 title prop 的假设的组件中，我们可以用以下方法表达对其赋新值的意图：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;this.$emit(&#39;update:title&#39;, newTitle)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后父组件可以监听那个事件并根据需要更新一个本地的数据属性。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;text-document
+  v-bind:title=&amp;quot;doc.title&amp;quot;
+  v-on:update:title=&amp;quot;doc.title = $event&amp;quot;
+&amp;gt;&amp;lt;/text-document&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;为了方便起见，我们为这种模式提供一个缩写，即 .sync 修饰符：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;text-document v-bind:title.sync=&amp;quot;doc.title&amp;quot;&amp;gt;&amp;lt;/text-document&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当我们用一个对象同时设置多个 prop 的时候，也可以将这个 .sync 修饰符和 v-bind 配合使用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;text-document v-bind.sync=&amp;quot;doc&amp;quot;&amp;gt;&amp;lt;/text-document&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样会把 doc 对象中的每一个属性 (如 title) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 v-on 监听器。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;小例子：&lt;/p&gt;
+
+&lt;p&gt;App.vue&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+  &amp;lt;div class=&amp;quot;app&amp;quot;&amp;gt;
+    App.vue 我现在有 {{total}}
+    &amp;lt;hr&amp;gt;
+    &amp;lt;Child :money.sync=&amp;quot;total&amp;quot;/&amp;gt;
+    // &amp;lt;Child :money=&amp;quot;total&amp;quot; v-on:update:money=&amp;quot;total = $event&amp;quot;/&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+import Child from &amp;quot;./Child.vue&amp;quot;;
+export default {
+  data() {
+    return { total: 10000 };
+  },
+  components: { Child: Child }
+};
+&amp;lt;/script&amp;gt;
+
+&amp;lt;style&amp;gt;
+.app {
+  border: 3px solid red;
+  padding: 10px;
+}
+&amp;lt;/style&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Child.vue&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+  &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;
+    {{money}}
+    &amp;lt;button @click=&amp;quot;$emit(&#39;update:money&#39;, money-100)&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;花钱&amp;lt;/span&amp;gt;
+    &amp;lt;/button&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+export default {
+  props: [&amp;quot;money&amp;quot;]
+};
+&amp;lt;/script&amp;gt;
+
+
+&amp;lt;style&amp;gt;
+.child {
+  border: 3px solid green;
+}
+&amp;lt;/style&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;参考链接：&lt;br&gt;
+&lt;a href=&#34;https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6&#34;&gt;https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>computed和watch的区别</title>
@@ -2860,127 +2963,6 @@ Javascript的发展非常快，根本没有时间调整设计。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html&#34;&gt;Javascript诞生记&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html&#34;&gt;Javascript的10个设计缺陷&lt;/a&gt;&lt;br&gt;
 &lt;a href=&#34;https://baike.baidu.com/item/javascript&#34;&gt;javascript&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>CSS知识总结</title>
-      <link>http://wantsuchen.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Sun, 15 Sep 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://wantsuchen.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</guid>
-      
-        <description>
-
-&lt;h2 id=&#34;一-浏览器渲染过程&#34;&gt;一 浏览器渲染过程&lt;/h2&gt;
-
-&lt;h4 id=&#34;概览步骤&#34;&gt;概览步骤&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;根据HTML构建HTML树（DOM）&lt;/li&gt;
-&lt;li&gt;根据CSS构建CSS树（CSSOM）&lt;/li&gt;
-&lt;li&gt;将两棵树合并成一颗渲染树（render tree）&lt;/li&gt;
-&lt;li&gt;Layout布局（文档流、盒模型、计算大小和位置）&lt;/li&gt;
-&lt;li&gt;Paint绘制（把边框颜色、文字颜色、阴影等画出来）&lt;/li&gt;
-&lt;li&gt;Composite合成（根据层叠关系展示画面）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;三颗树图示&#34;&gt;三颗树图示&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://wantsuchen.top/images/三颗树.png&#34; alt=&#34;三棵树&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;三种更新方式&#34;&gt;三种更新方式&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;第一种，全部步骤&lt;br&gt;
-div.remove()会触发当前元素消失，其他元素re-layout&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;第二种，跳过layout&lt;br&gt;
-改变背景颜色，直接repaint+composite&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;第三种，跳过layout和paint&lt;br&gt;
-改变transform，只需composite&lt;br&gt;
-注意！必须全屏查看效果，在iframe里看有问题&lt;br&gt;
-图示如下：&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://wantsuchen.top/images/三种更新方式.png&#34; alt=&#34;三种更新方式&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;二-css属性之transition-过渡&#34;&gt;二 CSS属性之transition-过渡&lt;/h2&gt;
-
-&lt;h4 id=&#34;transition作用-补充中间帧&#34;&gt;transition作用&amp;ndash;补充中间帧&lt;/h4&gt;
-
-&lt;h4 id=&#34;transition语法如下&#34;&gt;transition语法如下&lt;/h4&gt;
-
-&lt;p&gt;&lt;font color=#0099ff&gt;transition: 属性名 时长 过渡方式 延迟&lt;/font&gt;&lt;br&gt;
-transition: left 200ms linear&lt;br&gt;
-可以用逗号分隔两个不同属性&lt;br&gt;
-transtion: left 200ms, top 400ms&lt;br&gt;
-可以用all代表所有属性&lt;br&gt;
-transition: all 200ms&lt;br&gt;
-过渡方式有: linear|ease|ease-in|ease-out|ease-in-out&lt;br&gt;
-cubic-bezier|step-start|step-end|steps&lt;br&gt;
-具体细节参考数学相关&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;font color=#FF7F50&gt;注意！并不是所有属性都能过渡&lt;/font&gt;&lt;br&gt;
-display:none =&amp;gt; block没办法过渡&lt;br&gt;
-一般改为visibility: hidden =&amp;gt; visible&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;font color=#0099ff&gt;过渡必须要有起始&lt;/font&gt;&lt;br&gt;
-一般只有一次动画，或者两次&lt;br&gt;
-比如hover和非hover状态的过渡&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;三-css属性之animation-动画&#34;&gt;三 CSS属性之animation-动画&lt;/h2&gt;
-
-&lt;h4 id=&#34;使用animation步骤&#34;&gt;使用animation步骤&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;声明关键帧@keyframes&lt;/li&gt;
-&lt;li&gt;添加动画animation&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;keyframes语法&#34;&gt;@keyframes语法&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;from to&lt;br&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-CSS&#34;&gt;@keyframes slidein {
-from {
-    transform: translateX(0%);
-}
-to {
-    transform: translateX(100%);
-}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;百分数定义&lt;br&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-CSS&#34;&gt;@keyframes identifier {
-0% { top: 0; left: 0; }
-30% { top: 50px; }
-68%, 72% { left: 50px; }
-100% { top: 100px; left: 100%; }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;animation语法&#34;&gt;animation语法&lt;/h4&gt;
-
-&lt;p&gt;&lt;font color=#0099ff&gt;animation: 时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充模式 | 是否暂停 | 动画名&lt;/font&gt;&lt;br&gt;
-时长：1s或者1000ms&lt;br&gt;
-过渡方式：跟transition取值一样，如linear&lt;br&gt;
-次数：3或者2.4或者infinite&lt;br&gt;
-方向：reverse|alternate|alternate-reverse&lt;br&gt;
-填充模式：none|forwards|backwards|both&lt;br&gt;
-是否暂停：paused|running&lt;br&gt;
-以上所有属性都有对应的单独属性&lt;br&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;相关链接&#34;&gt;相关链接&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction&#34;&gt;渲染树构建、布局及绘制&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/&#34;&gt;渲染性能&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count&#34;&gt;坚持仅合成器的属性和管理层计数&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://csstriggers.com/&#34;&gt;CSS Triggers&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
 </description>
       
     </item>
