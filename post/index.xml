@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jane - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Feb 2020 11:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 13:34:36 +0800</lastBuildDate>
     
 	<atom:link href="http://wantsuchen.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>防抖和节流</title>
+      <link>http://wantsuchen.top/post/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</link>
+      <pubDate>Fri, 06 Mar 2020 13:34:36 +0800</pubDate>
+      
+      <guid>http://wantsuchen.top/post/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</guid>
+      <description>防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 /** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait</description>
+    </item>
     
     <item>
       <title>Vue中的 .sync 修饰符</title>
@@ -71,7 +80,7 @@
       <pubDate>Mon, 23 Dec 2019 13:34:36 +0800</pubDate>
       
       <guid>http://wantsuchen.top/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/</guid>
-      <description>基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基</description>
+      <description>基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&amp;#39;Animal-move&amp;#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&amp;#39;Dog-run&amp;#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>http://wantsuchen.top/post/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>一 表达式和语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。 语句（statement）是为了完成某</description>
-    </item>
-    
-    <item>
-      <title>Javascript的诞生</title>
-      <link>http://wantsuchen.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
-      <pubDate>Sat, 21 Sep 2019 13:34:36 +0800</pubDate>
-      
-      <guid>http://wantsuchen.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
-      <description>一 Javascript的诞生 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏</description>
     </item>
     
   </channel>

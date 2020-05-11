@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基" />
+  <meta name="description" content="基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&amp;#39;Animal-move&amp;#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&amp;#39;Dog-run&amp;#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -366,69 +366,61 @@
       
 
 <h3 id="基于原型的继承">基于原型的继承</h3>
-
-<pre><code class="language-js">function Animal () {
-  this.x = 1
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> Animal () {
+  <span style="color:#8b008b;font-weight:bold">this</span>.x = <span style="color:#b452cd">1</span>
 }
-Animal.prototype.move = function() {
-  console.log('Animal-move')
-}
-
-function Dog () {
-  Animal.apply(this, arguments)
-  this.xx = 2
+Animal.prototype.move = <span style="color:#8b008b;font-weight:bold">function</span>() {
+  console.log(<span style="color:#cd5555">&#39;Animal-move&#39;</span>)
 }
 
-let f = function() {}
+<span style="color:#8b008b;font-weight:bold">function</span> Dog () {
+  Animal.apply(<span style="color:#8b008b;font-weight:bold">this</span>, arguments)
+  <span style="color:#8b008b;font-weight:bold">this</span>.xx = <span style="color:#b452cd">2</span>
+}
+
+<span style="color:#8b008b;font-weight:bold">let</span> f = <span style="color:#8b008b;font-weight:bold">function</span>() {}
 f.prototype = Animal.prototype
-Dog.prototype = new f()
+Dog.prototype = <span style="color:#8b008b;font-weight:bold">new</span> f()
 
 Dog.prototype.constructor = Dog
 
-Dog.prototype.run = function(){
-  console.log('Dog-run')
+Dog.prototype.run = <span style="color:#8b008b;font-weight:bold">function</span>(){
+  console.log(<span style="color:#cd5555">&#39;Dog-run&#39;</span>)
 }
-</code></pre>
-
+</code></pre></div>
 <p>重点：</p>
-
-<pre><code class="language-js">let f = function() {}
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> f = <span style="color:#8b008b;font-weight:bold">function</span>() {}
 f.prototype = Animal.prototype
-Dog.prototype = new f()
+Dog.prototype = <span style="color:#8b008b;font-weight:bold">new</span> f()
 
 Dog.prototype.constructor = Dog
-</code></pre>
-
+</code></pre></div>
 <h3 id="基于-class-的继承">基于 class 的继承</h3>
-
-<pre><code class="language-js">class Animal {
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">class</span> Animal {
   constructor () {
-    this.x = 1
+    <span style="color:#8b008b;font-weight:bold">this</span>.x = <span style="color:#b452cd">1</span>
   }
   move() {
-    console.log('Animal-move')
+    console.log(<span style="color:#cd5555">&#39;Animal-move&#39;</span>)
   }
 }
-class Dog extends Animal {
+<span style="color:#8b008b;font-weight:bold">class</span> Dog <span style="color:#8b008b;font-weight:bold">extends</span> Animal {
   constructor () {
-    super()
-    this.xx = 2
+    <span style="color:#8b008b;font-weight:bold">super</span>()
+    <span style="color:#8b008b;font-weight:bold">this</span>.xx = <span style="color:#b452cd">2</span>
   }
   run() {
-    console.log('Dog-run')
+    console.log(<span style="color:#cd5555">&#39;Dog-run&#39;</span>)
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p>重点：</p>
-
-<pre><code class="language-js">class Dog extends Animal {
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">class</span> Dog <span style="color:#8b008b;font-weight:bold">extends</span> Animal {
   constructor () {
-    super()
+    <span style="color:#8b008b;font-weight:bold">super</span>()
   }
 }
-</code></pre>
-
+</code></pre></div>
     </div>
 
     
@@ -515,7 +507,7 @@ class Dog extends Animal {
         id: 'JS的继承',
         title: 'JS的继承',
         link: decodeURI(location.href),
-        desc: '基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(\x27Animal-move\x27) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(\x27Dog-run\x27) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基',
+        desc: '基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(\x26#39;Animal-move\x26#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(\x26#39;Dog-run\x26#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基',
         owner: 'fireCCC',
         repo: 'blog-comments',
         oauth: {

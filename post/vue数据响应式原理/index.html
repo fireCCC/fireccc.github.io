@@ -393,19 +393,17 @@ Vue2通过Object.defineProperty来实现数据响应式<br></p>
 <h3 id="检测变化的注意事项">检测变化的注意事项</h3>
 
 <p>受现代 JavaScript 的限制 (而且 Object.observe 也已经被废弃)，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
-
-<pre><code class="language-js">var vm = new Vue({
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
   data:{
-    a:1
+    a:<span style="color:#b452cd">1</span>
   }
 })
 
-// `vm.a` 是响应式的
-
-vm.b = 2
-// `vm.b` 是非响应式的
-</code></pre>
-
+<span style="color:#228b22">// `vm.a` 是响应式的
+</span><span style="color:#228b22"></span>
+vm.b = <span style="color:#b452cd">2</span>
+<span style="color:#228b22">// `vm.b` 是非响应式的
+</span></code></pre></div>
 <p><font color="#41B883">对于已经创建的实例，Vue 不允许动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, propertyName, value) 方法向嵌套对象添加响应式属性。</font>例如：</p>
 
 <p><code>Vue.set(vm.someObject, 'b', 2)</code></p>
@@ -416,18 +414,16 @@ vm.b = 2
 
 <p><font color="#41B883">由于 Vue 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值：</font>
 (Vue会给出一个警告，Vue只会检查第一层属性)</p>
-
-<pre><code class="language-js">var vm = new Vue({
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
   data: {
-    // 声明 message 为一个空值字符串
-    message: ''
+    <span style="color:#228b22">// 声明 message 为一个空值字符串
+</span><span style="color:#228b22"></span>    message: <span style="color:#cd5555">&#39;&#39;</span>
   },
-  template: '&lt;div&gt;{{ message }}&lt;/div&gt;'
+  template: <span style="color:#cd5555">&#39;&lt;div&gt;{{ message }}&lt;/div&gt;&#39;</span>
 })
-// 之后设置 `message`
-vm.message = 'Hello!'
-</code></pre>
-
+<span style="color:#228b22">// 之后设置 `message`
+</span><span style="color:#228b22"></span>vm.message = <span style="color:#cd5555">&#39;Hello!&#39;</span>
+</code></pre></div>
 <p>如果你未在 data 选项中声明 message，Vue 将警告你渲染函数正在试图访问不存在的属性。</p>
 
 <p>Vue.set和this.$set的作用包括</p>
@@ -439,42 +435,36 @@ vm.message = 'Hello!'
 </ul>
 
 <p><font color="#41B883">Vue 将被侦听的数组的变异方法(mutation method)进行了包裹，所以它们也将会触发视图更新。</font>这些被包裹过的方法包括：</p>
-
-<pre><code class="language-js">push()
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">push()
 pop()
 shift()
 unshift()
 splice()
 sort()
 reverse()
-</code></pre>
-
+</code></pre></div>
 <p>ES6</p>
-
-<pre><code class="language-js">class VueArray extends Array{
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">class</span> VueArray <span style="color:#8b008b;font-weight:bold">extends</span> <span style="color:#658b00">Array</span>{
     push(...args){
-        const oldLength = this.length
-        super.push(...args)
-        for(let i = oldLength; i &lt; this.length; i++){
-            Vue.set(this, i, this[i])
+        <span style="color:#8b008b;font-weight:bold">const</span> oldLength = <span style="color:#8b008b;font-weight:bold">this</span>.length
+        <span style="color:#8b008b;font-weight:bold">super</span>.push(...args)
+        <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#8b008b;font-weight:bold">let</span> i = oldLength; i &lt; <span style="color:#8b008b;font-weight:bold">this</span>.length; i++){
+            Vue.set(<span style="color:#8b008b;font-weight:bold">this</span>, i, <span style="color:#8b008b;font-weight:bold">this</span>[i])
         }
     }
 }
-</code></pre>
-
+</code></pre></div>
 <p>ES5</p>
-
-<pre><code class="language-js">const vueArrayPrototype = {
-    push: function(){
-    log('something else')
-    return Array.prototype.push.apply(this,arguments)
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">const</span> vueArrayPrototype = {
+    push: <span style="color:#8b008b;font-weight:bold">function</span>(){
+    log(<span style="color:#cd5555">&#39;something else&#39;</span>)
+    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#658b00">Array</span>.prototype.push.apply(<span style="color:#8b008b;font-weight:bold">this</span>,arguments)
     }
 }
-vueArrayPrototype._proto_ = Array.prototype
-const array = object.create(vueArrayPrototype)
-array.push(1)
-</code></pre>
-
+vueArrayPrototype._proto_ = <span style="color:#658b00">Array</span>.prototype
+<span style="color:#8b008b;font-weight:bold">const</span> array = object.create(vueArrayPrototype)
+array.push(<span style="color:#b452cd">1</span>)
+</code></pre></div>
 <p>参考链接：<br>
 <a href="https://cn.vuejs.org/v2/guide/reactivity.html">https://cn.vuejs.org/v2/guide/reactivity.html</a><br>
 <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B">https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B</a></p>

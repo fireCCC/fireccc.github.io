@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-12-18T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-18T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="966">
+<meta itemprop="wordCount" content="972">
 
 
 
@@ -386,87 +386,77 @@ pending 状态的 Promise 对象可能会变为fulfilled 状态并传递一个�
 <p>因为 Promise.prototype.then 和  Promise.prototype.catch 方法返回promise 对象， 所以它们可以被链式调用。</p>
 
 <h3 id="创建一个-new-promise">创建一个 new Promise</h3>
-
-<pre><code class="language-js">function fn(){
-    return new Promise((resolve, reject)=&gt;{
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> fn(){
+    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject)=&gt;{
         成功时调用 resolve(数据)
         失败时调用 reject(错误)
     })
 }
 fn().then(success, fail).then(success2, fail2)
-</code></pre>
-
+</code></pre></div>
 <h3 id="使用-promise-prototype-then">使用 Promise.prototype.then</h3>
-
-<pre><code class="language-js">var p1 = new Promise((resolve, reject) =&gt; {
-  resolve('成功！');
-  // or
-  // reject(new Error(&quot;出错了！&quot;));
-});
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p1 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject) =&gt; {
+  resolve(<span style="color:#cd5555">&#39;成功！&#39;</span>);
+  <span style="color:#228b22">// or
+</span><span style="color:#228b22"></span>  <span style="color:#228b22">// reject(new Error(&#34;出错了！&#34;));
+</span><span style="color:#228b22"></span>});
 
 p1.then(value =&gt; {
-  console.log(value); // 成功！
-}, reason =&gt; {
-  console.error(reason); // 出错了！
-});
-</code></pre>
-
+  console.log(value); <span style="color:#228b22">// 成功！
+</span><span style="color:#228b22"></span>}, reason =&gt; {
+  console.error(reason); <span style="color:#228b22">// 出错了！
+</span><span style="color:#228b22"></span>});
+</code></pre></div>
 <p>then函数会返回一个Promise实例，并且该返回值是一个新的实例而不是之前的实例
 当一个值只是从一个 then 内部返回时，它将等价地返回 Promise.resolve(&lt;由被调用的处理程序返回的值&gt;)。</p>
-
-<pre><code class="language-js">var p2 = new Promise(function(resolve, reject) {
-  resolve(1);
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p2 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
+  resolve(<span style="color:#b452cd">1</span>);
 });
 
-p2.then(function(value) {
-  console.log(value); // 1
-  return value + 1;
-}).then(function(value) {
-  console.log(value + ' - A synchronous value works');
-  //2 - A synchronous value works
-});
+p2.then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
+  console.log(value); <span style="color:#228b22">// 1
+</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">return</span> value + <span style="color:#b452cd">1</span>;
+}).then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
+  console.log(value + <span style="color:#cd5555">&#39; - A synchronous value works&#39;</span>);
+  <span style="color:#228b22">//2 - A synchronous value works
+</span><span style="color:#228b22"></span>});
 
-p2.then(function(value) {
-  console.log(value); // 1
-});
-</code></pre>
-
+p2.then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
+  console.log(value); <span style="color:#228b22">// 1
+</span><span style="color:#228b22"></span>});
+</code></pre></div>
 <h3 id="使用-promise-all">使用 Promise.all</h3>
 
 <p>Promise.all([promise1, promise2]).then(success1, fail1)<br>
 promise1和promise2都成功才会调用success1</p>
-
-<pre><code class="language-js">var p1 = Promise.resolve(3);
-var p2 = 1337;
-var p3 = new Promise((resolve, reject) =&gt; {
-  setTimeout(resolve, 100, 'foo');
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p1 = <span style="color:#658b00">Promise</span>.resolve(<span style="color:#b452cd">3</span>);
+<span style="color:#8b008b;font-weight:bold">var</span> p2 = <span style="color:#b452cd">1337</span>;
+<span style="color:#8b008b;font-weight:bold">var</span> p3 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject) =&gt; {
+  setTimeout(resolve, <span style="color:#b452cd">100</span>, <span style="color:#cd5555">&#39;foo&#39;</span>);
 }); 
 
-Promise.all([p1, p2, p3]).then(values =&gt; { 
-  console.log(values); // [3, 1337, &quot;foo&quot;] 
-});
-</code></pre>
-
+<span style="color:#658b00">Promise</span>.all([p1, p2, p3]).then(values =&gt; { 
+  console.log(values); <span style="color:#228b22">// [3, 1337, &#34;foo&#34;] 
+</span><span style="color:#228b22"></span>});
+</code></pre></div>
 <h3 id="使用-promise-race">使用 Promise.race</h3>
 
 <p>Promise.race([promise1, promise2]).then(success1, fail1)<br>
 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
-
-<pre><code class="language-js">var promise1 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, 500, 'one');
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> promise1 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
+    setTimeout(resolve, <span style="color:#b452cd">500</span>, <span style="color:#cd5555">&#39;one&#39;</span>);
 });
 
-var promise2 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, 100, 'two');
+<span style="color:#8b008b;font-weight:bold">var</span> promise2 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
+    setTimeout(resolve, <span style="color:#b452cd">100</span>, <span style="color:#cd5555">&#39;two&#39;</span>);
 });
 
-Promise.race([promise1, promise2]).then(function(value) {
+<span style="color:#658b00">Promise</span>.race([promise1, promise2]).then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
   console.log(value);
-  // Both resolve, but promise2 is faster
-});
-// expected output: &quot;two&quot;
-</code></pre>
-
+  <span style="color:#228b22">// Both resolve, but promise2 is faster
+</span><span style="color:#228b22"></span>});
+<span style="color:#228b22">// expected output: &#34;two&#34;
+</span></code></pre></div>
     </div>
 
     

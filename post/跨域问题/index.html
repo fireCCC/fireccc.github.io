@@ -385,34 +385,32 @@ window.origin或location.origin可以得到当前源</p>
 <p>JSONP就是利用<code>&lt;script&gt;</code>标签没有跨域限制的漏洞。通过<code>&lt;script&gt;</code>标签指向一个需要访问的地址并提供一个回调函数当需要通讯时来接收数据
 JSONP使用简单且兼容性不错，但是只限于get请求。
 在开发中可能会遇到多个JSONP请求的回调函数名是相同的，这时候就需要自己封装一个JSONP</p>
-
-<pre><code class="language-js">function jsonp(url) {
-    return new Promise((resolve, reject)=&gt;{
-        const random = Math.random()
-        window[random] = (data) =&gt; {
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> jsonp(url) {
+    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject)=&gt;{
+        <span style="color:#8b008b;font-weight:bold">const</span> random = <span style="color:#658b00">Math</span>.random()
+        <span style="color:#658b00">window</span>[random] = (data) =&gt; {
             resolve(data)
         }
         
-        const script = document.createElement('script')
-        script.src = `${url}?callback=${random}`
-        script.type = 'text/javascript'
+        <span style="color:#8b008b;font-weight:bold">const</span> script = <span style="color:#658b00">document</span>.createElement(<span style="color:#cd5555">&#39;script&#39;</span>)
+        script.src = <span style="color:#cd5555">`</span><span style="color:#cd5555">${</span>url<span style="color:#cd5555">}</span><span style="color:#cd5555">?callback=</span><span style="color:#cd5555">${</span>random<span style="color:#cd5555">}</span><span style="color:#cd5555">`</span>
+        script.type = <span style="color:#cd5555">&#39;text/javascript&#39;</span>
         script.onload = () =&gt; {
             script.remove()
         }
         script.onerror = () =&gt; {
             reject()
         }
-        document.body.appendChild(script)
+        <span style="color:#658b00">document</span>.body.appendChild(script)
     })
 }
 
-jsonp('http://127.0.0.1:8888/friends.js').then(
+jsonp(<span style="color:#cd5555">&#39;http://127.0.0.1:8888/friends.js&#39;</span>).then(
     (data) =&gt; {
         console.log(data)
     }
 )
-</code></pre>
-
+</code></pre></div>
 <h3 id="cors跨域">CORS跨域</h3>
 
 <p>CORS需要浏览器和后端同时支持。IE8和9需要通过XDomainRequest来实现。</p>
@@ -420,16 +418,14 @@ jsonp('http://127.0.0.1:8888/friends.js').then(
 <p>浏览器会自动进行CORS通信，实现CORS通信的关键是后端。只要后端实现了CORS，就实现了跨域。</p>
 
 <p>服务器设置Access-Control-Allow-Origin就可以开启CORS。该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。</p>
-
-<pre><code class="language-js">if(path === '/friends.json'){
-    response.statusCode = 200
-    response.setHeader('Content-Type', 'text/json;charset=utf-8')
-    response.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8888')
-    response.write(fs.readFileSync('./public/friends.json'))
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">if</span>(path === <span style="color:#cd5555">&#39;/friends.json&#39;</span>){
+    response.statusCode = <span style="color:#b452cd">200</span>
+    response.setHeader(<span style="color:#cd5555">&#39;Content-Type&#39;</span>, <span style="color:#cd5555">&#39;text/json;charset=utf-8&#39;</span>)
+    response.setHeader(<span style="color:#cd5555">&#39;Access-Control-Allow-Origin&#39;</span>, <span style="color:#cd5555">&#39;http://127.0.0.1:8888&#39;</span>)
+    response.write(fs.readFileSync(<span style="color:#cd5555">&#39;./public/friends.json&#39;</span>))
     response.end()
 }
-</code></pre>
-
+</code></pre></div>
     </div>
 
     

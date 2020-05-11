@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-10-20T19:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-10-20T19:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="938">
+<meta itemprop="wordCount" content="954">
 
 
 
@@ -438,23 +438,21 @@
 <p><font color="red">obj.name 等价于 obj[&lsquo;name&rsquo;]</font></p>
 
 <h3 id="题目">题目</h3>
-
-<pre><code class="language-js">let my = function(){
-let list = ['name', 'age', 'gender']
-let person = {
-  name: 'zwx',
-  age: 18,
-  gender: 'male',
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> my = <span style="color:#8b008b;font-weight:bold">function</span>(){
+<span style="color:#8b008b;font-weight:bold">let</span> list = [<span style="color:#cd5555">&#39;name&#39;</span>, <span style="color:#cd5555">&#39;age&#39;</span>, <span style="color:#cd5555">&#39;gender&#39;</span>]
+<span style="color:#8b008b;font-weight:bold">let</span> person = {
+  name: <span style="color:#cd5555">&#39;zwx&#39;</span>,
+  age: <span style="color:#b452cd">18</span>,
+  gender: <span style="color:#cd5555">&#39;male&#39;</span>,
 }
-for (let i = 0; i &lt; list.length; i++) {
-  let name = list[i]
-  //person.name 等价于 person['name']
-  console.log('1.' + person.name)
-  console.log('2.' + person[name])
+<span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>; i &lt; list.length; i++) {
+  <span style="color:#8b008b;font-weight:bold">let</span> name = list[i]
+  <span style="color:#228b22">//person.name 等价于 person[&#39;name&#39;]
+</span><span style="color:#228b22"></span>  console.log(<span style="color:#cd5555">&#39;1.&#39;</span> + person.name)
+  console.log(<span style="color:#cd5555">&#39;2.&#39;</span> + person[name])
 }
 }
-</code></pre>
-
+</code></pre></div>
 <p><img src="/images/查看对象属性.png" alt="查看对象属性" /></p>
 
 <h2 id="四-如何修改或增加对象的属性">四 如何修改或增加对象的属性</h2>
@@ -508,16 +506,14 @@ for (let i = 0; i &lt; list.length; i++) {
 
 <p><code>obj.hasOwnProperty('name')</code> 方法会返回一个布尔值，指示对象自身属性中（非继承属性）是否具有指定的属性，
 如果 object 具有带指定名称的属性，则 hasOwnProperty 方法返回 true，否则返回 false。此方法不会检查对象原型链中的属性；该属性必须是对象本身的一个成员。</p>
-
-<pre><code class="language-js">let father = {money: 9999}
-let son = Object.create(father)
-son.name = 'son'
-console.log('1.检查它（或其原型链）是否包含具有指定名称的属性')
-console.log('money' in son) //true
-console.log('2.对象自身属性中（非继承属性）是否具有指定的属性')
-console.log(son.hasOwnProperty('money')) //false
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> father = {money: <span style="color:#b452cd">9999</span>}
+<span style="color:#8b008b;font-weight:bold">let</span> son = <span style="color:#658b00">Object</span>.create(father)
+son.name = <span style="color:#cd5555">&#39;son&#39;</span>
+console.log(<span style="color:#cd5555">&#39;1.检查它（或其原型链）是否包含具有指定名称的属性&#39;</span>)
+console.log(<span style="color:#cd5555">&#39;money&#39;</span> <span style="color:#8b008b;font-weight:bold">in</span> son) <span style="color:#228b22">//true
+</span><span style="color:#228b22"></span>console.log(<span style="color:#cd5555">&#39;2.对象自身属性中（非继承属性）是否具有指定的属性&#39;</span>)
+console.log(son.hasOwnProperty(<span style="color:#cd5555">&#39;money&#39;</span>)) <span style="color:#228b22">//false
+</span></code></pre></div>
 <p><img src="/images/方法区别.png" alt="方法区别" /></p>
 
     </div>

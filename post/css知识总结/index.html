@@ -456,27 +456,22 @@ display:none =&gt; block没办法过渡<br>
 
 <ol>
 <li><p>from to<br></p>
-
-<pre><code class="language-CSS">@keyframes slidein {
-from {
-    transform: translateX(0%);
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">@<span style="color:#8b008b;font-weight:bold">keyframes</span> <span style="color:#8b008b;font-weight:bold">slidein</span> {
+<span style="color:#8b008b;font-weight:bold">from</span> {
+    <span style="color:#8b008b;font-weight:bold">transform</span>: <span style="color:#658b00">translateX</span>(<span style="color:#b452cd">0</span><span style="color:#00688b;font-weight:bold">%</span>);
 }
-to {
-    transform: translateX(100%);
+<span style="color:#8b008b;font-weight:bold">to</span> {
+    <span style="color:#8b008b;font-weight:bold">transform</span>: <span style="color:#658b00">translateX</span>(<span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">%</span>);
 }
-}
-</code></pre></li>
+}</code></pre></div></li>
 
 <li><p>百分数定义<br></p>
-
-<pre><code class="language-CSS">@keyframes identifier {
-0% { top: 0; left: 0; }
-30% { top: 50px; }
-68%, 72% { left: 50px; }
-100% { top: 100px; left: 100%; }
-}
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">@<span style="color:#8b008b;font-weight:bold">keyframes</span> <span style="color:#8b008b;font-weight:bold">identifier</span> {
+<span style="color:#8b008b;font-weight:bold">0</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">0</span>; <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">0</span>; }
+<span style="color:#8b008b;font-weight:bold">30</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">50</span><span style="color:#00688b;font-weight:bold">px</span>; }
+<span style="color:#8b008b;font-weight:bold">68</span>%, <span style="color:#8b008b;font-weight:bold">72</span>% { <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">50</span><span style="color:#00688b;font-weight:bold">px</span>; }
+<span style="color:#8b008b;font-weight:bold">100</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">px</span>; <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">%</span>; }
+}</code></pre></div>
 <h4 id="animation语法">animation语法</h4>
 
 <p><font color=#0099ff>animation: 时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充模式 | 是否暂停 | 动画名</font><br>

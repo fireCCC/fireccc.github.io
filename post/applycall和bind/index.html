@@ -409,90 +409,81 @@
 
 <p>调用这个指定this值(thisArg)和参数([argsArray])的函数(func)
 调用函数的结果即它的返回值</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">const</span> numbers = [<span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>, <span style="color:#b452cd">7</span>];
 
-<pre><code class="language-js">const numbers = [5, 6, 2, 3, 7];
-
-const max = Math.max.apply(null, numbers);
+<span style="color:#8b008b;font-weight:bold">const</span> max = <span style="color:#658b00">Math</span>.max.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers);
 
 console.log(max);
-// expected output: 7
-
-const min = Math.min.apply(null, numbers);
+<span style="color:#228b22">// expected output: 7
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">const</span> min = <span style="color:#658b00">Math</span>.min.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers);
 
 console.log(min);
-// expected output: 2
-
-//结果
-//&gt; 7
-//&gt; 2
-</code></pre></li>
+<span style="color:#228b22">// expected output: 2
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">//结果
+</span><span style="color:#228b22">//&gt; 7
+</span><span style="color:#228b22">//&gt; 2
+</span></code></pre></div></li>
 </ul>
 
 <h3 id="示例">示例</h3>
 
 <p><font color="#00796B">1. 用 apply 将数组添加到另一个数组</font><br>
 我们可以使用push将元素追加到数组中。并且，因为push接受可变数量的参数，我们也可以一次推送多个元素。但是，如果我们传递一个数组来推送，它实际上会将该数组作为单个元素添加，而不是单独添加元素，在这种情况下，concat确实具有我们想要的行为，但它实际上并不附加到现有数组，而是创建并返回一个新数组。在这种情况下我们可以使用apply</p>
-
-<pre><code class="language-js">var array = ['a', 'b'];
-var elements = [0, 1, 2];
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> array = [<span style="color:#cd5555">&#39;a&#39;</span>, <span style="color:#cd5555">&#39;b&#39;</span>];
+<span style="color:#8b008b;font-weight:bold">var</span> elements = [<span style="color:#b452cd">0</span>, <span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>];
 array.push.apply(array, elements);
-console.info(array); // [&quot;a&quot;, &quot;b&quot;, 0, 1, 2]
-</code></pre>
-
+console.info(array); <span style="color:#228b22">// [&#34;a&#34;, &#34;b&#34;, 0, 1, 2]
+</span></code></pre></div>
 <p><font color="#00796B">2. 使用apply和内置函数</font><br></p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#228b22">/* 找出数组中最大/小的数字 */</span>
+<span style="color:#8b008b;font-weight:bold">var</span> numbers = [<span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>, <span style="color:#b452cd">7</span>];
 
-<pre><code class="language-js">/* 找出数组中最大/小的数字 */
-var numbers = [5, 6, 2, 3, 7];
+<span style="color:#228b22">/* 应用(apply) Math.min/Math.max 内置函数完成 */</span>
+<span style="color:#8b008b;font-weight:bold">var</span> max = <span style="color:#658b00">Math</span>.max.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers); <span style="color:#228b22">/* 基本等同于 Math.max(numbers[0], ...) 或 Math.max(5, 6, ..) */</span>
+<span style="color:#8b008b;font-weight:bold">var</span> min = <span style="color:#658b00">Math</span>.min.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers);
 
-/* 应用(apply) Math.min/Math.max 内置函数完成 */
-var max = Math.max.apply(null, numbers); /* 基本等同于 Math.max(numbers[0], ...) 或 Math.max(5, 6, ..) */
-var min = Math.min.apply(null, numbers);
+<span style="color:#228b22">/* 代码对比： 用简单循环完成 */</span>
+max = -<span style="color:#8b008b;font-weight:bold">Infinity</span>, min = +<span style="color:#8b008b;font-weight:bold">Infinity</span>;
 
-/* 代码对比： 用简单循环完成 */
-max = -Infinity, min = +Infinity;
-
-for (var i = 0; i &lt; numbers.length; i++) {
-  if (numbers[i] &gt; max)
+<span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">var</span> i = <span style="color:#b452cd">0</span>; i &lt; numbers.length; i++) {
+  <span style="color:#8b008b;font-weight:bold">if</span> (numbers[i] &gt; max)
     max = numbers[i];
-  if (numbers[i] &lt; min) 
+  <span style="color:#8b008b;font-weight:bold">if</span> (numbers[i] &lt; min) 
     min = numbers[i];
 }
-</code></pre>
-
+</code></pre></div>
 <p>但是当心：如果用上面的方式调用apply，会有超出JavaScript引擎的参数长度限制的风险。当你对一个方法传入非常多的参数（比如一万个）时，就非常有可能会导致越界问题, 这个临界值是根据不同的 JavaScript 引擎而定的（JavaScript 核心中已经做了硬编码  参数个数限制在65536），因为这个限制（实际上也是任何用到超大栈空间的行为的自然表现）是未指定的. 有些引擎会抛出异常。更糟糕的是其他引擎会直接限制传入到方法的参数个数，导致参数丢失。举个例子：如果某个引擎限制了方法参数最多为4个（实际真正的参数个数限制当然要高得多了, 这里只是打个比方）, 上面的代码中, 真正通过 apply传到目标方法中的参数为 5, 6, 2, 3 而不是完整的数组。</p>
 
 <p>如果你的参数数组可能非常大，那么推荐使用下面这种策略来处理：将参数数组切块后循环传入目标方法：</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> minOfArray(arr) {
+  <span style="color:#8b008b;font-weight:bold">let</span> min = <span style="color:#8b008b;font-weight:bold">Infinity</span>;
+  <span style="color:#228b22">// let QUANTUM = 32768;
+</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">let</span> QUANTUM = <span style="color:#b452cd">2</span>;
 
-<pre><code class="language-js">function minOfArray(arr) {
-  let min = Infinity;
-  // let QUANTUM = 32768;
-  let QUANTUM = 2;
-
-  for (let i = 0, len = arr.length; i &lt; len; i += QUANTUM) {
-    //防止越界
-    let rightIndex = Math.min(i + QUANTUM, len);
-    let origin = arr.slice(i, rightIndex);
-    let submin = Math.min.apply(null, origin);
-    min = Math.min(submin, min);
+  <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>, len = arr.length; i &lt; len; i += QUANTUM) {
+    <span style="color:#228b22">//防止越界
+</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">let</span> rightIndex = <span style="color:#658b00">Math</span>.min(i + QUANTUM, len);
+    <span style="color:#8b008b;font-weight:bold">let</span> origin = arr.slice(i, rightIndex);
+    <span style="color:#8b008b;font-weight:bold">let</span> submin = <span style="color:#658b00">Math</span>.min.apply(<span style="color:#8b008b;font-weight:bold">null</span>, origin);
+    min = <span style="color:#658b00">Math</span>.min(submin, min);
   }
 
-  return min;
+  <span style="color:#8b008b;font-weight:bold">return</span> min;
 }
 
-let min = minOfArray([5, 6, 2, 3, 7]);
-</code></pre>
-
+<span style="color:#8b008b;font-weight:bold">let</span> min = minOfArray([<span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>, <span style="color:#b452cd">7</span>]);
+</code></pre></div>
 <p><font color="#00796B">3. 使用apply来链接构造器</font><br></p>
 
 <p>你可以使用apply来链接一个对象构造器，类似于Java。在接下来的例子中我们会创建一个全局Function 对象的construct方法 ，来使你能够在构造器中使用一个类数组对象而非参数列表。</p>
-
-<pre><code class="language-js">Function.prototype.construct = function (aArgs) {
-  var oNew = Object.create(this.prototype);
-  this.apply(oNew, aArgs);
-  return oNew;
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#658b00">Function</span>.prototype.construct = <span style="color:#8b008b;font-weight:bold">function</span> (aArgs) {
+  <span style="color:#8b008b;font-weight:bold">var</span> oNew = <span style="color:#658b00">Object</span>.create(<span style="color:#8b008b;font-weight:bold">this</span>.prototype);
+  <span style="color:#8b008b;font-weight:bold">this</span>.apply(oNew, aArgs);
+  <span style="color:#8b008b;font-weight:bold">return</span> oNew;
 };
-</code></pre>
-
+</code></pre></div>
 <h2 id="二-call">二 call</h2>
 
 <h3 id="语法-1">语法</h3>
@@ -514,19 +505,18 @@ let min = minOfArray([5, 6, 2, 3, 7]);
 <p>使用调用者提供的 this 值(thisArg)和参数(arg1, arg2, &hellip;)调用该函数(function)
 调用函数的结果即它的返回值。
 若该方法没有返回值，则返回 undefined。</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">const</span> numbers = [<span style="color:#b452cd">5</span>, <span style="color:#b452cd">6</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>, <span style="color:#b452cd">7</span>];
 
-<pre><code class="language-js">const numbers = [5, 6, 2, 3, 7];
-
-const max = Math.max.apply(null, numbers);
+<span style="color:#8b008b;font-weight:bold">const</span> max = <span style="color:#658b00">Math</span>.max.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers);
 
 console.log(max);
-// expected output: 7
-
-const min = Math.min.apply(null, numbers);
+<span style="color:#228b22">// expected output: 7
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">const</span> min = <span style="color:#658b00">Math</span>.min.apply(<span style="color:#8b008b;font-weight:bold">null</span>, numbers);
 
 console.log(min);
-// expected output: 2
-</code></pre></li>
+<span style="color:#228b22">// expected output: 2
+</span></code></pre></div></li>
 </ul>
 
 <p>结果
@@ -538,25 +528,24 @@ console.log(min);
 <ol>
 <li><p>使用 call 方法调用父构造函数<br>
 在一个子构造函数中，你可以通过调用父构造函数的 call 方法来实现继承，类似于 Java 中的写法。</p>
-
-<pre><code class="language-js">function Product(name, price) {
-this.name = name;
-this.price = price;
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> Product(name, price) {
+<span style="color:#8b008b;font-weight:bold">this</span>.name = name;
+<span style="color:#8b008b;font-weight:bold">this</span>.price = price;
 }
 
-function Food(name, price) {
-Product.call(this, name, price);
-this.category = 'food';
+<span style="color:#8b008b;font-weight:bold">function</span> Food(name, price) {
+Product.call(<span style="color:#8b008b;font-weight:bold">this</span>, name, price);
+<span style="color:#8b008b;font-weight:bold">this</span>.category = <span style="color:#cd5555">&#39;food&#39;</span>;
 }
 
-function Toy(name, price) {
-Product.call(this, name, price);
-this.category = 'toy';
+<span style="color:#8b008b;font-weight:bold">function</span> Toy(name, price) {
+Product.call(<span style="color:#8b008b;font-weight:bold">this</span>, name, price);
+<span style="color:#8b008b;font-weight:bold">this</span>.category = <span style="color:#cd5555">&#39;toy&#39;</span>;
 }
 
-var cheese = new Food('feta', 5);
-var fun = new Toy('robot', 40);
-</code></pre></li>
+<span style="color:#8b008b;font-weight:bold">var</span> cheese = <span style="color:#8b008b;font-weight:bold">new</span> Food(<span style="color:#cd5555">&#39;feta&#39;</span>, <span style="color:#b452cd">5</span>);
+<span style="color:#8b008b;font-weight:bold">var</span> fun = <span style="color:#8b008b;font-weight:bold">new</span> Toy(<span style="color:#cd5555">&#39;robot&#39;</span>, <span style="color:#b452cd">40</span>);
+</code></pre></div></li>
 </ol>
 
 <p>使用 Food 和 Toy 构造函数创建的对象实例都会拥有在 Product 构造函数中添加的 name 属性和 price 属性,但 category 属性是在各自的构造函数中定义的。</p>
@@ -564,91 +553,82 @@ var fun = new Toy('robot', 40);
 <ol>
 <li><p>使用 call 方法调用匿名函数
 在下例中的 for 循环体内，我们创建了一个匿名函数，然后通过调用该函数的 call 方法，将每个数组元素作为指定的 this 值执行了那个匿名函数。</p>
-
-<pre><code class="language-js">var animals = [
-{ species: 'Lion', name: 'King' },
-{ species: 'Whale', name: 'Fail' }
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> animals = [
+{ species: <span style="color:#cd5555">&#39;Lion&#39;</span>, name: <span style="color:#cd5555">&#39;King&#39;</span> },
+{ species: <span style="color:#cd5555">&#39;Whale&#39;</span>, name: <span style="color:#cd5555">&#39;Fail&#39;</span> }
 ];
 
-for (var i = 0; i &lt; animals.length; i++) {
-(function(i) {
-this.print = function() {
-  console.log('#' + i + ' ' + this.species
-              + ': ' + this.name);
+<span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">var</span> i = <span style="color:#b452cd">0</span>; i &lt; animals.length; i++) {
+(<span style="color:#8b008b;font-weight:bold">function</span>(i) {
+<span style="color:#8b008b;font-weight:bold">this</span>.print = <span style="color:#8b008b;font-weight:bold">function</span>() {
+  console.log(<span style="color:#cd5555">&#39;#&#39;</span> + i + <span style="color:#cd5555">&#39; &#39;</span> + <span style="color:#8b008b;font-weight:bold">this</span>.species
+              + <span style="color:#cd5555">&#39;: &#39;</span> + <span style="color:#8b008b;font-weight:bold">this</span>.name);
 }
-this.print();
+<span style="color:#8b008b;font-weight:bold">this</span>.print();
 }).call(animals[i], i);
 }
-</code></pre></li>
+</code></pre></div></li>
 </ol>
 
 <p>这个匿名函数的主要目的是给每个数组元素对象添加一个 print 方法，这个 print 方法可以打印出各元素在数组中的正确索引号。当然，这里不是必须得让数组元素作为 this 值传入那个匿名函数（普通参数就可以），目的是为了演示 call 的用法。
 3. 使用 call 方法调用函数并且指定上下文的 &lsquo;this&rsquo;</p>
-
-<pre><code class="language-js">function greet() {
-  var reply = [this.animal, 'typically sleep between', this.sleepDuration].join(' ');
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> greet() {
+  <span style="color:#8b008b;font-weight:bold">var</span> reply = [<span style="color:#8b008b;font-weight:bold">this</span>.animal, <span style="color:#cd5555">&#39;typically sleep between&#39;</span>, <span style="color:#8b008b;font-weight:bold">this</span>.sleepDuration].join(<span style="color:#cd5555">&#39; &#39;</span>);
   console.log(reply);
 }
 
-var obj = {
-  animal: 'cats', 
-  sleepDuration: '12 and 16 hours'
+<span style="color:#8b008b;font-weight:bold">var</span> obj = {
+  animal: <span style="color:#cd5555">&#39;cats&#39;</span>, 
+  sleepDuration: <span style="color:#cd5555">&#39;12 and 16 hours&#39;</span>
 };
 
-greet.call(obj);  // cats typically sleep between 12 and 16 hours
-</code></pre>
-
+greet.call(obj);  <span style="color:#228b22">// cats typically sleep between 12 and 16 hours
+</span></code></pre></div>
 <p>当调用 greet 方法的时候，该方法的this值会绑定到 obj 对象。</p>
 
 <ol>
 <li><p>使用 call 方法调用函数并且不指定第一个参数（argument）</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> sData = <span style="color:#cd5555">&#39;Wisen&#39;</span>;
 
-<pre><code class="language-js">var sData = 'Wisen';
-
-function display() {
-console.log('sData value is %s ', this.sData);
+<span style="color:#8b008b;font-weight:bold">function</span> display() {
+console.log(<span style="color:#cd5555">&#39;sData value is %s &#39;</span>, <span style="color:#8b008b;font-weight:bold">this</span>.sData);
 }
 
-display.call();  // sData value is Wisen
-</code></pre></li>
+display.call();  <span style="color:#228b22">// sData value is Wisen
+</span></code></pre></div></li>
 </ol>
 
 <p>我们调用了 display 方法，但并没有传递它的第一个参数。如果没有传递第一个参数，this 的值将会被绑定为全局对象。</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#cd5555">&#39;use strict&#39;</span>;
 
-<pre><code class="language-js">'use strict';
+<span style="color:#8b008b;font-weight:bold">var</span> sData = <span style="color:#cd5555">&#39;Wisen&#39;</span>;
 
-var sData = 'Wisen';
-
-function display() {
-  console.log('sData value is %s ', this.sData);
+<span style="color:#8b008b;font-weight:bold">function</span> display() {
+  console.log(<span style="color:#cd5555">&#39;sData value is %s &#39;</span>, <span style="color:#8b008b;font-weight:bold">this</span>.sData);
 }
 
-display.call(); // Cannot read the property of 'sData' of undefined
-</code></pre>
-
+display.call(); <span style="color:#228b22">// Cannot read the property of &#39;sData&#39; of undefined
+</span></code></pre></div>
 <p>在严格模式下，this 的值将会是 undefined</p>
 
 <h2 id="三-bind">三 bind</h2>
 
 <p>bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
-
-<pre><code class="language-js">const module = {
-  x: 42,
-  getX: function() {
-    return this.x;
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">const</span> module = {
+  x: <span style="color:#b452cd">42</span>,
+  getX: <span style="color:#8b008b;font-weight:bold">function</span>() {
+    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.x;
   }
 }
 
-const unboundGetX = module.getX;
-console.log(unboundGetX()); // The function gets invoked at the global scope
-// expected output: undefined
-
-const boundGetX = unboundGetX.bind(module);
+<span style="color:#8b008b;font-weight:bold">const</span> unboundGetX = module.getX;
+console.log(unboundGetX()); <span style="color:#228b22">// The function gets invoked at the global scope
+</span><span style="color:#228b22">// expected output: undefined
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">const</span> boundGetX = unboundGetX.bind(module);
 console.log(boundGetX());
-// expected output: 42
-
-</code></pre>
-
+<span style="color:#228b22">// expected output: 42
+</span></code></pre></div>
 <h3 id="语法-2">语法</h3>
 
 <p>function.bind(thisArg[, arg1[, arg2[, &hellip;]]])</p>
@@ -671,60 +651,56 @@ console.log(boundGetX());
 <p><font color="#F5B041">1. 创建绑定函数</font><br></p>
 
 <p>bind() 最简单的用法是创建一个函数，不论怎么调用，这个函数都有同样的 this 值。JavaScript新手经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，期望方法中的 this 是原来的对象（比如在回调中传入这个方法）。如果不做特殊处理的话，一般会丢失原来的对象。基于这个函数，用原始的对象创建一个绑定函数，巧妙地解决了这个问题：</p>
-
-<pre><code class="language-js">this.x = 9;    // 在浏览器中，this 指向全局的 &quot;window&quot; 对象
-var module = {
-  x: 81,
-  getX: function() { return this.x; }
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">this</span>.x = <span style="color:#b452cd">9</span>;    <span style="color:#228b22">// 在浏览器中，this 指向全局的 &#34;window&#34; 对象
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">var</span> module = {
+  x: <span style="color:#b452cd">81</span>,
+  getX: <span style="color:#8b008b;font-weight:bold">function</span>() { <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.x; }
 };
 
-module.getX(); // 81
-
-var retrieveX = module.getX;
+module.getX(); <span style="color:#228b22">// 81
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">var</span> retrieveX = module.getX;
 retrieveX();   
-// 返回 9 - 因为函数是在全局作用域中调用的
-
-// 创建一个新函数，把 'this' 绑定到 module 对象
-// 新手可能会将全局变量 x 与 module 的属性 x 混淆
-var boundGetX = retrieveX.bind(module);
-boundGetX(); // 81
-</code></pre>
-
+<span style="color:#228b22">// 返回 9 - 因为函数是在全局作用域中调用的
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 创建一个新函数，把 &#39;this&#39; 绑定到 module 对象
+</span><span style="color:#228b22">// 新手可能会将全局变量 x 与 module 的属性 x 混淆
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">var</span> boundGetX = retrieveX.bind(module);
+boundGetX(); <span style="color:#228b22">// 81
+</span></code></pre></div>
 <p><font color="#F5B041">2. 预设初始参数</font><br></p>
 
 <p>bind() 的另一个最简单的用法是使一个函数拥有预设的初始参数。只要将这些参数（如果有的话）作为 bind() 的参数写在 this 后面。当绑定函数被调用时，这些参数会被插入到目标函数的参数列表的开始位置，传递给绑定函数的参数会跟在它们后面。</p>
-
-<pre><code class="language-js">function list() {
-  return Array.prototype.slice.call(arguments);
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> list() {
+  <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#658b00">Array</span>.prototype.slice.call(arguments);
 }
 
-function addArguments(arg1, arg2) {
-    return arg1 + arg2
+<span style="color:#8b008b;font-weight:bold">function</span> addArguments(arg1, arg2) {
+    <span style="color:#8b008b;font-weight:bold">return</span> arg1 + arg2
 }
 
-var list1 = list(1, 2, 3); // [1, 2, 3]
+<span style="color:#8b008b;font-weight:bold">var</span> list1 = list(<span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>); <span style="color:#228b22">// [1, 2, 3]
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">var</span> result1 = addArguments(<span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>); <span style="color:#228b22">// 3
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 创建一个函数，它拥有预设参数列表。
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">var</span> leadingThirtysevenList = list.bind(<span style="color:#8b008b;font-weight:bold">null</span>, <span style="color:#b452cd">37</span>);
 
-var result1 = addArguments(1, 2); // 3
+<span style="color:#228b22">// 创建一个函数，它拥有预设的第一个参数
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">var</span> addThirtySeven = addArguments.bind(<span style="color:#8b008b;font-weight:bold">null</span>, <span style="color:#b452cd">37</span>); 
 
-// 创建一个函数，它拥有预设参数列表。
-var leadingThirtysevenList = list.bind(null, 37);
-
-// 创建一个函数，它拥有预设的第一个参数
-var addThirtySeven = addArguments.bind(null, 37); 
-
-var list2 = leadingThirtysevenList(); 
-// [37]
-
-var list3 = leadingThirtysevenList(1, 2, 3); 
-// [37, 1, 2, 3]
-
-var result2 = addThirtySeven(5); 
-// 37 + 5 = 42 
-
-var result3 = addThirtySeven(5, 10);
-// 37 + 5 = 42 ，第二个参数被忽略
-</code></pre>
-
+<span style="color:#8b008b;font-weight:bold">var</span> list2 = leadingThirtysevenList(); 
+<span style="color:#228b22">// [37]
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">var</span> list3 = leadingThirtysevenList(<span style="color:#b452cd">1</span>, <span style="color:#b452cd">2</span>, <span style="color:#b452cd">3</span>); 
+<span style="color:#228b22">// [37, 1, 2, 3]
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">var</span> result2 = addThirtySeven(<span style="color:#b452cd">5</span>); 
+<span style="color:#228b22">// 37 + 5 = 42 
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">var</span> result3 = addThirtySeven(<span style="color:#b452cd">5</span>, <span style="color:#b452cd">10</span>);
+<span style="color:#228b22">// 37 + 5 = 42 ，第二个参数被忽略
+</span></code></pre></div>
     </div>
 
     

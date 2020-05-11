@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-02-03T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-03T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="485">
+<meta itemprop="wordCount" content="528">
 
 
 
@@ -382,79 +382,124 @@ Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个
 
 <p>示例：
 computed</p>
-
-<pre><code class="language-js">var vm = new Vue({
-  data: { a: 1 },
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
+  data: { a: <span style="color:#b452cd">1</span> },
   computed: {
-    // 仅读取
-    aDouble: function () {
-      return this.a * 2
+    <span style="color:#228b22">// 仅读取
+</span><span style="color:#228b22"></span>    aDouble: <span style="color:#8b008b;font-weight:bold">function</span> () {
+      <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.a * <span style="color:#b452cd">2</span>
     },
-    // 读取和设置
-    aPlus: {
-      get: function () {
-        return this.a + 1
+    <span style="color:#228b22">// 读取和设置
+</span><span style="color:#228b22"></span>    aPlus: {
+      get: <span style="color:#8b008b;font-weight:bold">function</span> () {
+        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.a + <span style="color:#b452cd">1</span>
       },
-      set: function (v) {
-        this.a = v - 1
+      set: <span style="color:#8b008b;font-weight:bold">function</span> (v) {
+        <span style="color:#8b008b;font-weight:bold">this</span>.a = v - <span style="color:#b452cd">1</span>
       }
     }
   }
 })
-vm.aPlus   // =&gt; 2
-vm.aPlus = 3
-vm.a       // =&gt; 2
-vm.aDouble // =&gt; 4
-</code></pre>
-
+vm.aPlus   <span style="color:#228b22">// =&gt; 2
+</span><span style="color:#228b22"></span>vm.aPlus = <span style="color:#b452cd">3</span>
+vm.a       <span style="color:#228b22">// =&gt; 2
+</span><span style="color:#228b22"></span>vm.aDouble <span style="color:#228b22">// =&gt; 4
+</span></code></pre></div>
 <hr>
 
-<p>watch</p>
-
-<pre><code class="language-js">var vm = new Vue({
+<p>watch
+<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8b008b;font-weight:bold">var</span> vm = new <span style="color:#008b45">Vue</span>({
   data: {
-    a: 1,
-    b: 2,
-    c: 3,
-    d: 4,
+    a: <span style="color:#b452cd">1</span>,
+    b: <span style="color:#b452cd">2</span>,
+    c: <span style="color:#b452cd">3</span>,
+    d: <span style="color:#b452cd">4</span>,
     e: {
       f: {
-        g: 5
+        g: <span style="color:#b452cd">5</span>
       }
     }
   },
   watch: {
-    a: function (val, oldVal) {
-      console.log('new: %s, old: %s', val, oldVal)
+    a: <span style="color:#008b45">function</span> (val, oldVal) {
+      console.<span style="color:#008b45">log</span>(<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>new: %s, old: %s<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>, val, oldVal)
     },
-    // 方法名
-    b: 'someMethod',
-    // 设置deep: true
-    // 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
-    c: {
-      handler: function (val, oldVal) { /* ... */ },
-      deep: true
+    <span style="color:#228b22">// 方法名
+</span><span style="color:#228b22"></span>    b: <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>someMethod<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
+    <span style="color:#228b22">// 设置deep: true
+</span><span style="color:#228b22"></span>    <span style="color:#228b22">// 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
+</span><span style="color:#228b22"></span>    c: {
+      handler: <span style="color:#008b45">function</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
+      deep: <span style="color:#8b008b;font-weight:bold">true</span>
     },
-    // 设置immediate: true
-    // 该回调将会在侦听开始之后被立即调用
-    d: {
-      handler: 'someMethod',
-      immediate: true
+    <span style="color:#228b22">// 设置immediate: true
+</span><span style="color:#228b22"></span>    <span style="color:#228b22">// 该回调将会在侦听开始之后被立即调用
+</span><span style="color:#228b22"></span>    d: {
+      handler: <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>someMethod<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
+      immediate: <span style="color:#8b008b;font-weight:bold">true</span>
     },
     e: [
-      'handle1',
-      function handle2 (val, oldVal) { /* ... */ },
+      <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>handle1<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
+      function <span style="color:#008b45">handle2</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
       {
-        handler: function handle3 (val, oldVal) { /* ... */ },
-        /* ... */
+        handler: function <span style="color:#008b45">handle3</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
+        <span style="color:#228b22">/* ... */</span>
       }
     ],
-    // watch vm.e.f's value: {g: 5}
-    'e.f': function (val, oldVal) { /* ... */ }
+    <span style="color:#228b22">// watch vm.e.f&#39;s value: {g: 5}
+</span><span style="color:#228b22"></span>    <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>e.f<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>: <span style="color:#008b45">function</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> }
   }
 })
-vm.a = 2 // =&gt; new: 2, old: 1
-</code></pre>
+vm.a = <span style="color:#b452cd">2</span> // =&gt; new: <span style="color:#b452cd">2</span>, old: <span style="color:#b452cd">1</span></code></pre></td></tr></table>
+</div>
+</div></p>
 
 <p>参考链接：<br>
 <a href="https://cn.vuejs.org/v2/api/index.html#computed">https://cn.vuejs.org/v2/api/index.html#computed</a><br>

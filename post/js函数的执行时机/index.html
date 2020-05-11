@@ -364,75 +364,65 @@
       
 
 <h2 id="一-为什么如下代码会打印-6-个-6">一 为什么如下代码会打印 6 个 6</h2>
-
-<pre><code class="language-js">let i = 0
-for(i = 0; i &lt; 6; i++){
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>
+<span style="color:#8b008b;font-weight:bold">for</span>(i = <span style="color:#b452cd">0</span>; i &lt; <span style="color:#b452cd">6</span>; i++){
   setTimeout(()=&gt;{
     console.log(i)
-  },0)
+  },<span style="color:#b452cd">0</span>)
 }
-</code></pre>
-
+</code></pre></div>
 <p>当setTimeout()的毫秒数设置为0的时候，是要先执行完函数调用栈中的代码，然后立即调用定时器。</p>
 
 <p>因为定时器都被放在了一个队列中，等待上下文的可执行代码运行完毕后，才开始运行定时器，也就是定时器才刚开始计时。代码中声明一个let全局变量i，然后在for循环中改变i，所以在定时器的方法执行的时候，变量i已经变成了6，所以输出的全部是6。</p>
 
 <h2 id="二-让上面代码打印-0-1-2-3-4-5-的方法">二 让上面代码打印 0、1、2、3、4、5 的方法</h2>
-
-<pre><code class="language-js">for(let i = 0; i &lt; 6; i++){
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>; i &lt; <span style="color:#b452cd">6</span>; i++){
   setTimeout(() =&gt; {
     console.log(i)
-  }, 0)
+  }, <span style="color:#b452cd">0</span>)
 }
-</code></pre>
-
+</code></pre></div>
 <p><img src="/images/setTimeout1.png" alt="setTimeout1" /></p>
 
 <p>利用ES6 let命令声明变量块级作用域的概念，和前面for循环使用全局变量i不同，当前的i只在本轮循环有效， 所以每一次循环的i其实都是一个新的变量，所以5个setTimeout回调函数虽然都引用了变量i,但实际上这5个i是独立的，仅在自己的块级作用域内有效</p>
 
 <h2 id="三-除了使用-for-let-配合-还有什么其他方法可以打印出-0-1-2-3-4-5">三 除了使用 for let 配合，还有什么其他方法可以打印出 0、1、2、3、4、5</h2>
-
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  // j = i
-  !(function(j) { 
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> i
+<span style="color:#8b008b;font-weight:bold">for</span> (i = <span style="color:#b452cd">0</span>; i &lt; <span style="color:#b452cd">6</span>; i++) {
+  <span style="color:#228b22">// j = i
+</span><span style="color:#228b22"></span>  !(<span style="color:#8b008b;font-weight:bold">function</span>(j) { 
     setTimeout(() =&gt; {
       console.log(j)
-    }, 0);
+    }, <span style="color:#b452cd">0</span>);
   })(i);
 }
-</code></pre>
-
+</code></pre></div>
 <p><img src="/images/setTimeout2.png" alt="setTimeout2" /></p>
 
 <p>这里通过立即执行函数创造了n个不同的函数作用域，给setTimeout传入n个不同的参数，所以就可以打印出0、1、2、3、4、5
 此外，我们还可以</p>
-
-<pre><code class="language-js">let output = function(i) {
-  setTimeout(function() {
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> output = <span style="color:#8b008b;font-weight:bold">function</span>(i) {
+  setTimeout(<span style="color:#8b008b;font-weight:bold">function</span>() {
     console.log(i);
-  }, 0);
+  }, <span style="color:#b452cd">0</span>);
 };
-let i
-for (i = 0; i &lt; 6; i++) {
-  output.call(undefined, i); // 这里传过去的 i 值被复制，而不是引用
-}
-</code></pre>
-
+<span style="color:#8b008b;font-weight:bold">let</span> i
+<span style="color:#8b008b;font-weight:bold">for</span> (i = <span style="color:#b452cd">0</span>; i &lt; <span style="color:#b452cd">6</span>; i++) {
+  output.call(<span style="color:#8b008b;font-weight:bold">undefined</span>, i); <span style="color:#228b22">// 这里传过去的 i 值被复制，而不是引用
+</span><span style="color:#228b22"></span>}
+</code></pre></div>
 <p><img src="/images/setTimeout3.png" alt="setTimeout3" /></p>
 
 <p>原理和上面相似，也是创造了n个不同的函数作用域，给setTimeout传入了n个不同的参数</p>
 
 <p>此外我们还可以利用setTimeout第三个参数</p>
-
-<pre><code class="language-js">let i
-for (i = 0; i &lt; 6; i++) {
-  setTimeout(function(i) {
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> i
+<span style="color:#8b008b;font-weight:bold">for</span> (i = <span style="color:#b452cd">0</span>; i &lt; <span style="color:#b452cd">6</span>; i++) {
+  setTimeout(<span style="color:#8b008b;font-weight:bold">function</span>(i) {
     console.log(i);
-  }, 0, i);
+  }, <span style="color:#b452cd">0</span>, i);
 }
-</code></pre>
-
+</code></pre></div>
 <p><img src="/images/setTimeout4.png" alt="setTimeout4" /></p>
 
     </div>

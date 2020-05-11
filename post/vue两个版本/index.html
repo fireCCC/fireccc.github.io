@@ -379,19 +379,17 @@
 <p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。</p>
 
 <h3 id="template-和-render-怎么用">template 和 render 怎么用</h3>
-
-<pre><code class="language-js">// 需要编译器
-new Vue({
-  template: '&lt;div&gt;{{ hi }}&lt;/div&gt;'
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#228b22">// 需要编译器
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">new</span> Vue({
+  template: <span style="color:#cd5555">&#39;&lt;div&gt;{{ hi }}&lt;/div&gt;&#39;</span>
 })
-// 不需要编译器
-new Vue({
+<span style="color:#228b22">// 不需要编译器
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">new</span> Vue({
   render (h) {
-    return h('div', this.hi)
+    <span style="color:#8b008b;font-weight:bold">return</span> h(<span style="color:#cd5555">&#39;div&#39;</span>, <span style="color:#8b008b;font-weight:bold">this</span>.hi)
   }
 })
-</code></pre>
-
+</code></pre></div>
 <p>yarn build 当使用 vue-loader 或 vueify 的时候，*.vue 文件内部的模板会在构建时预编译成 JavaScript。你在最终打好的包里实际上是不需要编译器的，所以只用运行时版本即可。</p>
 
 <p>因为运行时版本相比完整版体积要小大约 30%，所以应该尽可能使用这个版本。</p>
