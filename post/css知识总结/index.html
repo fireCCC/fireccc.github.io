@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CSS知识总结 - Jane - A super concise theme for Hugo</title>
+  <title>CSS知识总结 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-09-15T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-09-15T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="882">
+<meta itemprop="wordCount" content="896">
 
 
 
@@ -456,22 +456,48 @@ display:none =&gt; block没办法过渡<br>
 
 <ol>
 <li><p>from to<br></p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">@<span style="color:#8b008b;font-weight:bold">keyframes</span> <span style="color:#8b008b;font-weight:bold">slidein</span> {
-<span style="color:#8b008b;font-weight:bold">from</span> {
-    <span style="color:#8b008b;font-weight:bold">transform</span>: <span style="color:#658b00">translateX</span>(<span style="color:#b452cd">0</span><span style="color:#00688b;font-weight:bold">%</span>);
-}
-<span style="color:#8b008b;font-weight:bold">to</span> {
-    <span style="color:#8b008b;font-weight:bold">transform</span>: <span style="color:#658b00">translateX</span>(<span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">%</span>);
-}
-}</code></pre></div></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">@</span><span class="k">keyframes</span> <span class="nt">slidein</span> <span class="p">{</span>
+<span class="nt">from</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">0</span><span class="kt">%</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nt">to</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">100</span><span class="kt">%</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>百分数定义<br></p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">@<span style="color:#8b008b;font-weight:bold">keyframes</span> <span style="color:#8b008b;font-weight:bold">identifier</span> {
-<span style="color:#8b008b;font-weight:bold">0</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">0</span>; <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">0</span>; }
-<span style="color:#8b008b;font-weight:bold">30</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">50</span><span style="color:#00688b;font-weight:bold">px</span>; }
-<span style="color:#8b008b;font-weight:bold">68</span>%, <span style="color:#8b008b;font-weight:bold">72</span>% { <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">50</span><span style="color:#00688b;font-weight:bold">px</span>; }
-<span style="color:#8b008b;font-weight:bold">100</span>% { <span style="color:#8b008b;font-weight:bold">top</span>: <span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">px</span>; <span style="color:#8b008b;font-weight:bold">left</span>: <span style="color:#b452cd">100</span><span style="color:#00688b;font-weight:bold">%</span>; }
-}</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">@</span><span class="k">keyframes</span> <span class="nt">identifier</span> <span class="p">{</span>
+<span class="nt">0</span><span class="o">%</span> <span class="p">{</span> <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">30</span><span class="o">%</span> <span class="p">{</span> <span class="k">top</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">68</span><span class="o">%,</span> <span class="nt">72</span><span class="o">%</span> <span class="p">{</span> <span class="k">left</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">100</span><span class="o">%</span> <span class="p">{</span> <span class="k">top</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span> <span class="k">left</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="animation语法">animation语法</h4>
 
 <p><font color=#0099ff>animation: 时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充模式 | 是否暂停 | 动画名</font><br>
@@ -795,7 +821,7 @@ display:none =&gt; block没办法过渡<br>
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>computed和watch的区别 - Jane - A super concise theme for Hugo</title>
+  <title>computed和watch的区别 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-02-03T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-03T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="528">
+<meta itemprop="wordCount" content="550">
 
 
 
@@ -382,122 +382,150 @@ Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个
 
 <p>示例：
 computed</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
-  data: { a: <span style="color:#b452cd">1</span> },
-  computed: {
-    <span style="color:#228b22">// 仅读取
-</span><span style="color:#228b22"></span>    aDouble: <span style="color:#8b008b;font-weight:bold">function</span> () {
-      <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.a * <span style="color:#b452cd">2</span>
-    },
-    <span style="color:#228b22">// 读取和设置
-</span><span style="color:#228b22"></span>    aPlus: {
-      get: <span style="color:#8b008b;font-weight:bold">function</span> () {
-        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.a + <span style="color:#b452cd">1</span>
-      },
-      set: <span style="color:#8b008b;font-weight:bold">function</span> (v) {
-        <span style="color:#8b008b;font-weight:bold">this</span>.a = v - <span style="color:#b452cd">1</span>
-      }
-    }
-  }
-})
-vm.aPlus   <span style="color:#228b22">// =&gt; 2
-</span><span style="color:#228b22"></span>vm.aPlus = <span style="color:#b452cd">3</span>
-vm.a       <span style="color:#228b22">// =&gt; 2
-</span><span style="color:#228b22"></span>vm.aDouble <span style="color:#228b22">// =&gt; 4
-</span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span>
+  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// 仅读取
+</span><span class="c1"></span>    <span class="nx">aDouble</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="c1">// 读取和设置
+</span><span class="c1"></span>    <span class="nx">aPlus</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">get</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="nx">set</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">v</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">vm</span><span class="p">.</span><span class="nx">aPlus</span>   <span class="c1">// =&gt; 2
+</span><span class="c1"></span><span class="nx">vm</span><span class="p">.</span><span class="nx">aPlus</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nx">vm</span><span class="p">.</span><span class="nx">a</span>       <span class="c1">// =&gt; 2
+</span><span class="c1"></span><span class="nx">vm</span><span class="p">.</span><span class="nx">aDouble</span> <span class="c1">// =&gt; 4
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <hr>
 
 <p>watch
-<div class="highlight"><div style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8b008b;font-weight:bold">var</span> vm = new <span style="color:#008b45">Vue</span>({
-  data: {
-    a: <span style="color:#b452cd">1</span>,
-    b: <span style="color:#b452cd">2</span>,
-    c: <span style="color:#b452cd">3</span>,
-    d: <span style="color:#b452cd">4</span>,
-    e: {
-      f: {
-        g: <span style="color:#b452cd">5</span>
-      }
-    }
-  },
-  watch: {
-    a: <span style="color:#008b45">function</span> (val, oldVal) {
-      console.<span style="color:#008b45">log</span>(<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>new: %s, old: %s<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>, val, oldVal)
-    },
-    <span style="color:#228b22">// 方法名
-</span><span style="color:#228b22"></span>    b: <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>someMethod<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
-    <span style="color:#228b22">// 设置deep: true
-</span><span style="color:#228b22"></span>    <span style="color:#228b22">// 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
-</span><span style="color:#228b22"></span>    c: {
-      handler: <span style="color:#008b45">function</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
-      deep: <span style="color:#8b008b;font-weight:bold">true</span>
-    },
-    <span style="color:#228b22">// 设置immediate: true
-</span><span style="color:#228b22"></span>    <span style="color:#228b22">// 该回调将会在侦听开始之后被立即调用
-</span><span style="color:#228b22"></span>    d: {
-      handler: <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>someMethod<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
-      immediate: <span style="color:#8b008b;font-weight:bold">true</span>
-    },
-    e: [
-      <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>handle1<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>,
-      function <span style="color:#008b45">handle2</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
-      {
-        handler: function <span style="color:#008b45">handle3</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> },
-        <span style="color:#228b22">/* ... */</span>
-      }
-    ],
-    <span style="color:#228b22">// watch vm.e.f&#39;s value: {g: 5}
-</span><span style="color:#228b22"></span>    <span style="color:#a61717;background-color:#e3d2d2">&#39;</span>e.f<span style="color:#a61717;background-color:#e3d2d2">&#39;</span>: <span style="color:#008b45">function</span> (val, oldVal) { <span style="color:#228b22">/* ... */</span> }
-  }
-})
-vm.a = <span style="color:#b452cd">2</span> // =&gt; new: <span style="color:#b452cd">2</span>, old: <span style="color:#b452cd">1</span></code></pre></td></tr></table>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">vm</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Vue</span><span class="p">({</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nx">d</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nx">e</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">f</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">g</span><span class="p">:</span> <span class="mi">5</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="p">:</span> <span class="nf">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">new</span><span class="p">:</span> <span class="o">%</span><span class="nx">s</span><span class="p">,</span> <span class="nx">old</span><span class="p">:</span> <span class="o">%</span><span class="nx">s</span><span class="err">&#39;</span><span class="p">,</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="c1">// 方法名
+</span><span class="c1"></span>    <span class="nx">b</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">someMethod</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="c1">// 设置deep: true
+</span><span class="c1"></span>    <span class="c1">// 该回调会在任何被侦听的对象的 property 改变时被调用，不论其被嵌套多深
+</span><span class="c1"></span>    <span class="nx">c</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">handler</span><span class="p">:</span> <span class="nf">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">},</span>
+      <span class="nx">deep</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="c1">// 设置immediate: true
+</span><span class="c1"></span>    <span class="c1">// 该回调将会在侦听开始之后被立即调用
+</span><span class="c1"></span>    <span class="nx">d</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">handler</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">someMethod</span><span class="err">&#39;</span><span class="p">,</span>
+      <span class="nx">immediate</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nx">e</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">&#39;</span><span class="nx">handle1</span><span class="err">&#39;</span><span class="p">,</span>
+      <span class="nx">function</span> <span class="nf">handle2</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">handler</span><span class="p">:</span> <span class="nx">function</span> <span class="nf">handle3</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">},</span>
+        <span class="cm">/* ... */</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="c1">// watch vm.e.f&#39;s value: {g: 5}
+</span><span class="c1"></span>    <span class="err">&#39;</span><span class="nx">e</span><span class="p">.</span><span class="nx">f</span><span class="err">&#39;</span><span class="p">:</span> <span class="nf">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">vm</span><span class="p">.</span><span class="nx">a</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">//</span> <span class="p">=&gt;</span> <span class="nx">new</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">old</span><span class="p">:</span> <span class="mi">1</span></code></pre></td></tr></table>
 </div>
 </div></p>
 
@@ -812,7 +840,7 @@ vm.a = <span style="color:#b452cd">2</span> // =&gt; new: <span style="color:#b4
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

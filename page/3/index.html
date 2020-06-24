@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jane - A super concise theme for Hugo</title>
+  <title>Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -35,7 +35,7 @@
 
 
 <link rel="canonical" href="http://wantsuchen.top/" />
-<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://wantsuchen.top/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane - A super concise theme for Hugo" />
+<link href="%7balternate%20%7bRSS%20application/rss&#43;xml%20%20index%20alternate%20%20false%20false%20true%20false%20false%200%7d%20/index.xml%20http://wantsuchen.top/index.xml%7d" rel="alternate" type="application/rss+xml" title="Jane" />
 
 
 
@@ -57,17 +57,17 @@
 
 
 
-<meta property="og:title" content="Jane - A super concise theme for Hugo" />
+<meta property="og:title" content="Jane" />
 <meta property="og:description" content="Hugo theme jane example site." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://wantsuchen.top/" />
 
-<meta property="og:updated_time" content="2020-03-06T13:34:36+08:00" />
-<meta itemprop="name" content="Jane - A super concise theme for Hugo">
+<meta property="og:updated_time" content="2020-06-22T11:34:36+08:00" />
+<meta itemprop="name" content="Jane">
 <meta itemprop="description" content="Hugo theme jane example site.">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Jane - A super concise theme for Hugo"/>
+<meta name="twitter:title" content="Jane"/>
 <meta name="twitter:description" content="Hugo theme jane example site."/>
 
 <!--[if lte IE 9]>
@@ -321,6 +321,37 @@
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/post/%E6%B5%85%E6%9E%90mvc/">浅析MVC</a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="2020-01-03" class="post-time">
+        2020-01-03
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      MVC三类对象 MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。 MVC包括三类对象，将他们分离以提高灵活性和复用性。 模型mod
+    </div>
+    <div class="read-more">
+      <a href="/post/%E6%B5%85%E6%9E%90mvc/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+  
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/post/%E6%88%91%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3/">关于我对前端的理解</a>
     </h1>
     
@@ -369,41 +400,10 @@
   <div class="post-content">
     
     <div class="post-summary">
-      基于原型的继承 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){ console.log(&#39;Dog-run&#39;) } 重点： let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog 基
+      基于原型的继承 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 function Animal () { this.x = 1 } Animal.prototype.move = function() { console.log(&#39;Animal-move&#39;) } function Dog () { Animal.apply(this, arguments) this.xx = 2 } let f = function() {} f.prototype = Animal.prototype Dog.prototype = new f() Dog.prototype.constructor = Dog Dog.prototype.run = function(){
     </div>
     <div class="read-more">
       <a href="/post/js%E7%9A%84%E7%BB%A7%E6%89%BF/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/">事件机制</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-12-23" class="post-time">
-        2019-12-23
-      </time>
-      
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      什么是事件委托 事件委托，通俗地来讲，就是把一个元素响应事件（click、keydown&hellip;&hellip;）的函数委托到另一个元
-    </div>
-    <div class="read-more">
-      <a href="/post/%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -469,6 +469,10 @@
       
       <li >
         <a href="/page/9/">9</a>
+      </li>
+      
+      <li >
+        <a href="/page/10/">10</a>
       </li>
       
     </ul>
@@ -682,7 +686,7 @@
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

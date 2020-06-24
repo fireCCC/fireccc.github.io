@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vue数据响应式原理 - Jane - A super concise theme for Hugo</title>
+  <title>Vue数据响应式原理 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-01-22T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-22T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="942">
+<meta itemprop="wordCount" content="986">
 
 
 
@@ -393,17 +393,33 @@ Vue2通过Object.defineProperty来实现数据响应式<br></p>
 <h3 id="检测变化的注意事项">检测变化的注意事项</h3>
 
 <p>受现代 JavaScript 的限制 (而且 Object.observe 也已经被废弃)，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。例如：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
-  data:{
-    a:<span style="color:#b452cd">1</span>
-  }
-})
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span><span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span><span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">})</span>
 
-<span style="color:#228b22">// `vm.a` 是响应式的
-</span><span style="color:#228b22"></span>
-vm.b = <span style="color:#b452cd">2</span>
-<span style="color:#228b22">// `vm.b` 是非响应式的
-</span></code></pre></div>
+<span class="c1">// `vm.a` 是响应式的
+</span><span class="c1"></span>
+<span class="nx">vm</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1">// `vm.b` 是非响应式的
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p><font color="#41B883">对于已经创建的实例，Vue 不允许动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, propertyName, value) 方法向嵌套对象添加响应式属性。</font>例如：</p>
 
 <p><code>Vue.set(vm.someObject, 'b', 2)</code></p>
@@ -414,16 +430,31 @@ vm.b = <span style="color:#b452cd">2</span>
 
 <p><font color="#41B883">由于 Vue 不允许动态添加根级响应式属性，所以你必须在初始化实例前声明所有根级响应式属性，哪怕只是一个空值：</font>
 (Vue会给出一个警告，Vue只会检查第一层属性)</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> vm = <span style="color:#8b008b;font-weight:bold">new</span> Vue({
-  data: {
-    <span style="color:#228b22">// 声明 message 为一个空值字符串
-</span><span style="color:#228b22"></span>    message: <span style="color:#cd5555">&#39;&#39;</span>
-  },
-  template: <span style="color:#cd5555">&#39;&lt;div&gt;{{ message }}&lt;/div&gt;&#39;</span>
-})
-<span style="color:#228b22">// 之后设置 `message`
-</span><span style="color:#228b22"></span>vm.message = <span style="color:#cd5555">&#39;Hello!&#39;</span>
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// 声明 message 为一个空值字符串
+</span><span class="c1"></span>    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;{{ message }}&lt;/div&gt;&#39;</span>
+<span class="p">})</span>
+<span class="c1">// 之后设置 `message`
+</span><span class="c1"></span><span class="nx">vm</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;Hello!&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>如果你未在 data 选项中声明 message，Vue 将警告你渲染函数正在试图访问不存在的属性。</p>
 
 <p>Vue.set和this.$set的作用包括</p>
@@ -435,36 +466,79 @@ vm.b = <span style="color:#b452cd">2</span>
 </ul>
 
 <p><font color="#41B883">Vue 将被侦听的数组的变异方法(mutation method)进行了包裹，所以它们也将会触发视图更新。</font>这些被包裹过的方法包括：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">push()
-pop()
-shift()
-unshift()
-splice()
-sort()
-reverse()
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">push</span><span class="p">()</span>
+<span class="nx">pop</span><span class="p">()</span>
+<span class="nx">shift</span><span class="p">()</span>
+<span class="nx">unshift</span><span class="p">()</span>
+<span class="nx">splice</span><span class="p">()</span>
+<span class="nx">sort</span><span class="p">()</span>
+<span class="nx">reverse</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>ES6</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">class</span> VueArray <span style="color:#8b008b;font-weight:bold">extends</span> <span style="color:#658b00">Array</span>{
-    push(...args){
-        <span style="color:#8b008b;font-weight:bold">const</span> oldLength = <span style="color:#8b008b;font-weight:bold">this</span>.length
-        <span style="color:#8b008b;font-weight:bold">super</span>.push(...args)
-        <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#8b008b;font-weight:bold">let</span> i = oldLength; i &lt; <span style="color:#8b008b;font-weight:bold">this</span>.length; i++){
-            Vue.set(<span style="color:#8b008b;font-weight:bold">this</span>, i, <span style="color:#8b008b;font-weight:bold">this</span>[i])
-        }
-    }
-}
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">class</span> <span class="nx">VueArray</span> <span class="k">extends</span> <span class="nb">Array</span><span class="p">{</span>
+    <span class="nx">push</span><span class="p">(...</span><span class="nx">args</span><span class="p">){</span>
+        <span class="k">const</span> <span class="nx">oldLength</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span>
+        <span class="k">super</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">oldLength</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="nx">Vue</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>ES5</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">const</span> vueArrayPrototype = {
-    push: <span style="color:#8b008b;font-weight:bold">function</span>(){
-    log(<span style="color:#cd5555">&#39;something else&#39;</span>)
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#658b00">Array</span>.prototype.push.apply(<span style="color:#8b008b;font-weight:bold">this</span>,arguments)
-    }
-}
-vueArrayPrototype._proto_ = <span style="color:#658b00">Array</span>.prototype
-<span style="color:#8b008b;font-weight:bold">const</span> array = object.create(vueArrayPrototype)
-array.push(<span style="color:#b452cd">1</span>)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">vueArrayPrototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">push</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">log</span><span class="p">(</span><span class="s1">&#39;something else&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">arguments</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">vueArrayPrototype</span><span class="p">.</span><span class="nx">_proto_</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="k">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">vueArrayPrototype</span><span class="p">)</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>参考链接：<br>
 <a href="https://cn.vuejs.org/v2/guide/reactivity.html">https://cn.vuejs.org/v2/guide/reactivity.html</a><br>
 <a href="https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B">https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B</a></p>
@@ -776,7 +850,7 @@ array.push(<span style="color:#b452cd">1</span>)
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>事件机制 - Jane - A super concise theme for Hugo</title>
+  <title>事件机制 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-12-23T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-23T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="1441">
+<meta itemprop="wordCount" content="1471">
 
 
 
@@ -387,14 +387,27 @@
 </ul>
 
 <p>事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和和捕获事件，事件触发会按照注册的顺序执行</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#228b22">//以下会先打印冒泡然后是捕获
-</span><span style="color:#228b22"></span>node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event) =&gt; {
-    console.log(<span style="color:#cd5555">&#39;冒泡&#39;</span>)
-}, <span style="color:#8b008b;font-weight:bold">false</span>)
-node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event) =&gt; {
-    console.log(<span style="color:#cd5555">&#39;捕获&#39;</span>)
-}, <span style="color:#8b008b;font-weight:bold">true</span>)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//以下会先打印冒泡然后是捕获
+</span><span class="c1"></span><span class="nx">node</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;冒泡&#39;</span><span class="p">)</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
+<span class="nx">node</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;捕获&#39;</span><span class="p">)</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="注册事件">注册事件</h4>
 
 <p>通常我们使用addEventListener注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值useCapture参数，该参数默认值为false。useCapture决定了注册的事件是捕获事件还是冒泡事件。对于对象参数。可以使用以下几个属性</p>
@@ -406,34 +419,69 @@ node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event
 </ul>
 
 <p>一般来说，我们只希望事件只触发在目标上，这时候可以使用stopPropagation来阻止事件的进一步传播。通常我们认为stopPropagation是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。stopImmediatePropagation同样也能实现阻止事件，此外还能阻止该事件目标执行别的注册事件。</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event)=&gt;{
-    event.stopImmediatePropagation()
-    console.log(<span style="color:#cd5555">&#39;冒泡&#39;</span>)
-}, <span style="color:#8b008b;font-weight:bold">false</span>)
-<span style="color:#228b22">//点击node只会执行上面的函数，该函数不会执行
-</span><span style="color:#228b22"></span>node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event)=&gt;{
-    console.log(<span style="color:#cd5555">&#39;捕获&#39;</span>)
-}, <span style="color:#8b008b;font-weight:bold">true</span>)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">node</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)=&gt;{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">stopImmediatePropagation</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;冒泡&#39;</span><span class="p">)</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
+<span class="c1">//点击node只会执行上面的函数，该函数不会执行
+</span><span class="c1"></span><span class="nx">node</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;捕获&#39;</span><span class="p">)</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="事件代理">事件代理</h4>
 
 <p>如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话应该注册在父节点上</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">&lt;ul id=<span style="color:#cd5555">&#34;ul&#34;</span>&gt;
-    &lt;li&gt;<span style="color:#b452cd">1</span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/li&gt;</span>
-    &lt;li&gt;<span style="color:#b452cd">2</span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/li&gt;</span>
-    &lt;li&gt;<span style="color:#b452cd">3</span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/li&gt;</span>
-    &lt;li&gt;<span style="color:#b452cd">4</span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/li&gt;</span>
-    &lt;li&gt;<span style="color:#b452cd">5</span>&lt;<span style="color:#a61717;background-color:#e3d2d2">/li&gt;</span>
-&lt;<span style="color:#a61717;background-color:#e3d2d2">/ul&gt;</span>
-&lt;script&gt;
-    <span style="color:#cd5555">```
-</span><span style="color:#cd5555">    let ul = document.querySelector(&#39;#ul&#39;)
-</span><span style="color:#cd5555">    ul.addEventListener(&#39;click&#39;, (event) =&gt; {
-</span><span style="color:#cd5555">        console.log(event.target)
-</span><span style="color:#cd5555">    })
-</span><span style="color:#cd5555">    ```</span>
-&lt;<span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;ul&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="mi">5</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+<span class="o">&lt;</span><span class="err">/ul&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="sb">```
+</span><span class="sb">    let ul = document.querySelector(&#39;#ul&#39;)
+</span><span class="sb">    ul.addEventListener(&#39;click&#39;, (event) =&gt; {
+</span><span class="sb">        console.log(event.target)
+</span><span class="sb">    })
+</span><span class="sb">    ```</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>事件代理的方式相对于直接给目标注册事件，有以下优点</p>
 
 <ul>
@@ -753,7 +801,7 @@ node.addEventListener(<span style="color:#cd5555">&#39;click&#39;</span>, (event
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

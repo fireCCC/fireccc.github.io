@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vue中的 .sync 修饰符 - Jane - A super concise theme for Hugo</title>
+  <title>Vue中的 .sync 修饰符 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-02-05T11:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-05T11:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="429">
+<meta itemprop="wordCount" content="482">
 
 
 
@@ -372,17 +372,48 @@
 <p>在有些情况下，我们可能需要对一个 prop 进行“双向绑定”。不幸的是，真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。</p>
 
 <p>这也是为什么我们推荐以 update:myPropName 的模式触发事件取而代之。举个例子，在一个包含 title prop 的假设的组件中，我们可以用以下方法表达对其赋新值的意图：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">this</span>.$emit(<span style="color:#cd5555">&#39;update:title&#39;</span>, newTitle)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:title&#39;</span><span class="p">,</span> <span class="nx">newTitle</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>然后父组件可以监听那个事件并根据需要更新一个本地的数据属性。例如：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#8b008b;font-weight:bold">text-document</span>
-  <span style="color:#658b00">v-bind:title</span>=<span style="color:#cd5555">&#34;doc.title&#34;</span>
-  <span style="color:#658b00">v-on:update:title</span>=<span style="color:#cd5555">&#34;doc.title = $event&#34;</span>
-&gt;&lt;/<span style="color:#8b008b;font-weight:bold">text-document</span>&gt;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text-document</span>
+  <span class="na">v-bind:title</span><span class="o">=</span><span class="s">&#34;doc.title&#34;</span>
+  <span class="na">v-on:update:title</span><span class="o">=</span><span class="s">&#34;doc.title = $event&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">text-document</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>为了方便起见，我们为这种模式提供一个缩写，即 .sync 修饰符：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#8b008b;font-weight:bold">text-document</span> <span style="color:#658b00">v-bind:title</span><span style="color:#a61717;background-color:#e3d2d2">.</span><span style="color:#658b00">sync</span>=<span style="color:#cd5555">&#34;doc.title&#34;</span>&gt;&lt;/<span style="color:#8b008b;font-weight:bold">text-document</span>&gt;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text-document</span> <span class="na">v-bind:title</span><span class="err">.</span><span class="na">sync</span><span class="o">=</span><span class="s">&#34;doc.title&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text-document</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>当我们用一个对象同时设置多个 prop 的时候，也可以将这个 .sync 修饰符和 v-bind 配合使用：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#8b008b;font-weight:bold">text-document</span> <span style="color:#658b00">v-bind</span><span style="color:#a61717;background-color:#e3d2d2">.</span><span style="color:#658b00">sync</span>=<span style="color:#cd5555">&#34;doc&#34;</span>&gt;&lt;/<span style="color:#8b008b;font-weight:bold">text-document</span>&gt;</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text-document</span> <span class="na">v-bind</span><span class="err">.</span><span class="na">sync</span><span class="o">=</span><span class="s">&#34;doc&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text-document</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>这样会把 doc 对象中的每一个属性 (如 title) 都作为一个独立的 prop 传进去，然后各自添加用于更新的 v-on 监听器。</p>
 
 <hr>
@@ -390,53 +421,111 @@
 <p>小例子：</p>
 
 <p>App.vue</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#8b008b;font-weight:bold">template</span>&gt;
-  &lt;<span style="color:#8b008b;font-weight:bold">div</span> <span style="color:#658b00">class</span>=<span style="color:#cd5555">&#34;app&#34;</span>&gt;
-    App.vue 我现在有 {{total}}
-    &lt;<span style="color:#8b008b;font-weight:bold">hr</span>&gt;
-    &lt;<span style="color:#8b008b;font-weight:bold">Child</span> <span style="color:#8b008b;font-weight:bold">:money.sync</span><span style="color:#cd5555">=&#34;total&#34;</span>/&gt;
-    <span style="color:#228b22">// &lt;Child :money=&#34;total&#34; v-on:update:money=&#34;total = $event&#34;/&gt;
-</span><span style="color:#228b22"></span>  &lt;/<span style="color:#8b008b;font-weight:bold">div</span>&gt;
-&lt;/<span style="color:#8b008b;font-weight:bold">template</span>&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="nx">App</span><span class="p">.</span><span class="nx">vue</span> <span class="nx">我现在有</span> <span class="p">{{</span><span class="nx">total</span><span class="p">}}</span>
+    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">Child</span> <span class="nt">:money.sync</span><span class="s">=&#34;total&#34;</span><span class="p">/&gt;</span>
+    <span class="c1">// &lt;Child :money=&#34;total&#34; v-on:update:money=&#34;total = $event&#34;/&gt;
+</span><span class="c1"></span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-&lt;<span style="color:#8b008b;font-weight:bold">script</span>&gt;
-<span style="color:#8b008b;font-weight:bold">import</span> Child from <span style="color:#cd5555">&#34;./Child.vue&#34;</span>;
-<span style="color:#8b008b;font-weight:bold">export</span> <span style="color:#8b008b;font-weight:bold">default</span> {
-  data() {
-    <span style="color:#8b008b;font-weight:bold">return</span> { total: <span style="color:#b452cd">10000</span> };
-  },
-  components: { Child: Child }
-};
-&lt;/<span style="color:#8b008b;font-weight:bold">script</span>&gt;
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">import</span> <span class="nx">Child</span> <span class="nx">from</span> <span class="s2">&#34;./Child.vue&#34;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="nx">total</span><span class="o">:</span> <span class="mi">10000</span> <span class="p">};</span>
+  <span class="p">},</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span> <span class="nx">Child</span><span class="o">:</span> <span class="nx">Child</span> <span class="p">}</span>
+<span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;<span style="color:#8b008b;font-weight:bold">style</span>&gt;
-.app {
-  border: <span style="color:#b452cd">3</span>px solid red;
-  padding: <span style="color:#b452cd">10</span>px;
-}
-&lt;/<span style="color:#8b008b;font-weight:bold">style</span>&gt;</code></pre></div>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nx">app</span> <span class="p">{</span>
+  <span class="nx">border</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span> <span class="nx">solid</span> <span class="nx">red</span><span class="p">;</span>
+  <span class="nx">padding</span><span class="o">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Child.vue</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#8b008b;font-weight:bold">template</span>&gt;
-  &lt;<span style="color:#8b008b;font-weight:bold">div</span> <span style="color:#658b00">class</span>=<span style="color:#cd5555">&#34;child&#34;</span>&gt;
-    {{money}}
-    &lt;<span style="color:#8b008b;font-weight:bold">button</span> <span style="color:#a61717;background-color:#e3d2d2">@</span><span style="color:#658b00">click</span>=<span style="color:#cd5555">&#34;$emit(&#39;update:money&#39;, money-100)&#34;</span>&gt;
-      &lt;<span style="color:#8b008b;font-weight:bold">span</span>&gt;花钱&lt;/<span style="color:#8b008b;font-weight:bold">span</span>&gt;
-    &lt;/<span style="color:#8b008b;font-weight:bold">button</span>&gt;
-  &lt;/<span style="color:#8b008b;font-weight:bold">div</span>&gt;
-&lt;/<span style="color:#8b008b;font-weight:bold">template</span>&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;child&#34;</span><span class="p">&gt;</span>
+    <span class="p">{{</span><span class="nx">money</span><span class="p">}}</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;$emit(&#39;update:money&#39;, money-100)&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="nx">花钱</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-&lt;<span style="color:#8b008b;font-weight:bold">script</span>&gt;
-<span style="color:#8b008b;font-weight:bold">export</span> <span style="color:#8b008b;font-weight:bold">default</span> {
-  props: [<span style="color:#cd5555">&#34;money&#34;</span>]
-};
-&lt;/<span style="color:#8b008b;font-weight:bold">script</span>&gt;
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;money&#34;</span><span class="p">]</span>
+<span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 
-&lt;<span style="color:#8b008b;font-weight:bold">style</span>&gt;
-.child {
-  border: <span style="color:#b452cd">3</span>px solid green;
-}
-&lt;/<span style="color:#8b008b;font-weight:bold">style</span>&gt;</code></pre></div>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nx">child</span> <span class="p">{</span>
+  <span class="nx">border</span><span class="o">:</span> <span class="mi">3</span><span class="nx">px</span> <span class="nx">solid</span> <span class="nx">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>参考链接：<br>
 <a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6</a><br></p>
 
@@ -747,7 +836,7 @@
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>防抖和节流 - Jane - A super concise theme for Hugo</title>
+  <title>防抖和节流 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Amber" />
-  <meta name="description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 /** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait" />
+  <meta name="description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -58,25 +58,25 @@
 
 
 <meta property="og:title" content="防抖和节流" />
-<meta property="og:description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 /** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait" />
+<meta property="og:description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://wantsuchen.top/post/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" />
 <meta property="article:published_time" content="2020-03-06T13:34:36+08:00" />
 <meta property="article:modified_time" content="2020-03-06T13:34:36+08:00" />
 <meta itemprop="name" content="防抖和节流">
-<meta itemprop="description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 /** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait">
+<meta itemprop="description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33">
 
 
 <meta itemprop="datePublished" content="2020-03-06T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-06T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="1014">
+<meta itemprop="wordCount" content="1121">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="防抖和节流"/>
-<meta name="twitter:description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 /** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait"/>
+<meta name="twitter:description" content="防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -366,114 +366,233 @@
 
 <p>防抖动是将多次执行变为最后一次执行，
 节流是将多次执行变成每隔一段时间执行。</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#228b22">/**
-</span><span style="color:#228b22"> * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait，func 才会执行
-</span><span style="color:#228b22"> *
-</span><span style="color:#228b22"> * @param {function} func 回调函数
-</span><span style="color:#228b22"> * @param {number} wait 表示时间窗口的间隔
-</span><span style="color:#228b22"> * @param {boolean} immediate 设置为ture时，是否立即调用函数
-</span><span style="color:#228b22"> * @return {function} 返回客户调用函数
-</span><span style="color:#228b22"> */</span>
-_.debounce = <span style="color:#8b008b;font-weight:bold">function</span>(func, wait, immediate) {
-    <span style="color:#8b008b;font-weight:bold">var</span> timeout, args, context, timestamp, result;
-    <span style="color:#8b008b;font-weight:bold">var</span> later = <span style="color:#8b008b;font-weight:bold">function</span>() {
-    <span style="color:#228b22">// 现在和上一次时间戳比较
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">var</span> last = _.now() - timestamp;
-    <span style="color:#228b22">// 如果当前间隔时间少于设定时间且大于0就重新设置定时器
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">if</span> (last &lt; wait &amp;&amp; last &gt;= <span style="color:#b452cd">0</span>) {
-    timeout = setTimeout(later, wait - last);
-    } <span style="color:#8b008b;font-weight:bold">else</span> {
-        <span style="color:#228b22">// 否则的话就是时间到了执行回调函数
-</span><span style="color:#228b22"></span>        timeout = <span style="color:#8b008b;font-weight:bold">null</span>;
-        <span style="color:#8b008b;font-weight:bold">if</span> (!immediate) {
-            result = func.apply(context, args);
-            <span style="color:#8b008b;font-weight:bold">if</span> (!timeout) context = args = <span style="color:#8b008b;font-weight:bold">null</span>;
-        }
-    }
-    };
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">function</span>() {
-        context = <span style="color:#8b008b;font-weight:bold">this</span>;
-        args = arguments;
-        <span style="color:#228b22">// 获得时间戳
-</span><span style="color:#228b22"></span>        timestamp = _.now();
-        <span style="color:#228b22">// 如果定时器不存在且立即执行函数
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">var</span> callNow = immediate &amp;&amp; !timeout;
-        <span style="color:#228b22">// 如果定时器不存在就创建一个
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">if</span> (!timeout) timeout = setTimeout(later, wait);
-        <span style="color:#8b008b;font-weight:bold">if</span> (callNow) {
-          <span style="color:#228b22">// 如果需要立即执行函数的话 通过 apply 执行
-</span><span style="color:#228b22"></span>          result = func.apply(context, args);
-          context = args = <span style="color:#8b008b;font-weight:bold">null</span>;
-        }
-        <span style="color:#8b008b;font-weight:bold">return</span> result;
-    };
-};
-</code></pre></div><div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#228b22">/**
-</span><span style="color:#228b22"> * underscore 节流函数，返回函数连续调用时，func 执行频率限定为 次 / wait
-</span><span style="color:#228b22"> *
-</span><span style="color:#228b22"> * @param {function} func 回调函数
-</span><span style="color:#228b22"> * @param {number} wait 表示时间窗口的间隔
-</span><span style="color:#228b22"> * @param {object} options 如果想忽略开始函数的的调用，传入{leading: false}。
-</span><span style="color:#228b22"> * 如果想忽略结尾函数的调用，传入{trailing: false}
-</span><span style="color:#228b22"> * 两者不能共存，否则函数不能执行
-</span><span style="color:#228b22"> * @return {function} 返回客户调用函数 
-</span><span style="color:#228b22"> */</span>
-_.throttle = <span style="color:#8b008b;font-weight:bold">function</span>(func, wait, options) {
-    <span style="color:#8b008b;font-weight:bold">var</span> context, args, result;
-    <span style="color:#8b008b;font-weight:bold">var</span> timeout = <span style="color:#8b008b;font-weight:bold">null</span>;
-    <span style="color:#228b22">// 之前的时间戳
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">var</span> previous = <span style="color:#b452cd">0</span>;
-    <span style="color:#228b22">// 如果 options 没传则设为空对象
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">if</span> (!options) options = {};
-    <span style="color:#228b22">// 定时器回调函数
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">var</span> later = <span style="color:#8b008b;font-weight:bold">function</span>() {
-        <span style="color:#228b22">// 如果设置了 leading，就将 previous 设为 0
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 用于下面函数的第一个 if 判断
-</span><span style="color:#228b22"></span>        previous = options.leading === <span style="color:#8b008b;font-weight:bold">false</span> ? <span style="color:#b452cd">0</span> : _.now();
-        <span style="color:#228b22">// 置空一是为了防止内存泄漏，二是为了下面的定时器判断
-</span><span style="color:#228b22"></span>        timeout = <span style="color:#8b008b;font-weight:bold">null</span>;
-        result = func.apply(context, args);
-        <span style="color:#8b008b;font-weight:bold">if</span> (!timeout) context = args = <span style="color:#8b008b;font-weight:bold">null</span>;
-    };
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">function</span>() {
-        <span style="color:#228b22">// 获得当前时间戳
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">var</span> now = _.now();
-        <span style="color:#228b22">// 首次进入前者肯定为 true
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 如果需要第一次不执行函数
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 就将上次时间戳设为当前的
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 这样在接下来计算 remaining 的值时会大于0
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">if</span> (!previous &amp;&amp; options.leading === <span style="color:#8b008b;font-weight:bold">false</span>) previous = now;
-        <span style="color:#228b22">// 计算剩余时间
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">var</span> remaining = wait - (now - previous);
-        context = <span style="color:#8b008b;font-weight:bold">this</span>;
-        args = arguments;
-        <span style="color:#228b22">// 如果当前调用已经大于上次调用时间 + wait
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 或者用户手动调了时间
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 如果设置了 trailing，只会进入这个条件
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 如果没有设置 leading，那么第一次会进入这个条件
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 还有一点，你可能会觉得开启了定时器那么应该不会进入这个 if 条件了
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 其实还是会进入的，因为定时器的延时
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 并不是准确的时间，很可能你设置了2秒
-</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 但是他需要2.2秒才触发，这时候就会进入这个条件
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">if</span> (remaining &lt;= <span style="color:#b452cd">0</span> || remaining &gt; wait) {
-        <span style="color:#228b22">// 如果存在定时器就清理掉否则会调用二次回调
-</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">if</span> (timeout) {
-            clearTimeout(timeout);
-            timeout = <span style="color:#8b008b;font-weight:bold">null</span>;
-        }
-        previous = now;
-        result = func.apply(context, args);
-        <span style="color:#8b008b;font-weight:bold">if</span> (!timeout) context = args = <span style="color:#8b008b;font-weight:bold">null</span>;
-        } <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span> (!timeout &amp;&amp; options.trailing !== <span style="color:#8b008b;font-weight:bold">false</span>) {
-            <span style="color:#228b22">// 判断是否设置了定时器和 trailing
-</span><span style="color:#228b22"></span>            <span style="color:#228b22">// 没有的话就开启一个定时器
-</span><span style="color:#228b22"></span>            <span style="color:#228b22">// 并且不能不能同时设置 leading 和 trailing
-</span><span style="color:#228b22"></span>            timeout = setTimeout(later, remaining);
-        }
-        <span style="color:#8b008b;font-weight:bold">return</span> result;
-    };
-};
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm"> * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait，func 才会执行
+</span><span class="cm"> *
+</span><span class="cm"> * @param {function} func 回调函数
+</span><span class="cm"> * @param {number} wait 表示时间窗口的间隔
+</span><span class="cm"> * @param {boolean} immediate 设置为ture时，是否立即调用函数
+</span><span class="cm"> * @return {function} 返回客户调用函数
+</span><span class="cm"> */</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">debounce</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">,</span> <span class="nx">immediate</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">timeout</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">,</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">later</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 现在和上一次时间戳比较
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">timestamp</span><span class="p">;</span>
+    <span class="c1">// 如果当前间隔时间少于设定时间且大于0就重新设置定时器
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">last</span> <span class="o">&lt;</span> <span class="nx">wait</span> <span class="o">&amp;&amp;</span> <span class="nx">last</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">later</span><span class="p">,</span> <span class="nx">wait</span> <span class="o">-</span> <span class="nx">last</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// 否则的话就是时间到了执行回调函数
+</span><span class="c1"></span>        <span class="nx">timeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">immediate</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">result</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">timeout</span><span class="p">)</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">args</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="nx">args</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">;</span>
+        <span class="c1">// 获得时间戳
+</span><span class="c1"></span>        <span class="nx">timestamp</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+        <span class="c1">// 如果定时器不存在且立即执行函数
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">callNow</span> <span class="o">=</span> <span class="nx">immediate</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">timeout</span><span class="p">;</span>
+        <span class="c1">// 如果定时器不存在就创建一个
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">timeout</span><span class="p">)</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">later</span><span class="p">,</span> <span class="nx">wait</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">callNow</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// 如果需要立即执行函数的话 通过 apply 执行
+</span><span class="c1"></span>          <span class="nx">result</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+          <span class="nx">context</span> <span class="o">=</span> <span class="nx">args</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm"> * underscore 节流函数，返回函数连续调用时，func 执行频率限定为 次 / wait
+</span><span class="cm"> *
+</span><span class="cm"> * @param {function} func 回调函数
+</span><span class="cm"> * @param {number} wait 表示时间窗口的间隔
+</span><span class="cm"> * @param {object} options 如果想忽略开始函数的的调用，传入{leading: false}。
+</span><span class="cm"> * 如果想忽略结尾函数的调用，传入{trailing: false}
+</span><span class="cm"> * 两者不能共存，否则函数不能执行
+</span><span class="cm"> * @return {function} 返回客户调用函数 
+</span><span class="cm"> */</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">throttle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="c1">// 之前的时间戳
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">previous</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 如果 options 没传则设为空对象
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">options</span><span class="p">)</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="c1">// 定时器回调函数
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">later</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 如果设置了 leading，就将 previous 设为 0
+</span><span class="c1"></span>        <span class="c1">// 用于下面函数的第一个 if 判断
+</span><span class="c1"></span>        <span class="nx">previous</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">leading</span> <span class="o">===</span> <span class="kc">false</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+        <span class="c1">// 置空一是为了防止内存泄漏，二是为了下面的定时器判断
+</span><span class="c1"></span>        <span class="nx">timeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">timeout</span><span class="p">)</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">args</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 获得当前时间戳
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">now</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+        <span class="c1">// 首次进入前者肯定为 true
+</span><span class="c1"></span>        <span class="c1">// 如果需要第一次不执行函数
+</span><span class="c1"></span>        <span class="c1">// 就将上次时间戳设为当前的
+</span><span class="c1"></span>        <span class="c1">// 这样在接下来计算 remaining 的值时会大于0
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">previous</span> <span class="o">&amp;&amp;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">leading</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="nx">previous</span> <span class="o">=</span> <span class="nx">now</span><span class="p">;</span>
+        <span class="c1">// 计算剩余时间
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">remaining</span> <span class="o">=</span> <span class="nx">wait</span> <span class="o">-</span> <span class="p">(</span><span class="nx">now</span> <span class="o">-</span> <span class="nx">previous</span><span class="p">);</span>
+        <span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="nx">args</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">;</span>
+        <span class="c1">// 如果当前调用已经大于上次调用时间 + wait
+</span><span class="c1"></span>        <span class="c1">// 或者用户手动调了时间
+</span><span class="c1"></span>        <span class="c1">// 如果设置了 trailing，只会进入这个条件
+</span><span class="c1"></span>        <span class="c1">// 如果没有设置 leading，那么第一次会进入这个条件
+</span><span class="c1"></span>        <span class="c1">// 还有一点，你可能会觉得开启了定时器那么应该不会进入这个 if 条件了
+</span><span class="c1"></span>        <span class="c1">// 其实还是会进入的，因为定时器的延时
+</span><span class="c1"></span>        <span class="c1">// 并不是准确的时间，很可能你设置了2秒
+</span><span class="c1"></span>        <span class="c1">// 但是他需要2.2秒才触发，这时候就会进入这个条件
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">remaining</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">remaining</span> <span class="o">&gt;</span> <span class="nx">wait</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 如果存在定时器就清理掉否则会调用二次回调
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">);</span>
+            <span class="nx">timeout</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">previous</span> <span class="o">=</span> <span class="nx">now</span><span class="p">;</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">timeout</span><span class="p">)</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">args</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">timeout</span> <span class="o">&amp;&amp;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">trailing</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 判断是否设置了定时器和 trailing
+</span><span class="c1"></span>            <span class="c1">// 没有的话就开启一个定时器
+</span><span class="c1"></span>            <span class="c1">// 并且不能不能同时设置 leading 和 trailing
+</span><span class="c1"></span>            <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">later</span><span class="p">,</span> <span class="nx">remaining</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="toc_0">(=^-^=)/</h3>
 
     </div>
@@ -509,6 +628,19 @@ _.throttle = <span style="color:#8b008b;font-weight:bold">function</span>(func, 
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/js%E7%BC%96%E7%A8%8B%E9%A2%98/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">JS题目</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
           <a class="next" href="/post/vue%E4%B8%AD%E7%9A%84.sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
             <span class="next-text nav-default">Vue中的 .sync 修饰符</span>
@@ -549,7 +681,7 @@ _.throttle = <span style="color:#8b008b;font-weight:bold">function</span>(func, 
         id: '防抖和节流',
         title: '防抖和节流',
         link: decodeURI(location.href),
-        desc: '防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 \/** * underscore 防抖函数，返回函数连续调用时，空闲时间必须大于或等于 wait',
+        desc: '防抖动是将多次执行变为最后一次执行， 节流是将多次执行变成每隔一段时间执行。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33',
         owner: 'fireCCC',
         repo: 'blog-comments',
         oauth: {
@@ -767,7 +899,7 @@ _.throttle = <span style="color:#8b008b;font-weight:bold">function</span>(func, 
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

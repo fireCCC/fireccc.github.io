@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JS数组去重 - Jane - A super concise theme for Hugo</title>
+  <title>JS数组去重 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-12-17T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-17T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="456">
+<meta itemprop="wordCount" content="527">
 
 
 
@@ -378,93 +378,194 @@ unique(array) 的值为 [1,5,2,3,4]
 <p>一个答案不使用 Set 实现
 我们可以先使用sort()将数组进行排序
 然后比较相邻元素是否相等，从而排除重复项</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#b452cd">1</span>,<span style="color:#b452cd">5</span>,<span style="color:#b452cd">2</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">4</span>,<span style="color:#b452cd">2</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">1</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">4</span>]
-<span style="color:#8b008b;font-weight:bold">function</span> unique (array) {
-    <span style="color:#8b008b;font-weight:bold">let</span> arr = array.sort()
-    <span style="color:#8b008b;font-weight:bold">let</span> result = [arr[<span style="color:#b452cd">0</span>]]
-    <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">1</span>; i &lt; arr.length; i++) {
-        arr[i] !== arr[i-<span style="color:#b452cd">1</span>] &amp;&amp; result.push(arr[i])
-    }
-    <span style="color:#8b008b;font-weight:bold">return</span> result
-}
-unique(arr)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">unique</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">()</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+<span class="nx">unique</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>可以使用 Set</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> arr = [<span style="color:#b452cd">1</span>,<span style="color:#b452cd">5</span>,<span style="color:#b452cd">2</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">4</span>,<span style="color:#b452cd">2</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">1</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">4</span>]
-<span style="color:#8b008b;font-weight:bold">function</span> unique (array) {
-  <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#658b00">Array</span>.from(<span style="color:#8b008b;font-weight:bold">new</span> Set(arr))
-  <span style="color:#228b22">//或者[...new Set(arr)]
-</span><span style="color:#228b22"></span>}
-unique(arr)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">unique</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">))</span>
+  <span class="c1">//或者[...new Set(arr)]
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">unique</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>上面方案的缺点是不支持对象去重，数组中出现对象的时候会出现问题</p>
 
 <p>我们可以使用 Map / WeakMap 以支持对象去重。</p>
 
 <h4 id="map去重">Map去重</h4>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> arr = [
-    {key: <span style="color:#cd5555">&#39;key&#39;</span>, value: <span style="color:#cd5555">&#39;value&#39;</span>},
-    {key: <span style="color:#cd5555">&#39;key&#39;</span>, value: <span style="color:#cd5555">&#39;value&#39;</span>},
-    {value: <span style="color:#cd5555">&#39;value&#39;</span>, key: <span style="color:#cd5555">&#39;key&#39;</span>},
-    {name:<span style="color:#cd5555">&#39;name&#39;</span>}]
-<span style="color:#8b008b;font-weight:bold">function</span> mySort(obj){
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#658b00">Object</span>.keys(obj)
-    .sort().reduce((a, v) =&gt; {
-    a[v] = obj[v]
-    <span style="color:#8b008b;font-weight:bold">return</span> a
-    }, {})
-}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;name&#39;</span><span class="p">}]</span>
+<span class="kd">function</span> <span class="nx">mySort</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">().</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nx">a</span>
+    <span class="p">},</span> <span class="p">{})</span>
+<span class="p">}</span>
 
-<span style="color:#8b008b;font-weight:bold">function</span> unique (array) {
-  <span style="color:#8b008b;font-weight:bold">let</span> arr = array
-  <span style="color:#228b22">//console.log(arr)
-</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">let</span> hashMap = <span style="color:#8b008b;font-weight:bold">new</span> Map()
-  <span style="color:#8b008b;font-weight:bold">let</span> result = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Array</span>()
-  <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>; i &lt; arr.length; i++) {
-    <span style="color:#8b008b;font-weight:bold">let</span> item = arr[i]
-    item = mySort(item)
-    item = JSON.stringify(item)
-    <span style="color:#8b008b;font-weight:bold">if</span>(hashMap.has(item)) { 
-      hashMap.set(item, <span style="color:#b452cd">2</span>)
-    } <span style="color:#8b008b;font-weight:bold">else</span> {  
-      hashMap.set(item, <span style="color:#b452cd">1</span>)
-      result.push(arr[i])
-    }
-  } 
-  <span style="color:#228b22">//console.log(hashMap)
-</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">return</span> result
-}
-unique(arr)
-</code></pre></div>
+<span class="kd">function</span> <span class="nx">unique</span> <span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">array</span>
+  <span class="c1">//console.log(arr)
+</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">hashMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">()</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">()</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+    <span class="nx">item</span> <span class="o">=</span> <span class="nx">mySort</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+    <span class="nx">item</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">hashMap</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span> <span class="p">{</span> 
+      <span class="nx">hashMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+      <span class="nx">hashMap</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+    <span class="p">}</span>
+  <span class="p">}</span> 
+  <span class="c1">//console.log(hashMap)
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+<span class="nx">unique</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>遇到对象中嵌套对象会出现问题
 <hr></p>
 
 <h4 id="weakmap去重">WeakMap去重</h4>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">let</span> ob1 = {key: <span style="color:#cd5555">&#39;key&#39;</span>, value: <span style="color:#cd5555">&#39;value&#39;</span>}
-<span style="color:#8b008b;font-weight:bold">let</span> ob2 = {value: <span style="color:#cd5555">&#39;value&#39;</span>, key: <span style="color:#cd5555">&#39;key&#39;</span>}
-<span style="color:#8b008b;font-weight:bold">let</span> arr = [ob1,ob1,ob2]
-<span style="color:#8b008b;font-weight:bold">function</span> unique(array) {
-  <span style="color:#8b008b;font-weight:bold">let</span> wm = <span style="color:#8b008b;font-weight:bold">new</span> WeakMap()
-  <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#8b008b;font-weight:bold">let</span> i = <span style="color:#b452cd">0</span>; i &lt; array.length; i++){
-    <span style="color:#8b008b;font-weight:bold">if</span>(!wm.has(array[i])){
-      wm.set(array[i], i)
-    }
-  }
-  <span style="color:#8b008b;font-weight:bold">return</span> wm
-}
-unique(arr)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">ob1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span>
+<span class="kd">let</span> <span class="nx">ob2</span> <span class="o">=</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;key&#39;</span><span class="p">}</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">ob1</span><span class="p">,</span><span class="nx">ob1</span><span class="p">,</span><span class="nx">ob2</span><span class="p">]</span>
+<span class="kd">function</span> <span class="nx">unique</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">wm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">()</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">wm</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">])){</span>
+      <span class="nx">wm</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">wm</span>
+<span class="p">}</span>
+<span class="nx">unique</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>结果如下</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">WeakMap {{<span style="color:#a61717;background-color:#e3d2d2">…</span>} =&gt; <span style="color:#b452cd">0</span>, {<span style="color:#a61717;background-color:#e3d2d2">…</span>} =&gt; <span style="color:#b452cd">2</span>}
-[[Entries]]
-<span style="color:#b452cd">0</span>: {<span style="color:#658b00">Object</span> =&gt; <span style="color:#b452cd">0</span>}
-key: {key: <span style="color:#cd5555">&#34;key&#34;</span>, value: <span style="color:#cd5555">&#34;value&#34;</span>}
-value: <span style="color:#b452cd">0</span>
-<span style="color:#b452cd">1</span>: {<span style="color:#658b00">Object</span> =&gt; <span style="color:#b452cd">2</span>}
-key: {value: <span style="color:#cd5555">&#34;value&#34;</span>, key: <span style="color:#cd5555">&#34;key&#34;</span>}
-value: <span style="color:#b452cd">2</span>
-__proto__: WeakMap
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">WeakMap</span> <span class="p">{{</span><span class="err">…</span><span class="p">}</span> <span class="p">=&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span> <span class="p">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">[[</span><span class="nx">Entries</span><span class="p">]]</span>
+<span class="mi">0</span><span class="o">:</span> <span class="p">{</span><span class="nb">Object</span> <span class="p">=&gt;</span> <span class="mi">0</span><span class="p">}</span>
+<span class="nx">key</span><span class="o">:</span> <span class="p">{</span><span class="nx">key</span><span class="o">:</span> <span class="s2">&#34;key&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s2">&#34;value&#34;</span><span class="p">}</span>
+<span class="nx">value</span><span class="o">:</span> <span class="mi">0</span>
+<span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nb">Object</span> <span class="p">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
+<span class="nx">key</span><span class="o">:</span> <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="s2">&#34;value&#34;</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s2">&#34;key&#34;</span><span class="p">}</span>
+<span class="nx">value</span><span class="o">:</span> <span class="mi">2</span>
+<span class="nx">__proto__</span><span class="o">:</span> <span class="nx">WeakMap</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>遇到let arr = [<br>
     {key: &lsquo;key&rsquo;, value: &lsquo;value&rsquo;},<br>
     {key: &lsquo;key&rsquo;, value: &lsquo;value&rsquo;},<br>
@@ -776,7 +877,7 @@ __proto__: WeakMap
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

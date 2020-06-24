@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Promise介绍 - Jane - A super concise theme for Hugo</title>
+  <title>Promise介绍 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-12-18T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-18T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="972">
+<meta itemprop="wordCount" content="1027">
 
 
 
@@ -386,77 +386,162 @@ pending 状态的 Promise 对象可能会变为fulfilled 状态并传递一个�
 <p>因为 Promise.prototype.then 和  Promise.prototype.catch 方法返回promise 对象， 所以它们可以被链式调用。</p>
 
 <h3 id="创建一个-new-promise">创建一个 new Promise</h3>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> fn(){
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject)=&gt;{
-        成功时调用 resolve(数据)
-        失败时调用 reject(错误)
-    })
-}
-fn().then(success, fail).then(success2, fail2)
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">fn</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)=&gt;{</span>
+        <span class="nx">成功时调用</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">数据</span><span class="p">)</span>
+        <span class="nx">失败时调用</span> <span class="nx">reject</span><span class="p">(</span><span class="nx">错误</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+<span class="nx">fn</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">success</span><span class="p">,</span> <span class="nx">fail</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">success2</span><span class="p">,</span> <span class="nx">fail2</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="使用-promise-prototype-then">使用 Promise.prototype.then</h3>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p1 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject) =&gt; {
-  resolve(<span style="color:#cd5555">&#39;成功！&#39;</span>);
-  <span style="color:#228b22">// or
-</span><span style="color:#228b22"></span>  <span style="color:#228b22">// reject(new Error(&#34;出错了！&#34;));
-</span><span style="color:#228b22"></span>});
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;成功！&#39;</span><span class="p">);</span>
+  <span class="c1">// or
+</span><span class="c1"></span>  <span class="c1">// reject(new Error(&#34;出错了！&#34;));
+</span><span class="c1"></span><span class="p">});</span>
 
-p1.then(value =&gt; {
-  console.log(value); <span style="color:#228b22">// 成功！
-</span><span style="color:#228b22"></span>}, reason =&gt; {
-  console.error(reason); <span style="color:#228b22">// 出错了！
-</span><span style="color:#228b22"></span>});
-</code></pre></div>
+<span class="nx">p1</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 成功！
+</span><span class="c1"></span><span class="p">},</span> <span class="nx">reason</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">reason</span><span class="p">);</span> <span class="c1">// 出错了！
+</span><span class="c1"></span><span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>then函数会返回一个Promise实例，并且该返回值是一个新的实例而不是之前的实例
 当一个值只是从一个 then 内部返回时，它将等价地返回 Promise.resolve(&lt;由被调用的处理程序返回的值&gt;)。</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p2 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
-  resolve(<span style="color:#b452cd">1</span>);
-});
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
 
-p2.then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
-  console.log(value); <span style="color:#228b22">// 1
-</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">return</span> value + <span style="color:#b452cd">1</span>;
-}).then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
-  console.log(value + <span style="color:#cd5555">&#39; - A synchronous value works&#39;</span>);
-  <span style="color:#228b22">//2 - A synchronous value works
-</span><span style="color:#228b22"></span>});
+<span class="nx">p2</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39; - A synchronous value works&#39;</span><span class="p">);</span>
+  <span class="c1">//2 - A synchronous value works
+</span><span class="c1"></span><span class="p">});</span>
 
-p2.then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
-  console.log(value); <span style="color:#228b22">// 1
-</span><span style="color:#228b22"></span>});
-</code></pre></div>
+<span class="nx">p2</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="使用-promise-all">使用 Promise.all</h3>
 
 <p>Promise.all([promise1, promise2]).then(success1, fail1)<br>
 promise1和promise2都成功才会调用success1</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> p1 = <span style="color:#658b00">Promise</span>.resolve(<span style="color:#b452cd">3</span>);
-<span style="color:#8b008b;font-weight:bold">var</span> p2 = <span style="color:#b452cd">1337</span>;
-<span style="color:#8b008b;font-weight:bold">var</span> p3 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>((resolve, reject) =&gt; {
-  setTimeout(resolve, <span style="color:#b452cd">100</span>, <span style="color:#cd5555">&#39;foo&#39;</span>);
-}); 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="p">});</span> 
 
-<span style="color:#658b00">Promise</span>.all([p1, p2, p3]).then(values =&gt; { 
-  console.log(values); <span style="color:#228b22">// [3, 1337, &#34;foo&#34;] 
-</span><span style="color:#228b22"></span>});
-</code></pre></div>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="p">=&gt;</span> <span class="p">{</span> 
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span> <span class="c1">// [3, 1337, &#34;foo&#34;] 
+</span><span class="c1"></span><span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="使用-promise-race">使用 Promise.race</h3>
 
 <p>Promise.race([promise1, promise2]).then(success1, fail1)<br>
 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> promise1 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
-    setTimeout(resolve, <span style="color:#b452cd">500</span>, <span style="color:#cd5555">&#39;one&#39;</span>);
-});
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">);</span>
+<span class="p">});</span>
 
-<span style="color:#8b008b;font-weight:bold">var</span> promise2 = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#658b00">Promise</span>(<span style="color:#8b008b;font-weight:bold">function</span>(resolve, reject) {
-    setTimeout(resolve, <span style="color:#b452cd">100</span>, <span style="color:#cd5555">&#39;two&#39;</span>);
-});
+<span class="kd">var</span> <span class="nx">promise2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">);</span>
+<span class="p">});</span>
 
-<span style="color:#658b00">Promise</span>.race([promise1, promise2]).then(<span style="color:#8b008b;font-weight:bold">function</span>(value) {
-  console.log(value);
-  <span style="color:#228b22">// Both resolve, but promise2 is faster
-</span><span style="color:#228b22"></span>});
-<span style="color:#228b22">// expected output: &#34;two&#34;
-</span></code></pre></div>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">promise1</span><span class="p">,</span> <span class="nx">promise2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="c1">// Both resolve, but promise2 is faster
+</span><span class="c1"></span><span class="p">});</span>
+<span class="c1">// expected output: &#34;two&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     
@@ -761,7 +846,7 @@ promise1和promise2都成功才会调用success1</p>
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

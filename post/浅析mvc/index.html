@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>浅析MVC - Jane - A super concise theme for Hugo</title>
+  <title>浅析MVC - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-01-03T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-03T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="1724">
+<meta itemprop="wordCount" content="1817">
 
 
 
@@ -383,54 +383,107 @@
 <p>控制器controller定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据model上的改变。</p>
 
 <p>mvc伪代码</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#228b22">//数据层，关于数据的操作放在这里
-</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">const</span> m = {
-    <span style="color:#228b22">//初始化
-</span><span style="color:#228b22"></span>    data:{
-    },
-    <span style="color:#228b22">//更新数据
-</span><span style="color:#228b22"></span>    update(data) {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//数据层，关于数据的操作放在这里
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//初始化
+</span><span class="c1"></span>    <span class="nx">data</span><span class="o">:</span><span class="p">{</span>
+    <span class="p">},</span>
+    <span class="c1">//更新数据
+</span><span class="c1"></span>    <span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         
-    },
-    <span style="color:#228b22">//删除数据
-</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">delete</span>(data) {
-    },
-    <span style="color:#228b22">//获得数据
-</span><span style="color:#228b22"></span>    get(data) {
+    <span class="p">},</span>
+    <span class="c1">//删除数据
+</span><span class="c1"></span>    <span class="k">delete</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="c1">//获得数据
+</span><span class="c1"></span>    <span class="nx">get</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
-    },
-}
-<span style="color:#228b22">//视图层，关于视图的操作放在这里
-</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">const</span> v = {
-    el:<span style="color:#cd5555">&#39;挂载点&#39;</span>,
-    html:<span style="color:#cd5555">&#39;需要插入元素内的HTML内容&#39;</span>,
-    init(){
+    <span class="p">},</span>
+<span class="p">}</span>
+<span class="c1">//视图层，关于视图的操作放在这里
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="o">:</span><span class="s1">&#39;挂载点&#39;</span><span class="p">,</span>
+    <span class="nx">html</span><span class="o">:</span><span class="s1">&#39;需要插入元素内的HTML内容&#39;</span><span class="p">,</span>
+    <span class="nx">init</span><span class="p">(){</span>
 
-    },
-    <span style="color:#228b22">//渲染页面
-</span><span style="color:#228b22"></span>    render(data){
+    <span class="p">},</span>
+    <span class="c1">//渲染页面
+</span><span class="c1"></span>    <span class="nx">render</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
 
-    },
-}
-<span style="color:#228b22">//控制层，其他相关的都放在这里
-</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">const</span> c = {
-    init() {
+    <span class="p">},</span>
+<span class="p">}</span>
+<span class="c1">//控制层，其他相关的都放在这里
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
 
-    },
-    <span style="color:#228b22">//调用数据层方法更改数据
-</span><span style="color:#228b22"></span>    changeData() {
+    <span class="p">},</span>
+    <span class="c1">//调用数据层方法更改数据
+</span><span class="c1"></span>    <span class="nx">changeData</span><span class="p">()</span> <span class="p">{</span>
 
-    },
-    <span style="color:#228b22">//调用视图层方法渲染页面
-</span><span style="color:#228b22"></span>    changeUI() {
+    <span class="p">},</span>
+    <span class="c1">//调用视图层方法渲染页面
+</span><span class="c1"></span>    <span class="nx">changeUI</span><span class="p">()</span> <span class="p">{</span>
 
-    },
-    <span style="color:#228b22">//监听数据改变
-</span><span style="color:#228b22"></span>    monitorData() {
+    <span class="p">},</span>
+    <span class="c1">//监听数据改变
+</span><span class="c1"></span>    <span class="nx">monitorData</span><span class="p">()</span> <span class="p">{</span>
 
-    },
-}
-</code></pre></div>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="mvc-for-javascript">MVC for JAVASCRIPT</h4>
 
 <p><img src="/images/javascriptMVC.png" alt="MVC for JAVASCRIPT" /></p>
@@ -453,33 +506,75 @@ eventBus.trigger(eventName[, sender][, data]);</p>
 eventBus.off(eventName[, function]);</p>
 
 <p>伪代码</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">class</span> EventBus{
-    constructor() {
-        <span style="color:#8b008b;font-weight:bold">this</span>._eventBus = $(<span style="color:#658b00">window</span>)
-    }
-    <span style="color:#228b22">//绑定事件
-</span><span style="color:#228b22"></span>    on(eventName, fn) {
-        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>._eventBus.on(eventName, fn)
-    }
-    <span style="color:#228b22">//触发事件
-</span><span style="color:#228b22"></span>    trigger(eventName, data) {
-        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>._eventBus.trigger(eventName, data)
-    }
-    <span style="color:#228b22">//解绑事件
-</span><span style="color:#228b22"></span>    off(eventName, fn) {
-        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>._eventBus.off(eventName, fn)
-    }
-}
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">class</span> <span class="nx">EventBus</span><span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_eventBus</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">//绑定事件
+</span><span class="c1"></span>    <span class="nx">on</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_eventBus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">//触发事件
+</span><span class="c1"></span>    <span class="nx">trigger</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_eventBus</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">//解绑事件
+</span><span class="c1"></span>    <span class="nx">off</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_eventBus</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>应用</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">var</span> myEventBus = <span style="color:#8b008b;font-weight:bold">new</span> eventBus();
-</code></pre></div><div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">eventBus.on(<span style="color:#cd5555">&#34;data_completed&#34;</span>, <span style="color:#8b008b;font-weight:bold">function</span> (sender, data, obj) {
-}, { sign: <span style="color:#cd5555">&#34;F6243749AFF04C0581E1DD178A0B737A&#34;</span> });
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myEventBus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">eventBus</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">eventBus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;data_completed&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">},</span> <span class="p">{</span> <span class="nx">sign</span><span class="o">:</span> <span class="s2">&#34;F6243749AFF04C0581E1DD178A0B737A&#34;</span> <span class="p">});</span>
 
-eventBus.emit(<span style="color:#cd5555">&#34;Data_Completed&#34;</span>, <span style="color:#658b00">window</span>, [<span style="color:#b452cd">1</span>,<span style="color:#b452cd">2</span>,<span style="color:#b452cd">3</span>,<span style="color:#b452cd">4</span>,<span style="color:#b452cd">5</span>,<span style="color:#b452cd">6</span>]);
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&#34;Data_Completed&#34;</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span>
 
-eventBus.off(<span style="color:#cd5555">&#34;Data_Completed&#34;</span>, f2);
-</code></pre></div>
+<span class="nx">eventBus</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&#34;Data_Completed&#34;</span><span class="p">,</span> <span class="nx">f2</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <hr>
 
 <h3 id="表驱动编程">表驱动编程</h3>
@@ -489,33 +584,67 @@ eventBus.off(<span style="color:#cd5555">&#34;Data_Completed&#34;</span>, f2);
 <p>在程序中，添加数据和逻辑的方式是不一样的，成本也是不一样的。简单的说，数据的添加是非常简单的；而逻辑的添加是更复杂的。</p>
 
 <p>比如说，国家简写转换，给一个国家全名，转换成国家简写，用 if－else 法就写成：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> country_initial($country){
-    <span style="color:#8b008b;font-weight:bold">if</span> ($country === <span style="color:#cd5555">&#34;China&#34;</span> ) {
-       <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;CHN&#34;</span>
-    } <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span> ($country === <span style="color:#cd5555">&#34;America&#34;</span>) {
-       <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;USA&#34;</span>
-    } <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span> ($country === <span style="color:#cd5555">&#34;Japna&#34;</span>) {
-      <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;JPN&#34;</span>
-    } <span style="color:#8b008b;font-weight:bold">else</span> {
-       <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;OTHER&#34;</span>
-    }
-}
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">country_initial</span><span class="p">(</span><span class="nx">$country</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">$country</span> <span class="o">===</span> <span class="s2">&#34;China&#34;</span> <span class="p">)</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="s2">&#34;CHN&#34;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$country</span> <span class="o">===</span> <span class="s2">&#34;America&#34;</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="s2">&#34;USA&#34;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$country</span> <span class="o">===</span> <span class="s2">&#34;Japna&#34;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="s2">&#34;JPN&#34;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="s2">&#34;OTHER&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>如果我要增加一个国家，那么我要多加一个 else if 语句，那么我就是增加了一条逻辑</p>
 
 <p>如果改成表驱动法就是：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8b008b;font-weight:bold">function</span> country_initial($country){
-  $countryList=[
-      <span style="color:#cd5555">&#34;China&#34;</span>=&gt; <span style="color:#cd5555">&#34;CHN&#34;</span>,
-      <span style="color:#cd5555">&#34;America&#34;</span>=&gt; <span style="color:#cd5555">&#34;USA&#34;</span>,
-      <span style="color:#cd5555">&#34;Japna&#34;</span>=&gt; <span style="color:#cd5555">&#34;JPN&#34;</span>,
-    ];
-    <span style="color:#8b008b;font-weight:bold">if</span>(in_array($country, array_keys($countryList))) {
-        <span style="color:#8b008b;font-weight:bold">return</span> $countryList[$country];
-    }
-    <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;Other&#34;</span>;
-}
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">country_initial</span><span class="p">(</span><span class="nx">$country</span><span class="p">){</span>
+  <span class="nx">$countryList</span><span class="o">=</span><span class="p">[</span>
+      <span class="s2">&#34;China&#34;</span><span class="p">=&gt;</span> <span class="s2">&#34;CHN&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;America&#34;</span><span class="p">=&gt;</span> <span class="s2">&#34;USA&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;Japna&#34;</span><span class="p">=&gt;</span> <span class="s2">&#34;JPN&#34;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">in_array</span><span class="p">(</span><span class="nx">$country</span><span class="p">,</span> <span class="nx">array_keys</span><span class="p">(</span><span class="nx">$countryList</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">$countryList</span><span class="p">[</span><span class="nx">$country</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="s2">&#34;Other&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>如果我需要增加一个国家，我只需要在数组里面加个数据
 如此一来，我就可以剥离这个数据与逻辑的关系了。</p>
 
@@ -862,7 +991,7 @@ CMD规范专门用于浏览器端，模块的加载是异步的，模块使用�
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

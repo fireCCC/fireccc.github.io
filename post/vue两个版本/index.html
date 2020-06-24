@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vue 两个版本 - Jane - A super concise theme for Hugo</title>
+  <title>Vue 两个版本 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2020-01-15T13:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-15T13:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="445">
+<meta itemprop="wordCount" content="455">
 
 
 
@@ -379,17 +379,33 @@
 <p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。</p>
 
 <h3 id="template-和-render-怎么用">template 和 render 怎么用</h3>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#228b22">// 需要编译器
-</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">new</span> Vue({
-  template: <span style="color:#cd5555">&#39;&lt;div&gt;{{ hi }}&lt;/div&gt;&#39;</span>
-})
-<span style="color:#228b22">// 不需要编译器
-</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">new</span> Vue({
-  render (h) {
-    <span style="color:#8b008b;font-weight:bold">return</span> h(<span style="color:#cd5555">&#39;div&#39;</span>, <span style="color:#8b008b;font-weight:bold">this</span>.hi)
-  }
-})
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 需要编译器
+</span><span class="c1"></span><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;{{ hi }}&lt;/div&gt;&#39;</span>
+<span class="p">})</span>
+<span class="c1">// 不需要编译器
+</span><span class="c1"></span><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">render</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">hi</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>yarn build 当使用 vue-loader 或 vueify 的时候，*.vue 文件内部的模板会在构建时预编译成 JavaScript。你在最终打好的包里实际上是不需要编译器的，所以只用运行时版本即可。</p>
 
 <p>因为运行时版本相比完整版体积要小大约 30%，所以应该尽可能使用这个版本。</p>
@@ -719,7 +735,7 @@
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

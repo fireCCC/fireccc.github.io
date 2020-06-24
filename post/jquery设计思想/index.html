@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>jQuery设计思想 - Jane - A super concise theme for Hugo</title>
+  <title>jQuery设计思想 - Jane</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -69,7 +69,7 @@
 
 <meta itemprop="datePublished" content="2019-11-10T19:34:36&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-10T19:34:36&#43;08:00" />
-<meta itemprop="wordCount" content="1332">
+<meta itemprop="wordCount" content="1358">
 
 
 
@@ -376,29 +376,63 @@
 <p><img src="/images/css-selector.png" alt="css-selector" /></p>
 
 <p>也可以是<a href="(https://www.jquery123.com/category/selectors/)">jQuery特有的表达式</a>：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;a:first&#39;</span>) <span style="color:#228b22">//选择网页中第一个a元素
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;tr:odd&#39;</span>) <span style="color:#228b22">//选择表格的奇数行
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;#myForm :input&#39;</span>) <span style="color:#228b22">// 选择表单中的input元素
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;div:visible&#39;</span>) <span style="color:#228b22">//选择可见的div元素
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;div:gt(2)&#39;</span>) <span style="color:#228b22">// 选择所有的div元素，除了前三个
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;div:animated&#39;</span>) <span style="color:#228b22">// 选择当前处于动画状态的div元素
-</span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;a:first&#39;</span><span class="p">)</span> <span class="c1">//选择网页中第一个a元素
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;tr:odd&#39;</span><span class="p">)</span> <span class="c1">//选择表格的奇数行
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myForm :input&#39;</span><span class="p">)</span> <span class="c1">// 选择表单中的input元素
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div:visible&#39;</span><span class="p">)</span> <span class="c1">//选择可见的div元素
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div:gt(2)&#39;</span><span class="p">)</span> <span class="c1">// 选择所有的div元素，除了前三个
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div:animated&#39;</span><span class="p">)</span> <span class="c1">// 选择当前处于动画状态的div元素
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="二-jquery的链式操作是怎样的">二 jQuery的链式操作是怎样的</h2>
 
 <p><font color="0769AD">jQuery设计思想之三，就是最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。比如：</font></p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">　$(<span style="color:#cd5555">&#39;div&#39;</span>).find(<span style="color:#cd5555">&#39;h3&#39;</span>).eq(<span style="color:#b452cd">2</span>).html(<span style="color:#cd5555">&#39;Hello&#39;</span>);
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js">　<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>分解开来，就是下面这样：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;div&#39;</span>) <span style="color:#228b22">//找到div元素
-</span><span style="color:#228b22"></span>  .find(<span style="color:#cd5555">&#39;h3&#39;</span>) <span style="color:#228b22">//选择其中的h3元素
-</span><span style="color:#228b22"></span>  .eq(<span style="color:#b452cd">2</span>) <span style="color:#228b22">//选择第3个h3元素
-</span><span style="color:#228b22"></span>  .html(<span style="color:#cd5555">&#39;Hello&#39;</span>); <span style="color:#228b22">//将它的内容改为Hello
-</span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)</span> <span class="c1">//找到div元素
+</span><span class="c1"></span>  <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span> <span class="c1">//选择其中的h3元素
+</span><span class="c1"></span>  <span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">//选择第3个h3元素
+</span><span class="c1"></span>  <span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span> <span class="c1">//将它的内容改为Hello
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p><font color="0769AD">这是jQuery最令人称道、最方便的特点。它的原理在于每一步的jQuery操作，返回的都是一个jQuery对象，
 这个jQuery对象中就包括了那些可以对选中元素做一些操作的函数
 所以不同操作可以连在一起。</font></p>
@@ -410,12 +444,23 @@ $(<span style="color:#cd5555">&#39;div:animated&#39;</span>) <span style="color:
 <h2 id="三-jquery如何创建元素">三 jQuery如何创建元素</h2>
 
 <p>创建新元素的方法非常简单，只要把新元素直接传入jQuery的构造函数就行了：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;&lt;p&gt;Hello&lt;/p&gt;&#39;</span>);
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Hello&lt;/p&gt;&#39;</span><span class="p">);</span>
 
-$(<span style="color:#cd5555">&#39;&lt;li class=&#34;new&#34;&gt;new list item&lt;/li&gt;&#39;</span>);
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;li class=&#34;new&#34;&gt;new list item&lt;/li&gt;&#39;</span><span class="p">);</span>
 
-$(<span style="color:#cd5555">&#39;ul&#39;</span>).append(<span style="color:#cd5555">&#39;&lt;li&gt;list item&lt;/li&gt;&#39;</span>);
-</code></pre></div>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;li&gt;list item&lt;/li&gt;&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>复制元素使用.clone()。</p>
 
 <p>删除元素使用.remove()和.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。</p>
@@ -429,11 +474,25 @@ $(<span style="color:#cd5555">&#39;ul&#39;</span>).append(<span style="color:#cd
 <p>假定我们选中了一个div元素，需要把它移动到p元素后面。</p>
 
 <p>第一种方法是使用.insertAfter()，把div元素移动p元素后面：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;div&#39;</span>).insertAfter($(<span style="color:#cd5555">&#39;p&#39;</span>));
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">).</span><span class="nx">insertAfter</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>第二种方法是使用.after()，把p元素加到div元素前面：</p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;p&#39;</span>).after($(<span style="color:#cd5555">&#39;div&#39;</span>));
-</code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">).</span><span class="nx">after</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>表面上看，这两种方法的效果是一样的，唯一的不同似乎只是操作视角的不同。但是实际上，它们有一个重大差别，那就是返回的元素不一样。第一种方法返回div元素，第二种方法返回p元素。你可以根据需要，选择到底使用哪一种方法。</p>
 
 <p>使用这种模式的操作方法，一共有四对：
@@ -444,10 +503,19 @@ $(<span style="color:#cd5555">&#39;ul&#39;</span>).append(<span style="color:#cd
 <p>操作网页元素，最常见的需求是取得它们的值，或者对它们进行赋值。</p>
 
 <p><font color="0769AD">jQuery设计思想之四，就是使用同一个函数，来完成取值（getter）和赋值（setter），即&rdquo;取值器&rdquo;与&rdquo;赋值器&rdquo;合一。到底是取值还是赋值，由函数的参数决定。</font></p>
-<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#cd5555">&#39;h1&#39;</span>).html(); <span style="color:#228b22">//html()没有参数，表示取出h1的值
-</span><span style="color:#228b22"></span>
-$(<span style="color:#cd5555">&#39;h1&#39;</span>).html(<span style="color:#cd5555">&#39;Hello&#39;</span>); <span style="color:#228b22">//html()有参数Hello，表示对h1进行赋值
-</span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span> <span class="c1">//html()没有参数，表示取出h1的值
+</span><span class="c1"></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span> <span class="c1">//html()有参数Hello，表示对h1进行赋值
+</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>常见的取值和赋值函数如下：</p>
 
 <p><img src="/images/change.png" alt="change" /></p>
@@ -762,7 +830,7 @@ $(<span style="color:#cd5555">&#39;h1&#39;</span>).html(<span style="color:#cd55
 
     </a>
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="#" rel="me noopener" class="iconfont"
       title="codeforces"  target="_blank"
       >
       <svg width="36" height="36" class="icon" style="" version="1.1" viewBox="0 0 1024 1024">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JS on Jane</title>
+    <link>http://wantsuchen.top/categories/js/</link>
+    <description>Recent content in JS on Jane</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jun 2020 11:34:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://wantsuchen.top/categories/js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JS题目</title>
+      <link>http://wantsuchen.top/post/js%E7%BC%96%E7%A8%8B%E9%A2%98/</link>
+      <pubDate>Mon, 22 Jun 2020 11:34:36 +0800</pubDate>
+      
+      <guid>http://wantsuchen.top/post/js%E7%BC%96%E7%A8%8B%E9%A2%98/</guid>
+      <description>第一部分 第一题：写一个函数，要求参数是一个 1000000 以内的整数，并判断这个整数是不是素数。注意：代码要优化执行效率，执行时间不能超过 32ms 1 2 3 4 5 6 7</description>
+    </item>
+    
+  </channel>
+</rss>
