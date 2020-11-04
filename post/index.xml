@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jane</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Jun 2020 11:34:36 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 11:34:36 +0800</lastBuildDate>
     
 	<atom:link href="http://wantsuchen.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>D3.js画美国地图</title>
+      <link>http://wantsuchen.top/post/d3.js-demo/</link>
+      <pubDate>Tue, 03 Nov 2020 11:34:36 +0800</pubDate>
+      
+      <guid>http://wantsuchen.top/post/d3.js-demo/</guid>
+      <description>D3.js demo 效果图 数据为 1 2 3 4 5 const usGeoJson = { &amp;#34;type&amp;#34;: &amp;#34;FeatureCollection&amp;#34;, &amp;#34;features&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;Feature&amp;#34;, &amp;#34;properties&amp;#34;: { &amp;#34;GEO_ID&amp;#34;: &amp;#34;0400000US01&amp;#34;, &amp;#34;STATE&amp;#34;: &amp;#34;01&amp;#34;, &amp;#34;NAME&amp;#34;: &amp;#34;Alabama&amp;#34;, &amp;#34;LSAD&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;CENSUSAREA&amp;#34;: 50645.326000 }, &amp;#34;geometry&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;MultiPolygon&amp;#34;, &amp;#34;coordinates&amp;#34;: [ [ [ [ -88.124658, 30.283640 ], [ -88.086812, 30.259864 ], [ -88.074854, 30.249119 ], [ -88.075856, 30.246139 ], [ -88.078786, 30.245039 ], [ -88.109432, 30.242097 ], [</description>
+    </item>
     
     <item>
       <title>JS题目</title>
@@ -180,15 +189,6 @@
       
       <guid>http://wantsuchen.top/post/js%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
       <description>一 选择排序 选择排序 即在当前区间选出一个最小值和区间第一个数交换位置，区间大小减一 一共有n个数， 第一次遍历n个数，第二次遍历n-1个数，以此类</description>
-    </item>
-    
-    <item>
-      <title>JS对象基本用法</title>
-      <link>http://wantsuchen.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
-      <pubDate>Sun, 20 Oct 2019 19:34:36 +0800</pubDate>
-      
-      <guid>http://wantsuchen.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
-      <description>一 声明对象的两种语法 对象的定义 无序的数据集合 键值对的集合 对象的写法 let obj = {&#39;name&#39;: &#39;zwx&#39;, &#39;age&#39;: 18, } let obj = new Object({&#39;name&#39;: &#39;zwx&#39;}) 细节 键名是字符串，可以包含任意Unicode字</description>
     </item>
     
   </channel>
